@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Döner-Trainer</title>
+    <link rel="stylesheet" href="Döner-Trainer.css">
+</head>
+
+<body>
+    <h1>Happy Döner</h1>
+    <form id="settings">
+        <fieldset>
+            <legend>Quantity</legend>
+            <label for="quantityStaff">Staff</label>
+            <input type="number" name="QuantityStaff" step="1" min="2" max="6" value="2">
+            <label for="quantityCustomer">Customer</label>
+            <input type="number" name="QuantityCustomer" step="1" min="1" max="5" value="1">
+        </fieldset>
+        <fieldset>
+            <legend>Time</legend>
+            <label for="restPeriod">Rest Period: </label> <br>
+            <label for="1min">1min.</label>
+            <input type="radio" name="restPeriodOfStaff" value="1min" id="1min">
+            <label for="2min">2min.</label>
+            <input type="radio" name="restPeriodOfStaff" value="2min" id="2min">
+            <label for="3min">3min.</label>
+            <input type="radio" name="restPeriodOfStaff" value="3min" id="3min">
+
+            <br>
+            <label for="customerPerMin">Customer come per:</label>
+            <br>
+            <label for="1min">1min.</label>
+            <input type="radio" name="restPeriodOfStaff" value="1min" id="1min">
+            <label for="2min">2min.</label>
+            <input type="radio" name="restPeriodOfStaff" value="2min" id="2min">
+            <label for="3min">3min.</label>
+            <input type="radio" name="restPeriodOfStaff" value="3min" id="3min">
+        </fieldset>
+        <fieldset>
+            <legend>Capacity</legend>
+            <label for="capacityOfMaterials">Materials</label>
+            <input type="range" name="capacityOfMaterials" step="1" min="0" max="30" value="5">
+            <label for="capacityOfContainers">Containers</label>
+            <input type="range" name="capacityOfContainers" step="1" min="0" max="1000" value="250">
+        </fieldset>
+        <button type="button" id="startButton">Start Game</button>
+    </form>
+    <canvas width="1200" height="800"></canvas>
+</body>
+
+</html>
