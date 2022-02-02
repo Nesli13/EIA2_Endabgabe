@@ -1,9 +1,14 @@
 namespace DönerTrainer_Endabgabe {
-    export abstract class Customer extends Person {
-        
+    export class Customer extends Person {
+
         constructor(_position: Vector, _size: Vector) {
             super(_position);
             super(_size);
+            if (_position)
+                this.position = _position;
+            else
+                this.position = new Vector(0, 0);
+
         }
 
         public draw(): void {
@@ -54,6 +59,12 @@ namespace DönerTrainer_Endabgabe {
 
             crc2.restore();
 
+        }
+        public mood(): void {
+            console.log("mood");
+        }
+        public move(): void {
+            console.log("mood");
         }
         /*public talk(_order: string) {
             let döner_kebap: string[] = ["flatbread", "meat"];

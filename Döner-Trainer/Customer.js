@@ -5,6 +5,10 @@ var DönerTrainer_Endabgabe;
         constructor(_position, _size) {
             super(_position);
             super(_size);
+            if (_position)
+                this.position = _position;
+            else
+                this.position = new DönerTrainer_Endabgabe.Vector(0, 0);
         }
         draw() {
             //console.log("Create Squirrel");
@@ -47,6 +51,12 @@ var DönerTrainer_Endabgabe;
             DönerTrainer_Endabgabe.crc2.closePath();
             DönerTrainer_Endabgabe.crc2.fill();
             DönerTrainer_Endabgabe.crc2.restore();
+        }
+        mood() {
+            console.log("mood");
+        }
+        move() {
+            console.log("mood");
         }
     }
     DönerTrainer_Endabgabe.Customer = Customer;
