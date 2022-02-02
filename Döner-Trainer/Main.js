@@ -38,10 +38,64 @@ var DönerTrainer_Endabgabe;
         canvas = document.querySelector("canvas");
         DönerTrainer_Endabgabe.crc2 = canvas.getContext("2d");
         console.log(DönerTrainer_Endabgabe.crc2);
-        drawCounter(new DönerTrainer_Endabgabe.Vector(0, 300), new DönerTrainer_Endabgabe.Vector(900, 300));
+        drawCounter(new DönerTrainer_Endabgabe.Vector(100, 475), "#A3A3A3");
+        drawCuttingBoard(new DönerTrainer_Endabgabe.Vector(100, 175), "#A3A3A3");
     }
-    function drawCounter(_position, _size) {
-        console.log(drawCounter);
+    function drawCounter(_position, _fillColor) {
+        DönerTrainer_Endabgabe.crc2.save();
+        DönerTrainer_Endabgabe.crc2.translate(_position.x, _position.y);
+        DönerTrainer_Endabgabe.crc2.fillStyle = _fillColor;
+        DönerTrainer_Endabgabe.crc2.fillRect(0, 0, 850, 150);
+        DönerTrainer_Endabgabe.crc2.restore();
+        DönerTrainer_Endabgabe.crc2.save();
+        DönerTrainer_Endabgabe.crc2.translate(_position.x, _position.y);
+        DönerTrainer_Endabgabe.crc2.fillStyle = "green";
+        DönerTrainer_Endabgabe.crc2.fillRect(250, 50, 75, 75);
+        DönerTrainer_Endabgabe.crc2.strokeRect(250, 50, 75, 75);
+        DönerTrainer_Endabgabe.crc2.restore();
+        DönerTrainer_Endabgabe.crc2.save();
+        DönerTrainer_Endabgabe.crc2.translate(_position.x, _position.y);
+        DönerTrainer_Endabgabe.crc2.fillStyle = "purple";
+        DönerTrainer_Endabgabe.crc2.fillRect(350, 50, 75, 75);
+        DönerTrainer_Endabgabe.crc2.strokeRect(350, 50, 75, 75);
+        DönerTrainer_Endabgabe.crc2.restore();
+        DönerTrainer_Endabgabe.crc2.save();
+        DönerTrainer_Endabgabe.crc2.translate(_position.x, _position.y);
+        DönerTrainer_Endabgabe.crc2.fillStyle = "#FFD39B";
+        DönerTrainer_Endabgabe.crc2.fillRect(450, 50, 75, 75);
+        DönerTrainer_Endabgabe.crc2.strokeRect(450, 50, 75, 75);
+        DönerTrainer_Endabgabe.crc2.restore();
+        DönerTrainer_Endabgabe.crc2.save();
+        DönerTrainer_Endabgabe.crc2.translate(_position.x, _position.y);
+        DönerTrainer_Endabgabe.crc2.fillStyle = "yellow";
+        DönerTrainer_Endabgabe.crc2.fillRect(550, 50, 75, 75);
+        DönerTrainer_Endabgabe.crc2.strokeRect(550, 50, 75, 75);
+        DönerTrainer_Endabgabe.crc2.restore();
+        DönerTrainer_Endabgabe.crc2.save();
+        DönerTrainer_Endabgabe.crc2.translate(_position.x, _position.y);
+        DönerTrainer_Endabgabe.crc2.fillStyle = "white";
+        DönerTrainer_Endabgabe.crc2.fillRect(650, 50, 50, 75);
+        DönerTrainer_Endabgabe.crc2.strokeRect(650, 50, 50, 75);
+        DönerTrainer_Endabgabe.crc2.restore();
+        DönerTrainer_Endabgabe.crc2.save();
+        DönerTrainer_Endabgabe.crc2.translate(_position.x, _position.y);
+        DönerTrainer_Endabgabe.crc2.fillStyle = "red";
+        DönerTrainer_Endabgabe.crc2.fillRect(720, 50, 50, 75);
+        DönerTrainer_Endabgabe.crc2.strokeRect(720, 50, 50, 75);
+        DönerTrainer_Endabgabe.crc2.restore();
+        DönerTrainer_Endabgabe.crc2.save();
+        DönerTrainer_Endabgabe.crc2.translate(_position.x, _position.y);
+        DönerTrainer_Endabgabe.crc2.fillStyle = "#F5F5DC";
+        DönerTrainer_Endabgabe.crc2.fillRect(790, 50, 50, 75);
+        DönerTrainer_Endabgabe.crc2.strokeRect(790, 50, 50, 75);
+        DönerTrainer_Endabgabe.crc2.restore();
+    }
+    function drawCuttingBoard(_position, _fillColor) {
+        DönerTrainer_Endabgabe.crc2.save();
+        DönerTrainer_Endabgabe.crc2.translate(_position.x, _position.y);
+        DönerTrainer_Endabgabe.crc2.fillStyle = _fillColor;
+        DönerTrainer_Endabgabe.crc2.fillRect(0, 0, 550, 150);
+        DönerTrainer_Endabgabe.crc2.restore();
     }
 })(DönerTrainer_Endabgabe || (DönerTrainer_Endabgabe = {}));
 //# sourceMappingURL=Main.js.map
