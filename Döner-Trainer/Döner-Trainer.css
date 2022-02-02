@@ -60,8 +60,7 @@ canvas {
 #container {
     border: dotted;
     margin: auto;
-    width: 200px;
-    height: 275px;
+    width: fit-content;
     position: absolute;
     margin-top: -760px;
     left: 950px;

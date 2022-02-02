@@ -37,73 +37,199 @@ var DönerTrainer_Endabgabe;
         DönerTrainer_Endabgabe.canvas = document.querySelector("canvas");
         DönerTrainer_Endabgabe.crc2 = DönerTrainer_Endabgabe.canvas.getContext("2d");
         console.log(DönerTrainer_Endabgabe.crc2);
-        drawCounter(new DönerTrainer_Endabgabe.Vector(100, 475), "#A3A3A3");
-        drawCuttingBoard(new DönerTrainer_Endabgabe.Vector(100, 175), "#A3A3A3");
-        drawCustomer(new DönerTrainer_Endabgabe.Vector(300, 300));
+        drawCounter(new DönerTrainer_Endabgabe.Vector(100, 475), "#D3d3d3");
+        drawCuttingBoard(new DönerTrainer_Endabgabe.Vector(100, 175), "#D3d3d3");
+        drawCustomer(new DönerTrainer_Endabgabe.Vector(400, 400));
     }
     function drawCustomer(_position) {
-        //madCustomer
+        //impatient Customer
         //body
         DönerTrainer_Endabgabe.crc2.beginPath();
         DönerTrainer_Endabgabe.crc2.save();
-        DönerTrainer_Endabgabe.crc2.translate(-200 + _position.x, _position.y);
-        DönerTrainer_Endabgabe.crc2.fillStyle = "red";
+        DönerTrainer_Endabgabe.crc2.translate(_position.x - 200, _position.y + 330);
+        DönerTrainer_Endabgabe.crc2.fillStyle = "#b0E0E6";
         DönerTrainer_Endabgabe.crc2.arc(85, 25, 35, 0, 2 * Math.PI);
         DönerTrainer_Endabgabe.crc2.closePath();
         DönerTrainer_Endabgabe.crc2.fill();
         //head
         DönerTrainer_Endabgabe.crc2.beginPath();
         DönerTrainer_Endabgabe.crc2.save();
-        DönerTrainer_Endabgabe.crc2.fillStyle = "#ffdead";
+        DönerTrainer_Endabgabe.crc2.fillStyle = "#FFEFd5";
         DönerTrainer_Endabgabe.crc2.arc(85, -30, 25, -6, 2 * Math.PI);
         DönerTrainer_Endabgabe.crc2.closePath();
         DönerTrainer_Endabgabe.crc2.fill();
-        //eyes
+        //eye
         DönerTrainer_Endabgabe.crc2.beginPath();
         DönerTrainer_Endabgabe.crc2.fillStyle = "black";
         DönerTrainer_Endabgabe.crc2.arc(73, -30, 4, 0, 2 * Math.PI);
         DönerTrainer_Endabgabe.crc2.arc(93, -30, 4, 0, 2 * Math.PI);
         DönerTrainer_Endabgabe.crc2.closePath();
         DönerTrainer_Endabgabe.crc2.fill();
-        DönerTrainer_Endabgabe.crc2.restore();
         //mouth
         DönerTrainer_Endabgabe.crc2.beginPath();
-        DönerTrainer_Endabgabe.crc2.moveTo(73, -15);
-        DönerTrainer_Endabgabe.crc2.lineTo(100, -15);
+        DönerTrainer_Endabgabe.crc2.moveTo(71, -15);
+        DönerTrainer_Endabgabe.crc2.lineTo(100, -16);
+        DönerTrainer_Endabgabe.crc2.closePath();
+        DönerTrainer_Endabgabe.crc2.lineWidth = 2;
+        DönerTrainer_Endabgabe.crc2.strokeStyle = "black";
         DönerTrainer_Endabgabe.crc2.stroke();
-        //arms
+        //arm
         DönerTrainer_Endabgabe.crc2.beginPath();
-        DönerTrainer_Endabgabe.crc2.fillStyle = "#ffdead";
+        DönerTrainer_Endabgabe.crc2.fillStyle = "#FFEFd5";
+        DönerTrainer_Endabgabe.crc2.arc(63, 20, 7, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.arc(105, 20, 7, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.fill();
+        DönerTrainer_Endabgabe.crc2.closePath();
+        //feet
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.fillStyle = "#BC8F8F";
+        DönerTrainer_Endabgabe.crc2.arc(70, 60, 8, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.arc(95, 60, 8, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.fill();
+        DönerTrainer_Endabgabe.crc2.closePath();
+        //hair
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.moveTo(70, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(70, -40);
+        DönerTrainer_Endabgabe.crc2.moveTo(75, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(75, -40);
+        DönerTrainer_Endabgabe.crc2.moveTo(80, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(80, -40);
+        DönerTrainer_Endabgabe.crc2.moveTo(85, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(85, -40);
+        DönerTrainer_Endabgabe.crc2.moveTo(90, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(90, -40);
+        DönerTrainer_Endabgabe.crc2.moveTo(95, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(95, -40);
+        DönerTrainer_Endabgabe.crc2.moveTo(100, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(100, -40);
+        DönerTrainer_Endabgabe.crc2.stroke();
+        DönerTrainer_Endabgabe.crc2.restore();
+        //happy Customer
+        //body
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.save();
+        DönerTrainer_Endabgabe.crc2.translate(_position.x + 100, _position.y - 400);
+        DönerTrainer_Endabgabe.crc2.fillStyle = "#b0E0E6";
+        DönerTrainer_Endabgabe.crc2.arc(85, 25, 35, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.closePath();
+        DönerTrainer_Endabgabe.crc2.fill();
+        //head
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.save();
+        DönerTrainer_Endabgabe.crc2.fillStyle = "#FFEFd5";
+        DönerTrainer_Endabgabe.crc2.arc(85, -30, 25, -6, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.closePath();
+        DönerTrainer_Endabgabe.crc2.fill();
+        //eye
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.fillStyle = "black";
+        DönerTrainer_Endabgabe.crc2.arc(73, -30, 4, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.arc(93, -30, 4, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.closePath();
+        DönerTrainer_Endabgabe.crc2.fill();
+        //mouth
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.arc(83, -17, 10, 0, Math.PI, false);
+        DönerTrainer_Endabgabe.crc2.closePath();
+        DönerTrainer_Endabgabe.crc2.lineWidth = 2;
+        DönerTrainer_Endabgabe.crc2.strokeStyle = "black";
+        DönerTrainer_Endabgabe.crc2.stroke();
+        //arm
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.fillStyle = "#FFEFd5";
         DönerTrainer_Endabgabe.crc2.arc(63, 20, 7, 0, 2 * Math.PI);
         DönerTrainer_Endabgabe.crc2.arc(105, 20, 7, 0, 2 * Math.PI);
         DönerTrainer_Endabgabe.crc2.closePath();
         DönerTrainer_Endabgabe.crc2.fill();
-        //feets
+        //feet
         DönerTrainer_Endabgabe.crc2.beginPath();
-        DönerTrainer_Endabgabe.crc2.fillStyle = "blue";
+        DönerTrainer_Endabgabe.crc2.fillStyle = "#BC8F8F";
         DönerTrainer_Endabgabe.crc2.arc(70, 60, 8, 0, 2 * Math.PI);
         DönerTrainer_Endabgabe.crc2.arc(95, 60, 8, 0, 2 * Math.PI);
         DönerTrainer_Endabgabe.crc2.closePath();
         DönerTrainer_Endabgabe.crc2.fill();
-        DönerTrainer_Endabgabe.crc2.restore();
-        //hairs
+        //hair
         DönerTrainer_Endabgabe.crc2.beginPath();
-        DönerTrainer_Endabgabe.crc2.moveTo(170, 260);
-        DönerTrainer_Endabgabe.crc2.lineTo(170, 245);
-        DönerTrainer_Endabgabe.crc2.moveTo(175, 260);
-        DönerTrainer_Endabgabe.crc2.lineTo(175, 245);
-        DönerTrainer_Endabgabe.crc2.moveTo(180, 260);
-        DönerTrainer_Endabgabe.crc2.lineTo(180, 245);
-        DönerTrainer_Endabgabe.crc2.moveTo(185, 260);
-        DönerTrainer_Endabgabe.crc2.lineTo(185, 245);
-        DönerTrainer_Endabgabe.crc2.moveTo(190, 260);
-        DönerTrainer_Endabgabe.crc2.lineTo(190, 245);
-        DönerTrainer_Endabgabe.crc2.moveTo(195, 260);
-        DönerTrainer_Endabgabe.crc2.lineTo(195, 245);
-        DönerTrainer_Endabgabe.crc2.moveTo(200, 260);
-        DönerTrainer_Endabgabe.crc2.lineTo(200, 245);
+        DönerTrainer_Endabgabe.crc2.moveTo(70, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(70, -40);
+        DönerTrainer_Endabgabe.crc2.moveTo(75, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(75, -40);
+        DönerTrainer_Endabgabe.crc2.moveTo(80, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(80, -40);
+        DönerTrainer_Endabgabe.crc2.moveTo(85, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(85, -40);
+        DönerTrainer_Endabgabe.crc2.moveTo(90, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(90, -40);
+        DönerTrainer_Endabgabe.crc2.moveTo(95, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(95, -40);
+        DönerTrainer_Endabgabe.crc2.moveTo(100, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(100, -40);
+        DönerTrainer_Endabgabe.crc2.closePath();
         DönerTrainer_Endabgabe.crc2.stroke();
         DönerTrainer_Endabgabe.crc2.restore();
+        //mad Customer
+        //body
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.save();
+        DönerTrainer_Endabgabe.crc2.translate(_position.x - 650, _position.y - 400);
+        DönerTrainer_Endabgabe.crc2.fillStyle = "#b0E0E6";
+        DönerTrainer_Endabgabe.crc2.arc(85, 25, 35, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.closePath();
+        DönerTrainer_Endabgabe.crc2.fill();
+        //head
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.save();
+        DönerTrainer_Endabgabe.crc2.fillStyle = "#FFEFd5";
+        DönerTrainer_Endabgabe.crc2.arc(85, -30, 25, -6, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.closePath();
+        DönerTrainer_Endabgabe.crc2.fill();
+        //eye
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.fillStyle = "black";
+        DönerTrainer_Endabgabe.crc2.arc(73, -30, 4, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.arc(93, -30, 4, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.closePath();
+        DönerTrainer_Endabgabe.crc2.fill();
+        //mouth
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.arc(83, -13, 10, 0, Math.PI, true);
+        DönerTrainer_Endabgabe.crc2.closePath();
+        DönerTrainer_Endabgabe.crc2.lineWidth = 2;
+        DönerTrainer_Endabgabe.crc2.strokeStyle = "black";
+        DönerTrainer_Endabgabe.crc2.stroke();
+        //arm
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.fillStyle = "#FFEFd5";
+        DönerTrainer_Endabgabe.crc2.arc(63, 20, 7, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.arc(105, 20, 7, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.closePath();
+        DönerTrainer_Endabgabe.crc2.fill();
+        //feet
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.fillStyle = "#BC8F8F";
+        DönerTrainer_Endabgabe.crc2.arc(70, 60, 8, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.arc(95, 60, 8, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.closePath();
+        DönerTrainer_Endabgabe.crc2.fill();
+        //hair
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.moveTo(70, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(70, -40);
+        DönerTrainer_Endabgabe.crc2.moveTo(75, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(75, -40);
+        DönerTrainer_Endabgabe.crc2.moveTo(80, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(80, -40);
+        DönerTrainer_Endabgabe.crc2.moveTo(85, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(85, -40);
+        DönerTrainer_Endabgabe.crc2.moveTo(90, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(90, -40);
+        DönerTrainer_Endabgabe.crc2.moveTo(95, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(95, -40);
+        DönerTrainer_Endabgabe.crc2.moveTo(100, -55);
+        DönerTrainer_Endabgabe.crc2.lineTo(100, -40);
+        DönerTrainer_Endabgabe.crc2.closePath();
+        DönerTrainer_Endabgabe.crc2.stroke();
     }
     function drawCounter(_position, _fillColor) {
         DönerTrainer_Endabgabe.crc2.save();

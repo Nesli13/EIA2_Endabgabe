@@ -45,19 +45,21 @@ namespace DönerTrainer_Endabgabe {
         crc2 = canvas.getContext("2d")!;
         console.log(crc2);
 
-        drawCounter(new Vector(100, 475), "#A3A3A3");
-        drawCuttingBoard(new Vector(100, 175), "#A3A3A3");
-        drawCustomer(new Vector(300, 300));
+        drawCounter(new Vector(100, 475), "#D3d3d3");
+        drawCuttingBoard(new Vector(100, 175), "#D3d3d3");
+        drawCustomer(new Vector(400, 400));
+       
+
 
     }
     function drawCustomer(_position: Vector): void {
-        
-        //madCustomer
+
+        //impatient Customer
         //body
         crc2.beginPath();
         crc2.save();
-        crc2.translate(-200 + _position.x, _position.y);
-        crc2.fillStyle = "red";
+        crc2.translate(_position.x - 200, _position.y + 330);
+        crc2.fillStyle = "#b0E0E6";
         crc2.arc(85, 25, 35, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
@@ -65,62 +67,202 @@ namespace DönerTrainer_Endabgabe {
         //head
         crc2.beginPath();
         crc2.save();
-        crc2.fillStyle = "#ffdead";
+        crc2.fillStyle = "#FFEFd5";
         crc2.arc(85, -30, 25, -6, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
 
-        //eyes
+
+        //eye
         crc2.beginPath();
         crc2.fillStyle = "black";
         crc2.arc(73, -30, 4, 0, 2 * Math.PI);
         crc2.arc(93, -30, 4, 0, 2 * Math.PI);
         crc2.closePath();
         crc2.fill();
-        crc2.restore();
-
         //mouth
         crc2.beginPath();
-        crc2.moveTo(73, -15);
-        crc2.lineTo(100, -15);
+        crc2.moveTo(71, -15);
+        crc2.lineTo(100, -16);
+        crc2.closePath();
+        crc2.lineWidth = 2;
+        crc2.strokeStyle = "black";
         crc2.stroke();
 
-        //arms
+        //arm
         crc2.beginPath();
-        crc2.fillStyle = "#ffdead";
+        crc2.fillStyle = "#FFEFd5";
         crc2.arc(63, 20, 7, 0, 2 * Math.PI);
         crc2.arc(105, 20, 7, 0, 2 * Math.PI);
-        crc2.closePath();
         crc2.fill();
+        crc2.closePath();
 
-        //feets
+        //feet
         crc2.beginPath();
-        crc2.fillStyle = "blue";
+        crc2.fillStyle = "#BC8F8F";
         crc2.arc(70, 60, 8, 0, 2 * Math.PI);
         crc2.arc(95, 60, 8, 0, 2 * Math.PI);
-        crc2.closePath();
         crc2.fill();
-        crc2.restore();
+        crc2.closePath();
 
-        //hairs
+        //hair
         crc2.beginPath();
-        crc2.moveTo(170, 260);
-        crc2.lineTo(170, 245);
-        crc2.moveTo(175, 260);
-        crc2.lineTo(175, 245);
-        crc2.moveTo(180, 260);
-        crc2.lineTo(180, 245);
-        crc2.moveTo(185, 260);
-        crc2.lineTo(185, 245);
-        crc2.moveTo(190, 260);
-        crc2.lineTo(190, 245);
-        crc2.moveTo(195, 260);
-        crc2.lineTo(195, 245);
-        crc2.moveTo(200, 260);
-        crc2.lineTo(200, 245);
+        crc2.moveTo(70, -55);
+        crc2.lineTo(70, -40);
+        crc2.moveTo(75, -55);
+        crc2.lineTo(75, -40);
+        crc2.moveTo(80, -55);
+        crc2.lineTo(80, -40);
+        crc2.moveTo(85, -55);
+        crc2.lineTo(85, -40);
+        crc2.moveTo(90, -55);
+        crc2.lineTo(90, -40);
+        crc2.moveTo(95, -55);
+        crc2.lineTo(95, -40);
+        crc2.moveTo(100, -55);
+        crc2.lineTo(100, -40);
         crc2.stroke();
         crc2.restore();
 
+        //happy Customer
+        //body
+        crc2.beginPath();
+        crc2.save();
+        crc2.translate(_position.x + 100, _position.y - 400);
+        crc2.fillStyle = "#b0E0E6";
+        crc2.arc(85, 25, 35, 0, 2 * Math.PI);
+
+        crc2.closePath();
+        crc2.fill();
+        //head
+        crc2.beginPath();
+        crc2.save();
+        crc2.fillStyle = "#FFEFd5";
+        crc2.arc(85, -30, 25, -6, 2 * Math.PI);
+
+        crc2.closePath();
+        crc2.fill();
+        //eye
+        crc2.beginPath();
+        crc2.fillStyle = "black";
+        crc2.arc(73, -30, 4, 0, 2 * Math.PI);
+        crc2.arc(93, -30, 4, 0, 2 * Math.PI);
+
+        crc2.closePath();
+        crc2.fill();
+        //mouth
+        crc2.beginPath();
+        crc2.arc(83, -17, 10, 0, Math.PI, false);
+        crc2.closePath();
+        crc2.lineWidth = 2;
+        crc2.strokeStyle = "black";
+        crc2.stroke();
+
+        //arm
+        crc2.beginPath();
+        crc2.fillStyle = "#FFEFd5";
+        crc2.arc(63, 20, 7, 0, 2 * Math.PI);
+        crc2.arc(105, 20, 7, 0, 2 * Math.PI);
+
+        crc2.closePath();
+        crc2.fill();
+        //feet
+        crc2.beginPath();
+        crc2.fillStyle = "#BC8F8F";
+        crc2.arc(70, 60, 8, 0, 2 * Math.PI);
+        crc2.arc(95, 60, 8, 0, 2 * Math.PI);
+
+        crc2.closePath();
+        crc2.fill();
+        //hair
+        crc2.beginPath();
+        crc2.moveTo(70, -55);
+        crc2.lineTo(70, -40);
+        crc2.moveTo(75, -55);
+        crc2.lineTo(75, -40);
+        crc2.moveTo(80, -55);
+        crc2.lineTo(80, -40);
+        crc2.moveTo(85, -55);
+        crc2.lineTo(85, -40);
+        crc2.moveTo(90, -55);
+        crc2.lineTo(90, -40);
+        crc2.moveTo(95, -55);
+        crc2.lineTo(95, -40);
+        crc2.moveTo(100, -55);
+        crc2.lineTo(100, -40);
+        crc2.closePath();
+        crc2.stroke();
+        crc2.restore();
+
+        //mad Customer
+        //body
+        crc2.beginPath();
+        crc2.save();
+        crc2.translate(_position.x - 650, _position.y - 400);
+        crc2.fillStyle = "#b0E0E6";
+        crc2.arc(85, 25, 35, 0, 2 * Math.PI);
+
+        crc2.closePath(); 
+        
+        crc2.fill();
+        //head
+        crc2.beginPath();
+        crc2.save();
+        crc2.fillStyle = "#FFEFd5";
+        crc2.arc(85, -30, 25, -6, 2 * Math.PI);
+
+        crc2.closePath();
+        crc2.fill();
+        //eye
+        crc2.beginPath();
+        crc2.fillStyle = "black";
+        crc2.arc(73, -30, 4, 0, 2 * Math.PI);
+        crc2.arc(93, -30, 4, 0, 2 * Math.PI);
+
+        crc2.closePath();
+        crc2.fill();
+        //mouth
+        crc2.beginPath();
+        crc2.arc(83, -13, 10, 0, Math.PI, true);
+        crc2.closePath();
+        crc2.lineWidth = 2;
+        crc2.strokeStyle = "black";
+        crc2.stroke();
+
+        //arm
+        crc2.beginPath();
+        crc2.fillStyle = "#FFEFd5";
+        crc2.arc(63, 20, 7, 0, 2 * Math.PI);
+        crc2.arc(105, 20, 7, 0, 2 * Math.PI);
+
+        crc2.closePath();
+        crc2.fill();
+        //feet
+        crc2.beginPath();
+        crc2.fillStyle = "#BC8F8F";
+        crc2.arc(70, 60, 8, 0, 2 * Math.PI);
+        crc2.arc(95, 60, 8, 0, 2 * Math.PI);
+
+        crc2.closePath();
+        crc2.fill();
+        //hair
+        crc2.beginPath();
+        crc2.moveTo(70, -55);
+        crc2.lineTo(70, -40);
+        crc2.moveTo(75, -55);
+        crc2.lineTo(75, -40);
+        crc2.moveTo(80, -55);
+        crc2.lineTo(80, -40);
+        crc2.moveTo(85, -55);
+        crc2.lineTo(85, -40);
+        crc2.moveTo(90, -55);
+        crc2.lineTo(90, -40);
+        crc2.moveTo(95, -55);
+        crc2.lineTo(95, -40);
+        crc2.moveTo(100, -55);
+        crc2.lineTo(100, -40);
+        crc2.closePath();
+        crc2.stroke();
 
 
 
