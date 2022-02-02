@@ -3,8 +3,6 @@ var DönerTrainer_Endabgabe;
 (function (DönerTrainer_Endabgabe) {
     /*let container: HTMLDivElement;
     let storage: HTMLDivElement;
-    let timer: HTMLSpanElement;
-    let startGame: boolean = false;
     let available: boolean = true;
     let staffAmount: number;
     let customerAomunt: number;
@@ -18,12 +16,12 @@ var DönerTrainer_Endabgabe;
     //let orders: Order[] = [];
     //let persons:Person[] = [];
     let formData;
-    let canvas;
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
         let startGameButton = document.querySelector("#startGameButton");
         startGameButton.addEventListener("click", prepareGame);
         document.getElementById("canvas").hidden = true;
+        document.getElementById("container").hidden = true;
     }
     function prepareGame(_event) {
         formData = new FormData(document.forms[0]);
@@ -35,11 +33,77 @@ var DönerTrainer_Endabgabe;
     }
     function createGameScreen() {
         document.getElementById("canvas").hidden = false;
-        canvas = document.querySelector("canvas");
-        DönerTrainer_Endabgabe.crc2 = canvas.getContext("2d");
+        document.getElementById("container").hidden = false;
+        DönerTrainer_Endabgabe.canvas = document.querySelector("canvas");
+        DönerTrainer_Endabgabe.crc2 = DönerTrainer_Endabgabe.canvas.getContext("2d");
         console.log(DönerTrainer_Endabgabe.crc2);
         drawCounter(new DönerTrainer_Endabgabe.Vector(100, 475), "#A3A3A3");
         drawCuttingBoard(new DönerTrainer_Endabgabe.Vector(100, 175), "#A3A3A3");
+        drawCustomer(new DönerTrainer_Endabgabe.Vector(300, 300));
+    }
+    function drawCustomer(_position) {
+        //madCustomer
+        //body
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.save();
+        DönerTrainer_Endabgabe.crc2.translate(-200 + _position.x, _position.y);
+        DönerTrainer_Endabgabe.crc2.fillStyle = "red";
+        DönerTrainer_Endabgabe.crc2.arc(85, 25, 35, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.closePath();
+        DönerTrainer_Endabgabe.crc2.fill();
+        //head
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.save();
+        DönerTrainer_Endabgabe.crc2.fillStyle = "#ffdead";
+        DönerTrainer_Endabgabe.crc2.arc(85, -30, 25, -6, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.closePath();
+        DönerTrainer_Endabgabe.crc2.fill();
+        //eyes
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.fillStyle = "black";
+        DönerTrainer_Endabgabe.crc2.arc(73, -30, 4, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.arc(93, -30, 4, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.closePath();
+        DönerTrainer_Endabgabe.crc2.fill();
+        DönerTrainer_Endabgabe.crc2.restore();
+        //mouth
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.moveTo(73, -15);
+        DönerTrainer_Endabgabe.crc2.lineTo(100, -15);
+        DönerTrainer_Endabgabe.crc2.stroke();
+        //arms
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.fillStyle = "#ffdead";
+        DönerTrainer_Endabgabe.crc2.arc(63, 20, 7, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.arc(105, 20, 7, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.closePath();
+        DönerTrainer_Endabgabe.crc2.fill();
+        //feets
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.fillStyle = "blue";
+        DönerTrainer_Endabgabe.crc2.arc(70, 60, 8, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.arc(95, 60, 8, 0, 2 * Math.PI);
+        DönerTrainer_Endabgabe.crc2.closePath();
+        DönerTrainer_Endabgabe.crc2.fill();
+        DönerTrainer_Endabgabe.crc2.restore();
+        //hairs
+        DönerTrainer_Endabgabe.crc2.beginPath();
+        DönerTrainer_Endabgabe.crc2.moveTo(170, 260);
+        DönerTrainer_Endabgabe.crc2.lineTo(170, 245);
+        DönerTrainer_Endabgabe.crc2.moveTo(175, 260);
+        DönerTrainer_Endabgabe.crc2.lineTo(175, 245);
+        DönerTrainer_Endabgabe.crc2.moveTo(180, 260);
+        DönerTrainer_Endabgabe.crc2.lineTo(180, 245);
+        DönerTrainer_Endabgabe.crc2.moveTo(185, 260);
+        DönerTrainer_Endabgabe.crc2.lineTo(185, 245);
+        DönerTrainer_Endabgabe.crc2.moveTo(190, 260);
+        DönerTrainer_Endabgabe.crc2.lineTo(190, 245);
+        DönerTrainer_Endabgabe.crc2.moveTo(195, 260);
+        DönerTrainer_Endabgabe.crc2.lineTo(195, 245);
+        DönerTrainer_Endabgabe.crc2.moveTo(200, 260);
+        DönerTrainer_Endabgabe.crc2.lineTo(200, 245);
+        DönerTrainer_Endabgabe.crc2.stroke();
+        DönerTrainer_Endabgabe.crc2.restore();
     }
     function drawCounter(_position, _fillColor) {
         DönerTrainer_Endabgabe.crc2.save();
