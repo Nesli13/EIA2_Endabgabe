@@ -18,11 +18,12 @@ var DönerTrainer_Endabgabe;
     //let orders: Order[] = [];
     //let persons:Person[] = [];
     let formData;
-    let crc2;
+    let canvas;
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
         let startGameButton = document.querySelector("#startGameButton");
         startGameButton.addEventListener("click", prepareGame);
+        document.getElementById("canvas").hidden = true;
     }
     function prepareGame(_event) {
         formData = new FormData(document.forms[0]);
@@ -33,9 +34,14 @@ var DönerTrainer_Endabgabe;
         createGameScreen();
     }
     function createGameScreen() {
-        let canvas = document.querySelector("canvas");
-        crc2 = canvas.getContext("2d");
-        console.log(crc2);
+        document.getElementById("canvas").hidden = false;
+        canvas = document.querySelector("canvas");
+        DönerTrainer_Endabgabe.crc2 = canvas.getContext("2d");
+        console.log(DönerTrainer_Endabgabe.crc2);
+        drawCounter(new DönerTrainer_Endabgabe.Vector(0, 300), new DönerTrainer_Endabgabe.Vector(900, 300));
+    }
+    function drawCounter(_position, _size) {
+        console.log(drawCounter);
     }
 })(DönerTrainer_Endabgabe || (DönerTrainer_Endabgabe = {}));
 //# sourceMappingURL=Main.js.map

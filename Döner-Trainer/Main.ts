@@ -16,29 +16,37 @@ namespace DönerTrainer_Endabgabe {
     //let orders: Order[] = [];
     //let persons:Person[] = [];
     let formData: FormData;
-    let crc2: CanvasRenderingContext2D;
-
+    export let crc2: CanvasRenderingContext2D;
+    let canvas: HTMLCanvasElement | null;
     window.addEventListener("load", handleLoad);
 
     function handleLoad(_event: Event): void {
         let startGameButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#startGameButton");
         startGameButton.addEventListener("click", prepareGame);
+        document.getElementById("canvas").hidden = true;
 
     }
+
     function prepareGame(_event: Event): void {
         formData = new FormData(document.forms[0]);
         console.log(formData);
-
         let form: HTMLFormElement = <HTMLFormElement>document.querySelector("form");
         let body: HTMLBodyElement = <HTMLBodyElement>document.querySelector("body");
         body.removeChild(form);
+
         createGameScreen();
 
 
     }
     function createGameScreen(): void {
-        let canvas: HTMLCanvasElement = document.querySelector("canvas")!;
+        document.getElementById("canvas").hidden = false;
+        canvas = document.querySelector("canvas")!;
         crc2 = canvas.getContext("2d")!;
         console.log(crc2);
+        drawCounter(new Vector(0, 300), new Vector(900, 300));
+
+    }
+    function drawCounter(_position: Vector, _size: Vector): void {
+        console.log(drawCounter);
     }
 }
