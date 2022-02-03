@@ -47,24 +47,10 @@ namespace DönerTrainer_Endabgabe {
 
         drawCounter(new Vector(100, 475), "#D3d3d3");
         drawCuttingBoard(new Vector(100, 175), "#D3d3d3");
-        drawSalad(new Vector(100, 475));
-        drawSalad(new Vector(-78, 100));
-        drawRedCabbage(new Vector(100, 235));
-        drawRedCabbage(new Vector(-45, 100));
-        drawOnion(new Vector(150, 235));
-        drawOnion(new Vector(-10, 100));
-        drawCorn(new Vector(205, 188));
-        drawCorn(new Vector(-70, -45));
-        drawTomato(new Vector(-35, -43));
-        drawTomato(new Vector(155, 95));
-        //drawImpatientCustomer(new Vector(100, -50));
-        //drawHappyCustomer(new Vector(100, 400));
-        //drawMadCustomer(new Vector(800, 400));
-
-
+        
 
     }
-    
+
 
     function drawCounter(_position: Vector, _fillColor: string): void {
         //Counter
@@ -137,6 +123,7 @@ namespace DönerTrainer_Endabgabe {
         crc2.fillRect(10, 10, 250, 120);
         crc2.restore();
 
+        //knife
         crc2.save();
         crc2.translate(_position.x, _position.y);
         crc2.beginPath();
@@ -149,103 +136,5 @@ namespace DönerTrainer_Endabgabe {
 
 
     }
-    function drawSalad(_position: Vector): void {
-        crc2.beginPath();
-        crc2.translate(_position.x, _position.y);
-        crc2.fillStyle = "green";
-        crc2.arc(_position.x + 165, _position.y - 370, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 173, _position.y - 380, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 175, _position.y - 380, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 185, _position.y - 370, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 188, _position.y - 375, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 190, _position.y - 370, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 175, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 180, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 193, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 195, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 199, _position.y - 390, 15, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        crc2.restore();
-        crc2.save();
-    }
-    function drawRedCabbage(_position: Vector): void {
-        crc2.beginPath();
-        crc2.translate(_position.x, _position.y);
-        crc2.fillStyle = "purple";
-        crc2.arc(_position.x + 165, _position.y - 370, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 173, _position.y - 380, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 175, _position.y - 380, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 185, _position.y - 370, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 188, _position.y - 375, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 190, _position.y - 370, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 175, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 180, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 193, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 195, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 199, _position.y - 390, 15, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        crc2.restore();
-        crc2.save();
-    }
-    function drawOnion(_position: Vector): void {
-        crc2.beginPath();
-        crc2.translate(_position.x, _position.y);
-        crc2.fillStyle = "#FFD39B";
-        crc2.arc(_position.x + 165, _position.y - 370, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 173, _position.y - 380, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 175, _position.y - 380, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 185, _position.y - 370, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 188, _position.y - 375, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 190, _position.y - 370, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 175, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 180, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 193, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 195, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 199, _position.y - 390, 15, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        crc2.restore();
-    }
-    function drawCorn(_position: Vector): void {
-        crc2.beginPath();
-        crc2.translate(_position.x, _position.y);
-        crc2.fillStyle = "yellow";
-        crc2.arc(_position.x + 165, _position.y - 370, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 173, _position.y - 380, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 175, _position.y - 380, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 185, _position.y - 370, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 188, _position.y - 375, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 190, _position.y - 370, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 175, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 180, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 193, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 195, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 199, _position.y - 390, 15, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        crc2.restore();
-        crc2.save();
-    }
-    function drawTomato(_position: Vector): void {
-        crc2.beginPath();
-        crc2.translate(_position.x, _position.y);
-        crc2.fillStyle = "red";
-        crc2.arc(_position.x + 165, _position.y - 370, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 173, _position.y - 380, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 175, _position.y - 380, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 185, _position.y - 370, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 188, _position.y - 375, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 190, _position.y - 370, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 175, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 180, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 193, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 195, _position.y - 400, 15, 0, 2 * Math.PI);
-        crc2.arc(_position.x + 199, _position.y - 390, 15, 0, 2 * Math.PI);
-        crc2.closePath();
-        crc2.fill();
-        crc2.restore();
-        crc2.save();
-    }
+    
 }

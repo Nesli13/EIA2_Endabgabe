@@ -13,7 +13,7 @@ namespace DönerTrainer_Endabgabe {
 
         public draw(): void {
             
-                //happy Customer
+                //happy Staff
                 //body
                 crc2.beginPath();
                 crc2.save();
@@ -80,7 +80,7 @@ namespace DönerTrainer_Endabgabe {
         
             }
             public drawSleepyStaff(_position: Vector): void {
-                //impatient Customer
+                //sleepy Staff
                 //body
                 crc2.beginPath();
                 crc2.save();
@@ -149,7 +149,7 @@ namespace DönerTrainer_Endabgabe {
         
             }
             public drawMadStaff(_position: Vector): void {
-                //mad Customer
+                //mad Staff
                 //body
                 crc2.beginPath();
                 crc2.save();

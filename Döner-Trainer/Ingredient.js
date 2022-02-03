@@ -2,6 +2,21 @@
 var DönerTrainer_Endabgabe;
 (function (DönerTrainer_Endabgabe) {
     class Ingredient {
+        position;
+        containerAmount;
+        size;
+        amount;
+        type;
+        constructor(_position, _amount, _containerAmount, _type, _size) {
+            if (_position)
+                this.position = _position;
+            else
+                this.position = new DönerTrainer_Endabgabe.Vector(0, 0);
+            this.size = _size;
+            this.type = _type;
+            this.containerAmount = _containerAmount;
+            this.amount = _amount;
+        }
     }
     DönerTrainer_Endabgabe.Ingredient = Ingredient;
 })(DönerTrainer_Endabgabe || (DönerTrainer_Endabgabe = {}));

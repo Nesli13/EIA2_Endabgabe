@@ -39,19 +39,6 @@ var DönerTrainer_Endabgabe;
         console.log(DönerTrainer_Endabgabe.crc2);
         drawCounter(new DönerTrainer_Endabgabe.Vector(100, 475), "#D3d3d3");
         drawCuttingBoard(new DönerTrainer_Endabgabe.Vector(100, 175), "#D3d3d3");
-        drawSalad(new DönerTrainer_Endabgabe.Vector(100, 475));
-        drawSalad(new DönerTrainer_Endabgabe.Vector(-78, 100));
-        drawRedCabbage(new DönerTrainer_Endabgabe.Vector(100, 235));
-        drawRedCabbage(new DönerTrainer_Endabgabe.Vector(-45, 100));
-        drawOnion(new DönerTrainer_Endabgabe.Vector(150, 235));
-        drawOnion(new DönerTrainer_Endabgabe.Vector(-10, 100));
-        drawCorn(new DönerTrainer_Endabgabe.Vector(205, 188));
-        drawCorn(new DönerTrainer_Endabgabe.Vector(-70, -45));
-        drawTomato(new DönerTrainer_Endabgabe.Vector(-35, -43));
-        drawTomato(new DönerTrainer_Endabgabe.Vector(155, 95));
-        //drawImpatientCustomer(new Vector(100, -50));
-        //drawHappyCustomer(new Vector(100, 400));
-        //drawMadCustomer(new Vector(800, 400));
     }
     function drawCounter(_position, _fillColor) {
         //Counter
@@ -114,6 +101,7 @@ var DönerTrainer_Endabgabe;
         DönerTrainer_Endabgabe.crc2.fillStyle = "#CD853F";
         DönerTrainer_Endabgabe.crc2.fillRect(10, 10, 250, 120);
         DönerTrainer_Endabgabe.crc2.restore();
+        //knife
         DönerTrainer_Endabgabe.crc2.save();
         DönerTrainer_Endabgabe.crc2.translate(_position.x, _position.y);
         DönerTrainer_Endabgabe.crc2.beginPath();
@@ -123,105 +111,6 @@ var DönerTrainer_Endabgabe;
         DönerTrainer_Endabgabe.crc2.fillStyle = "black";
         DönerTrainer_Endabgabe.crc2.fill();
         DönerTrainer_Endabgabe.crc2.restore();
-    }
-    function drawSalad(_position) {
-        DönerTrainer_Endabgabe.crc2.beginPath();
-        DönerTrainer_Endabgabe.crc2.translate(_position.x, _position.y);
-        DönerTrainer_Endabgabe.crc2.fillStyle = "green";
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 165, _position.y - 370, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 173, _position.y - 380, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 175, _position.y - 380, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 185, _position.y - 370, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 188, _position.y - 375, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 190, _position.y - 370, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 175, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 180, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 193, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 195, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 199, _position.y - 390, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.closePath();
-        DönerTrainer_Endabgabe.crc2.fill();
-        DönerTrainer_Endabgabe.crc2.restore();
-        DönerTrainer_Endabgabe.crc2.save();
-    }
-    function drawRedCabbage(_position) {
-        DönerTrainer_Endabgabe.crc2.beginPath();
-        DönerTrainer_Endabgabe.crc2.translate(_position.x, _position.y);
-        DönerTrainer_Endabgabe.crc2.fillStyle = "purple";
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 165, _position.y - 370, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 173, _position.y - 380, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 175, _position.y - 380, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 185, _position.y - 370, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 188, _position.y - 375, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 190, _position.y - 370, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 175, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 180, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 193, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 195, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 199, _position.y - 390, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.closePath();
-        DönerTrainer_Endabgabe.crc2.fill();
-        DönerTrainer_Endabgabe.crc2.restore();
-        DönerTrainer_Endabgabe.crc2.save();
-    }
-    function drawOnion(_position) {
-        DönerTrainer_Endabgabe.crc2.beginPath();
-        DönerTrainer_Endabgabe.crc2.translate(_position.x, _position.y);
-        DönerTrainer_Endabgabe.crc2.fillStyle = "#FFD39B";
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 165, _position.y - 370, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 173, _position.y - 380, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 175, _position.y - 380, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 185, _position.y - 370, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 188, _position.y - 375, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 190, _position.y - 370, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 175, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 180, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 193, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 195, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 199, _position.y - 390, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.closePath();
-        DönerTrainer_Endabgabe.crc2.fill();
-        DönerTrainer_Endabgabe.crc2.restore();
-    }
-    function drawCorn(_position) {
-        DönerTrainer_Endabgabe.crc2.beginPath();
-        DönerTrainer_Endabgabe.crc2.translate(_position.x, _position.y);
-        DönerTrainer_Endabgabe.crc2.fillStyle = "yellow";
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 165, _position.y - 370, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 173, _position.y - 380, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 175, _position.y - 380, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 185, _position.y - 370, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 188, _position.y - 375, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 190, _position.y - 370, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 175, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 180, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 193, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 195, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 199, _position.y - 390, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.closePath();
-        DönerTrainer_Endabgabe.crc2.fill();
-        DönerTrainer_Endabgabe.crc2.restore();
-        DönerTrainer_Endabgabe.crc2.save();
-    }
-    function drawTomato(_position) {
-        DönerTrainer_Endabgabe.crc2.beginPath();
-        DönerTrainer_Endabgabe.crc2.translate(_position.x, _position.y);
-        DönerTrainer_Endabgabe.crc2.fillStyle = "red";
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 165, _position.y - 370, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 173, _position.y - 380, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 175, _position.y - 380, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 185, _position.y - 370, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 188, _position.y - 375, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 190, _position.y - 370, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 175, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 180, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 193, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 195, _position.y - 400, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.arc(_position.x + 199, _position.y - 390, 15, 0, 2 * Math.PI);
-        DönerTrainer_Endabgabe.crc2.closePath();
-        DönerTrainer_Endabgabe.crc2.fill();
-        DönerTrainer_Endabgabe.crc2.restore();
-        DönerTrainer_Endabgabe.crc2.save();
     }
 })(DönerTrainer_Endabgabe || (DönerTrainer_Endabgabe = {}));
 //# sourceMappingURL=Main.js.map

@@ -11,7 +11,7 @@ var DönerTrainer_Endabgabe;
                 this.position = new DönerTrainer_Endabgabe.Vector(0, 0);
         }
         draw() {
-            //happy Customer
+            //happy Staff
             //body
             DönerTrainer_Endabgabe.crc2.beginPath();
             DönerTrainer_Endabgabe.crc2.save();
@@ -71,7 +71,7 @@ var DönerTrainer_Endabgabe;
             DönerTrainer_Endabgabe.crc2.save();
         }
         drawSleepyStaff(_position) {
-            //impatient Customer
+            //sleepy Staff
             //body
             DönerTrainer_Endabgabe.crc2.beginPath();
             DönerTrainer_Endabgabe.crc2.save();
@@ -132,7 +132,7 @@ var DönerTrainer_Endabgabe;
             DönerTrainer_Endabgabe.crc2.save();
         }
         drawMadStaff(_position) {
-            //mad Customer
+            //mad Staff
             //body
             DönerTrainer_Endabgabe.crc2.beginPath();
             DönerTrainer_Endabgabe.crc2.save();
