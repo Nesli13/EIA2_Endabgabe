@@ -78,7 +78,7 @@ namespace DönerTrainer_Endabgabe {
             crc2.save();
 
         }
-        drawImpatientCustomer(_position: Vector): void {
+        public drawImpatientCustomer(_position: Vector): void {
             //impatient Customer
             //body
             crc2.beginPath();
@@ -104,6 +104,7 @@ namespace DönerTrainer_Endabgabe {
             crc2.fill();
 
             //mouth
+            crc2.beginPath();
             crc2.moveTo(71, -15);
             crc2.lineTo(100, -16);
             crc2.lineWidth = 2;

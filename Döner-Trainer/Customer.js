@@ -92,6 +92,7 @@ var DönerTrainer_Endabgabe;
             DönerTrainer_Endabgabe.crc2.arc(93, -30, 3.5, 0, 2 * Math.PI);
             DönerTrainer_Endabgabe.crc2.fill();
             //mouth
+            DönerTrainer_Endabgabe.crc2.beginPath();
             DönerTrainer_Endabgabe.crc2.moveTo(71, -15);
             DönerTrainer_Endabgabe.crc2.lineTo(100, -16);
             DönerTrainer_Endabgabe.crc2.lineWidth = 2;
