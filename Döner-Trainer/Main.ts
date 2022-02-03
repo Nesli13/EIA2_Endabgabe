@@ -1,18 +1,20 @@
 namespace DönerTrainer_Endabgabe {
-    /*let container: HTMLDivElement;
-    let storage: HTMLDivElement;
-    let available: boolean = true;
+    //let container: HTMLDivElement;
+    //let storage: HTMLDivElement;
+    //let available: boolean = true;
     let staffAmount: number;
     let customerAomunt: number;
-    let breakofStaffs: number;
+    let breakofStaff: number;
     let customerPerMinute: number;
-    let capacityMaterials: number;
-    let orderList: HTMLDivElement;
-    let request: Request[];
-    let containerAmount: number;*/
+    let capacityMaterial: number;
+   // let orderList: HTMLDivElement;
+    //let request: Request[];
+    let capacityContainer: number;
     //let staffs: Staff[] = [];
     //let orders: Order[] = [];
     //let persons:Person[] = [];
+    let ingredients: Ingredient[] = [];
+    let imgData: ImageData;
     let formData: FormData;
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement | null;
@@ -25,6 +27,7 @@ namespace DönerTrainer_Endabgabe {
         document.getElementById("container").hidden = true;
 
 
+
     }
 
     function prepareGame(_event: Event): void {
@@ -34,7 +37,17 @@ namespace DönerTrainer_Endabgabe {
         let body: HTMLBodyElement = <HTMLBodyElement>document.querySelector("body");
         body.removeChild(form);
 
+        staffAmount = Number(formData.get("quantityStaff"));
+        customerAomunt = Number(formData.get("quantityCustomer"));
+        breakofStaff = Number(formData.get("restPeriodOfStaff"));
+        customerPerMinute = Number(formData.get("customerPerMin"));
+        capacityMaterial = Number(formData.get("capacityOfMaterials"));
+        capacityContainer = Number(formData.get("capacityOfContainers"));
+        console.log("staffAmount" + staffAmount, "customerAmount" + customerAomunt, "brekofStaff"+ breakofStaff , "customerperminute" + customerPerMinute);
+        console.log(breakofStaff);
+
         createGameScreen();
+        imgData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
 
     }
     function createGameScreen(): void {
@@ -47,11 +60,32 @@ namespace DönerTrainer_Endabgabe {
 
         drawCounter(new Vector(100, 475), "#D3d3d3");
         drawCuttingBoard(new Vector(100, 175), "#D3d3d3");
-        
+        drawSalad();
+
+        window.setInterval(update, 20);
+
+    }
+    function update(): void {
+        crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
+        crc2.putImageData(imgData, 0, 0);
+
+        for (let ingredient of ingredients) {
+            ingredient.draw();
+        }
 
     }
 
+    function drawSalad(): void {
+        let salad: Salad = new Salad(new Vector(400, 100), 2);
+        ingredients.push(salad);
+        console.log(ingredients);
+    }
 
+
+
+
+
+    //Background
     function drawCounter(_position: Vector, _fillColor: string): void {
         //Counter
         crc2.save();
@@ -136,5 +170,5 @@ namespace DönerTrainer_Endabgabe {
 
 
     }
-    
+
 }

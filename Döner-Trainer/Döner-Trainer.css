@@ -57,11 +57,32 @@ canvas {
     border: 2px solid black;
 }
 
-#container {
-    border: dotted;
+#storage {
+    border: 2px double black;
     margin: auto;
     width: fit-content;
     position: absolute;
     margin-top: -760px;
-    left: 950px;
+    left: 1000px;
+    background-color: rgb(230, 209, 182);
+}
+
+#container-storage {
+    border: 2px double black;
+    margin: auto;
+    width: fit-content;
+    position: absolute;
+    margin-top: -760px;
+    left: 1200px;
+    background-color: rgb(230, 209, 182);
+}
+
+#order {
+    border: 2px double black;
+    margin: auto;
+    width: fit-content;
+    position: absolute;
+    margin-top: -160px;
+    left: 1200px;
+    background-color: rgb(230, 209, 182);
 }

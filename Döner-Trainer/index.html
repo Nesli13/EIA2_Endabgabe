@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Döner-Trainer</title>
     <link rel="stylesheet" href="Döner-Trainer.css">
-    <script src="Main.js"></script>
+
     <script src="Vector.js"></script>
     <script src="Person.js"></script>
-
+    <script src="Ingredient.js"></script>
+    <script src="Salad.js"></script>
+    <script src="Main.js"></script>
 </head>
 
 <body>
@@ -19,29 +21,29 @@
         <fieldset>
             <legend>Quantity</legend>
             <label for="quantityStaff">Staff</label>
-            <input type="number" name="QuantityStaff" step="1" min="2" max="6" value="2">
+            <input type="number" name="quantityStaff" step="1" min="2" max="6" value="2">
             <label for="quantityCustomer">Customer</label>
-            <input type="number" name="QuantityCustomer" step="1" min="1" max="5" value="1">
+            <input type="number" name="quantityCustomer" step="1" min="1" max="5" value="1">
         </fieldset>
         <fieldset>
             <legend>Time</legend>
-            <label for="restPeriod">Rest Period: </label> <br>
+            <label for="restPeriodOfStaff">Rest Period: </label> <br>
             <label for="1min">1min.</label>
-            <input type="radio" name="restPeriodOfStaff" value="1min" id="1min">
+            <input type="radio" name="restPeriodOfStaff" value="1" id="1">
             <label for="2min">2min.</label>
-            <input type="radio" name="restPeriodOfStaff" value="2min" id="2min">
+            <input type="radio" name="restPeriodOfStaff" value="2" id="2">
             <label for="3min">3min.</label>
-            <input type="radio" name="restPeriodOfStaff" value="3min" id="3min">
+            <input type="radio" name="restPeriodOfStaff" value="3" id="3">
 
             <br>
             <label for="customerPerMin">Customer come per:</label>
             <br>
             <label for="1min">1min.</label>
-            <input type="radio" name="restPeriodOfStaff" value="1min" id="1min">
+            <input type="radio" name="customerPerMin" value="1" id="1">
             <label for="2min">2min.</label>
-            <input type="radio" name="restPeriodOfStaff" value="2min" id="2min">
+            <input type="radio" name="customerPerMin" value="2" id="2">
             <label for="3min">3min.</label>
-            <input type="radio" name="restPeriodOfStaff" value="3min" id="3min">
+            <input type="radio" name="customerPerMin" value="3" id="3">
         </fieldset>
         <fieldset>
             <legend>Capacity</legend>
@@ -56,16 +58,18 @@
 
     <canvas width="1200" height="800" id="canvas"></canvas>
     <div id="container">
-        <label for="capacityOfMaterials">Storage</label>
+        <div id="storage">
+            <label for="capacityOfMaterials">Storage</label>
 
-    </div>
-    <div id="container">
-        <label for="capacityOfMaterials">Container-Storage</label>
+        </div>
+        <div id="container-storage">
+            <label for="capacityOfMaterials">Container-Storage</label>
 
-    </div>
-    <div id="container">
-        <label for="capacityOfMaterials">Order</label>
+        </div>
+        <div id="order">
+            <label for="capacityOfMaterials">Order</label>
 
+        </div>
     </div>
     <br>
     <footer>

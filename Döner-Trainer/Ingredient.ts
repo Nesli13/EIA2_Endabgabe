@@ -7,13 +7,12 @@ namespace DönerTrainer_Endabgabe {
         public amount: number;
         protected type: string;
     
-        constructor(_position: Vector, _amount: number, _containerAmount: number, _type: string, _size: Vector) {
+        constructor(_position: Vector, _amount: number, _containerAmount: number) {
             if (_position)
                 this.position = _position;
             else
                 this.position = new Vector(0, 0);
-            this.size = _size;
-            this.type = _type;
+           
             this.containerAmount = _containerAmount;
             this.amount = _amount;
         }

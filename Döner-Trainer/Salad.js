@@ -2,8 +2,8 @@
 var DönerTrainer_Endabgabe;
 (function (DönerTrainer_Endabgabe) {
     class Salad extends DönerTrainer_Endabgabe.Ingredient {
-        constructor(_position, _amount, _containerAmount, _type, _size) {
-            super(_position, _amount, _containerAmount, _type, _size);
+        constructor(_position, _amount, _containerAmount) {
+            super(_position, _amount, _containerAmount);
         }
         draw() {
             DönerTrainer_Endabgabe.crc2.beginPath();
