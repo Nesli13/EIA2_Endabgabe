@@ -1,7 +1,7 @@
 namespace DönerTrainer_Endabgabe {
     export class RedCabbage extends Ingredient {
-        constructor(_position: Vector, _amount: number, _containerAmount: number) {
-            super(_position, _amount, _containerAmount);
+        constructor(_position: Vector) {
+            super(_position);
         }
         draw(): void {
                 crc2.beginPath();

@@ -2,8 +2,8 @@
 var DönerTrainer_Endabgabe;
 (function (DönerTrainer_Endabgabe) {
     class Yufka extends DönerTrainer_Endabgabe.Ingredient {
-        constructor(_position, _amount, _containerAmount) {
-            super(_position, _amount, _containerAmount);
+        constructor(_position) {
+            super(_position);
         }
         draw() {
             // meat

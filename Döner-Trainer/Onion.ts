@@ -1,7 +1,7 @@
 namespace DönerTrainer_Endabgabe {
     export class Onion extends Ingredient {
-        constructor(_position: Vector, _amount: number, _containerAmount: number, _type?: string, _size?: Vector) {
-            super(_position, _amount, _containerAmount);
+        constructor(_position: Vector, _type?: string, _size?: Vector) {
+            super(_position);
         }
         public draw(): void {
             crc2.beginPath();
