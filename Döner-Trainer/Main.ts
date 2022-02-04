@@ -1,4 +1,4 @@
-namespace DönerTrainer_Endabgabe {
+ namespace DönerTrainer_Endabgabe {
     //let container: HTMLDivElement;
     //let storage: HTMLDivElement;
     //let available: boolean = true;
@@ -43,7 +43,7 @@ namespace DönerTrainer_Endabgabe {
         customerPerMinute = Number(formData.get("customerPerMin"));
         capacityMaterial = Number(formData.get("capacityOfMaterials"));
         capacityContainer = Number(formData.get("capacityOfContainers"));
-        console.log("staffAmount" + staffAmount, "customerAmount" + customerAomunt, "brekofStaff"+ breakofStaff , "customerperminute" + customerPerMinute);
+        console.log("staffAmount" + staffAmount, "customerAmount" + customerAomunt, "brekofStaff" + breakofStaff , "customerperminute" + customerPerMinute + "capacitymaterial" + capacityMaterial + "capacitycontainer" + capacityContainer);
         console.log(breakofStaff);
 
         createGameScreen();
@@ -69,16 +69,16 @@ namespace DönerTrainer_Endabgabe {
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
         crc2.putImageData(imgData, 0, 0);
 
-        for (let ingredient of ingredients) {
-            ingredient.draw();
-        }
 
     }
 
     function drawSalad(): void {
-        let salad: Salad = new Salad(new Vector(400, 100), 2);
+        let salad: Salad = new Salad(new Vector(100, 475));
         ingredients.push(salad);
         console.log(ingredients);
+        for (let ingredient of ingredients) {
+            ingredient.draw();
+        }
     }
 
 

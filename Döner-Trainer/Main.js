@@ -37,7 +37,7 @@ var DönerTrainer_Endabgabe;
         customerPerMinute = Number(formData.get("customerPerMin"));
         capacityMaterial = Number(formData.get("capacityOfMaterials"));
         capacityContainer = Number(formData.get("capacityOfContainers"));
-        console.log("staffAmount" + staffAmount, "customerAmount" + customerAomunt, "brekofStaff" + breakofStaff, "customerperminute" + customerPerMinute);
+        console.log("staffAmount" + staffAmount, "customerAmount" + customerAomunt, "brekofStaff" + breakofStaff, "customerperminute" + customerPerMinute + "capacitymaterial" + capacityMaterial + "capacitycontainer" + capacityContainer);
         console.log(breakofStaff);
         createGameScreen();
         imgData = DönerTrainer_Endabgabe.crc2.getImageData(0, 0, DönerTrainer_Endabgabe.crc2.canvas.width, DönerTrainer_Endabgabe.crc2.canvas.height);
@@ -56,14 +56,14 @@ var DönerTrainer_Endabgabe;
     function update() {
         DönerTrainer_Endabgabe.crc2.fillRect(0, 0, DönerTrainer_Endabgabe.crc2.canvas.width, DönerTrainer_Endabgabe.crc2.canvas.height);
         DönerTrainer_Endabgabe.crc2.putImageData(imgData, 0, 0);
+    }
+    function drawSalad() {
+        let salad = new DönerTrainer_Endabgabe.Salad(new DönerTrainer_Endabgabe.Vector(100, 475));
+        ingredients.push(salad);
+        console.log(ingredients);
         for (let ingredient of ingredients) {
             ingredient.draw();
         }
-    }
-    function drawSalad() {
-        let salad = new DönerTrainer_Endabgabe.Salad(new DönerTrainer_Endabgabe.Vector(400, 100), 2);
-        ingredients.push(salad);
-        console.log(ingredients);
     }
     //Background
     function drawCounter(_position, _fillColor) {
