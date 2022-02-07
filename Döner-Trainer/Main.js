@@ -51,6 +51,13 @@ var DönerTrainer_Endabgabe;
         drawCounter(new DönerTrainer_Endabgabe.Vector(100, 475), "#D3d3d3");
         drawCuttingBoard(new DönerTrainer_Endabgabe.Vector(100, 175), "#D3d3d3");
         drawSalad();
+        drawRedCabbage();
+        drawOnion();
+        drawCorn();
+        drawTomato();
+        drawDoenerKebap();
+        drawLahmacun();
+        drawYufka();
         window.setInterval(update, 20);
     }
     function update() {
@@ -59,7 +66,47 @@ var DönerTrainer_Endabgabe;
     }
     function drawSalad() {
         let salad = new DönerTrainer_Endabgabe.Salad(new DönerTrainer_Endabgabe.Vector(100, 475));
-        ingredients.push(salad);
+        let salad2 = new DönerTrainer_Endabgabe.Salad(new DönerTrainer_Endabgabe.Vector(-70, 100));
+        ingredients.push(salad, salad2);
+        console.log(ingredients);
+    }
+    function drawRedCabbage() {
+        let redCabbage = new DönerTrainer_Endabgabe.RedCabbage(new DönerTrainer_Endabgabe.Vector(100, 238));
+        let redCabbage2 = new DönerTrainer_Endabgabe.RedCabbage(new DönerTrainer_Endabgabe.Vector(-40, 100));
+        ingredients.push(redCabbage, redCabbage2);
+        console.log(ingredients);
+    }
+    function drawOnion() {
+        let onion = new DönerTrainer_Endabgabe.Onion(new DönerTrainer_Endabgabe.Vector(150, 238));
+        let onion2 = new DönerTrainer_Endabgabe.Onion(new DönerTrainer_Endabgabe.Vector(-10, 100));
+        ingredients.push(onion, onion2);
+        console.log(ingredients);
+    }
+    function drawCorn() {
+        let corn = new DönerTrainer_Endabgabe.Corn(new DönerTrainer_Endabgabe.Vector(24, 50));
+        let corn2 = new DönerTrainer_Endabgabe.Corn(new DönerTrainer_Endabgabe.Vector(193, 162));
+        ingredients.push(corn, corn2);
+        console.log(ingredients);
+    }
+    function drawTomato() {
+        let tomato = new DönerTrainer_Endabgabe.Tomato(new DönerTrainer_Endabgabe.Vector(42, 26));
+        let tomato2 = new DönerTrainer_Endabgabe.Tomato(new DönerTrainer_Endabgabe.Vector(243, 163));
+        ingredients.push(tomato, tomato2);
+        console.log(ingredients);
+    }
+    function drawDoenerKebap() {
+        let doener = new DönerTrainer_Endabgabe.DoenerKebap(new DönerTrainer_Endabgabe.Vector(-10, -90));
+        ingredients.push(doener);
+        console.log(ingredients);
+    }
+    function drawLahmacun() {
+        let lahmacun = new DönerTrainer_Endabgabe.Lahmacun(new DönerTrainer_Endabgabe.Vector(85, 40));
+        ingredients.push(lahmacun);
+        console.log(ingredients);
+    }
+    function drawYufka() {
+        let yufka = new DönerTrainer_Endabgabe.Yufka(new DönerTrainer_Endabgabe.Vector(-40, 10));
+        ingredients.push(yufka);
         console.log(ingredients);
         for (let ingredient of ingredients) {
             ingredient.draw();

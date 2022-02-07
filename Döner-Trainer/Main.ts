@@ -61,6 +61,13 @@
         drawCounter(new Vector(100, 475), "#D3d3d3");
         drawCuttingBoard(new Vector(100, 175), "#D3d3d3");
         drawSalad();
+        drawRedCabbage();
+        drawOnion();
+        drawCorn();
+        drawTomato();
+        drawDoenerKebap();
+        drawLahmacun();
+        drawYufka();
 
         window.setInterval(update, 20);
 
@@ -74,14 +81,59 @@
 
     function drawSalad(): void {
         let salad: Salad = new Salad(new Vector(100, 475));
-        ingredients.push(salad);
+        let salad2: Salad = new Salad(new Vector(-70, 100));
+        ingredients.push(salad, salad2);
+        console.log(ingredients);
+    }
+
+    function drawRedCabbage(): void {
+        let redCabbage: RedCabbage = new RedCabbage(new Vector(100, 238));
+        let redCabbage2: RedCabbage = new RedCabbage(new Vector(-40, 100));
+        ingredients.push(redCabbage, redCabbage2);
+        console.log(ingredients);
+
+    }
+    function drawOnion(): void {
+        let onion: Onion = new Onion(new Vector(150, 238));
+        let onion2: Onion = new Onion(new Vector(-10, 100));
+        ingredients.push(onion, onion2);
+        console.log(ingredients);
+        
+    }
+    function drawCorn(): void {
+        let corn: Corn = new Corn(new Vector(24, 50));
+        let corn2: Corn = new Corn(new Vector(193, 162));
+        ingredients.push(corn, corn2);
+        console.log(ingredients);
+     
+    }
+    function drawTomato(): void {
+        let tomato: Tomato = new Tomato(new Vector(42, 26));
+        let tomato2: Tomato = new Tomato(new Vector(243, 163));
+        ingredients.push(tomato, tomato2);
+        console.log(ingredients);
+       
+    }
+    function drawDoenerKebap(): void {
+        let doener: DoenerKebap = new DoenerKebap(new Vector(-10, -90));
+        ingredients.push(doener);
+        console.log(ingredients);
+
+    }
+    function drawLahmacun(): void {
+        let lahmacun: Lahmacun = new Lahmacun(new Vector(85, 40));
+        ingredients.push(lahmacun);
+        console.log(ingredients);
+       
+    }
+    function drawYufka(): void {
+        let yufka: Yufka = new Yufka(new Vector(-40, 10));
+        ingredients.push(yufka);
         console.log(ingredients);
         for (let ingredient of ingredients) {
             ingredient.draw();
         }
     }
-
-
 
 
 
