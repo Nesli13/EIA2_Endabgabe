@@ -1,4 +1,4 @@
- namespace DönerTrainer_Endabgabe {
+namespace DönerTrainer_Endabgabe {
     //let container: HTMLDivElement;
     //let storage: HTMLDivElement;
     //let available: boolean = true;
@@ -7,7 +7,7 @@
     let breakofStaff: number;
     let customerPerMinute: number;
     let capacityMaterial: number;
-   // let orderList: HTMLDivElement;
+    // let orderList: HTMLDivElement;
     //let request: Request[];
     let capacityContainer: number;
     //let staffs: Staff[] = [];
@@ -43,7 +43,7 @@
         customerPerMinute = Number(formData.get("customerPerMin"));
         capacityMaterial = Number(formData.get("capacityOfMaterials"));
         capacityContainer = Number(formData.get("capacityOfContainers"));
-        console.log("staffAmount" + staffAmount, "customerAmount" + customerAomunt, "brekofStaff" + breakofStaff , "customerperminute" + customerPerMinute + "capacitymaterial" + capacityMaterial + "capacitycontainer" + capacityContainer);
+        console.log("staffAmount" + staffAmount, "customerAmount" + customerAomunt, "brekofStaff" + breakofStaff, "customerperminute" + customerPerMinute + "capacitymaterial" + capacityMaterial + "capacitycontainer" + capacityContainer);
         console.log(breakofStaff);
 
         createGameScreen();
@@ -69,6 +69,8 @@
         drawLahmacun();
         drawYufka();
 
+        showCapacity();
+
         window.setInterval(update, 20);
 
     }
@@ -82,6 +84,8 @@
     function drawSalad(): void {
         let salad: Salad = new Salad(new Vector(100, 475));
         let salad2: Salad = new Salad(new Vector(-70, 100));
+        salad.containerAmount = Number(formData.get("capacityOfMaterials"));
+
         ingredients.push(salad, salad2);
         console.log(ingredients);
     }
@@ -98,21 +102,21 @@
         let onion2: Onion = new Onion(new Vector(-10, 100));
         ingredients.push(onion, onion2);
         console.log(ingredients);
-        
+
     }
     function drawCorn(): void {
         let corn: Corn = new Corn(new Vector(24, 50));
         let corn2: Corn = new Corn(new Vector(193, 162));
         ingredients.push(corn, corn2);
         console.log(ingredients);
-     
+
     }
     function drawTomato(): void {
         let tomato: Tomato = new Tomato(new Vector(42, 26));
         let tomato2: Tomato = new Tomato(new Vector(243, 163));
         ingredients.push(tomato, tomato2);
         console.log(ingredients);
-       
+
     }
     function drawDoenerKebap(): void {
         let doener: DoenerKebap = new DoenerKebap(new Vector(-10, -90));
@@ -124,7 +128,7 @@
         let lahmacun: Lahmacun = new Lahmacun(new Vector(85, 40));
         ingredients.push(lahmacun);
         console.log(ingredients);
-       
+
     }
     function drawYufka(): void {
         let yufka: Yufka = new Yufka(new Vector(-40, 10));
@@ -222,5 +226,13 @@
 
 
     }
+    function showCapacity(): void {
 
+        let storage: HTMLElement = document.getElementById("storage");
+        storage.innerHTML = "Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + "kg of red cabbage";
+
+       
+    }
+
+   
 }

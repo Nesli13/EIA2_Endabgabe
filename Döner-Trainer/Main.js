@@ -58,6 +58,7 @@ var DönerTrainer_Endabgabe;
         drawDoenerKebap();
         drawLahmacun();
         drawYufka();
+        showCapacity();
         window.setInterval(update, 20);
     }
     function update() {
@@ -67,6 +68,7 @@ var DönerTrainer_Endabgabe;
     function drawSalad() {
         let salad = new DönerTrainer_Endabgabe.Salad(new DönerTrainer_Endabgabe.Vector(100, 475));
         let salad2 = new DönerTrainer_Endabgabe.Salad(new DönerTrainer_Endabgabe.Vector(-70, 100));
+        salad.containerAmount = Number(formData.get("capacityOfMaterials"));
         ingredients.push(salad, salad2);
         console.log(ingredients);
     }
@@ -184,6 +186,10 @@ var DönerTrainer_Endabgabe;
         DönerTrainer_Endabgabe.crc2.fillStyle = "black";
         DönerTrainer_Endabgabe.crc2.fill();
         DönerTrainer_Endabgabe.crc2.restore();
+    }
+    function showCapacity() {
+        let storage = document.getElementById("storage");
+        storage.innerHTML = "Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + "kg of red cabbage";
     }
 })(DönerTrainer_Endabgabe || (DönerTrainer_Endabgabe = {}));
 //# sourceMappingURL=Main.js.map

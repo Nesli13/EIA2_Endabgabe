@@ -30,7 +30,7 @@ legend {
     text-align: center;
 }
 
-button {
+#startGameButton {
     transform: translate(-50%);
     border: 2px dotted rgb(15, 14, 13);
     background-color: rgb(181, 235, 233);
@@ -41,7 +41,7 @@ button {
     left: 50%;
 }
 
-button:hover {
+#startGameButton:hover {
     color: beige;
     transform: translate(-50%);
 }
@@ -82,7 +82,46 @@ canvas {
     margin: auto;
     width: fit-content;
     position: absolute;
-    margin-top: -160px;
+    margin-top: -330px;
     left: 1200px;
     background-color: rgb(230, 209, 182);
+}
+
+#reorder {
+    position: absolute;
+    margin-top: -580px;
+    left: 1100px;
+    border: 2px double rgb(15, 14, 13);
+    background-color: rgb(159, 224, 224);
+    border-radius: 10px;
+}
+
+#reorder:hover {
+    background-color: aliceblue;
+}
+
+#refill {
+    position: absolute;
+    margin-top: -580px;
+    left: 1300px;
+    border: 2px double rgb(15, 14, 13);
+    background-color: rgb(159, 224, 224);
+    border-radius: 10px;
+}
+
+#refill:hover {
+    background-color: aliceblue;
+}
+
+#orderFinished {
+    position: absolute;
+    margin-top: -150px;
+    left: 1300px;
+    border: 2px double rgb(15, 14, 13);
+    background-color: rgb(159, 224, 224);
+    border-radius: 10px;
+}
+
+#orderFinished:hover {
+    background-color: aliceblue;
 }
