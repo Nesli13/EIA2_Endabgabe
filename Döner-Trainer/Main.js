@@ -69,8 +69,9 @@ var DönerTrainer_Endabgabe;
         DönerTrainer_Endabgabe.crc2.putImageData(imgData, 0, 0);
     }
     function showStaff() {
+        let x = 0;
         for (let i = 0; i < staffAmount; i++) {
-            let staff = new DönerTrainer_Endabgabe.Staff(new DönerTrainer_Endabgabe.Vector(0, 400));
+            let staff = new DönerTrainer_Endabgabe.Staff(new DönerTrainer_Endabgabe.Vector(x, 400));
             staffs.push(staff);
         }
         for (let staff of staffs) {
@@ -211,7 +212,7 @@ var DönerTrainer_Endabgabe;
         let storage = document.getElementById("storage");
         storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + "kg of red cabbage";
         let containerStorage = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityContainer + " kg of meat " + "<br>" + capacityContainer + " kg of onion " + "<br>" + capacityContainer + " kg of corn " + "<br>" + capacityContainer + " kg of tomato " + "<br>" + capacityContainer + " kg of salad" + "<br>" + capacityContainer + "kg of red cabbage";
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityContainer + " g of meat " + "<br>" + capacityContainer + " gr of onion " + "<br>" + capacityContainer + " gr of corn " + "<br>" + capacityContainer + " g of tomato " + "<br>" + capacityContainer + " g of salad" + "<br>" + capacityContainer + " g of red cabbage";
     }
 })(DönerTrainer_Endabgabe || (DönerTrainer_Endabgabe = {}));
 //# sourceMappingURL=Main.js.map

@@ -6,7 +6,7 @@ namespace DönerTrainer_Endabgabe {
             if (_position)
                 this.position = _position;
             else
-                this.position = new Vector(0, 0);
+                this.position = new Vector(0, 300);
 
         }
 

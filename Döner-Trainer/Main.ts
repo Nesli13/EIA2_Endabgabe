@@ -74,7 +74,7 @@ namespace DönerTrainer_Endabgabe {
         showCustomer();
 
         window.setInterval(update, 20);
-        
+
     }
 
     function update(): void {
@@ -86,8 +86,9 @@ namespace DönerTrainer_Endabgabe {
     }
     function showStaff(): void {
 
+        let x: number = 0;
         for (let i: number = 0; i < staffAmount; i++) {
-            let staff: Staff = new Staff(new Vector(0, 400));
+            let staff: Staff = new Staff(new Vector(x , 400));
             staffs.push(staff);
 
         }
@@ -255,10 +256,10 @@ namespace DönerTrainer_Endabgabe {
     function showCapacity(): void {
 
         let storage: HTMLElement = document.getElementById("storage");
-        storage.innerHTML = "Storage" + "<br>" +  "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + "kg of red cabbage";
+        storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + "kg of red cabbage";
 
         let containerStorage: HTMLElement = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityContainer + " kg of meat " + "<br>" + capacityContainer + " kg of onion " + "<br>" + capacityContainer + " kg of corn " + "<br>" + capacityContainer + " kg of tomato " + "<br>" + capacityContainer + " kg of salad" + "<br>" + capacityContainer + "kg of red cabbage";
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityContainer + " g of meat " + "<br>" + capacityContainer + " gr of onion " + "<br>" + capacityContainer + " gr of corn " + "<br>" + capacityContainer + " g of tomato " + "<br>" + capacityContainer + " g of salad" + "<br>" + capacityContainer + " g of red cabbage";
 
 
     }

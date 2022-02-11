@@ -7,7 +7,7 @@ var DönerTrainer_Endabgabe;
             if (_position)
                 this.position = _position;
             else
-                this.position = new DönerTrainer_Endabgabe.Vector(0, 0);
+                this.position = new DönerTrainer_Endabgabe.Vector(0, 300);
         }
         draw() {
             //happy Staff
