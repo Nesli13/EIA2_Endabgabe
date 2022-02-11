@@ -1,9 +1,8 @@
 namespace DönerTrainer_Endabgabe {
     export class Customer extends Person {
 
-        constructor(_position: Vector, _size: Vector) {
+        constructor(_position?: Vector, _size?: Vector) {
             super(_position);
-            super(_size);
             if (_position)
                 this.position = _position;
             else
@@ -145,6 +144,8 @@ namespace DönerTrainer_Endabgabe {
             crc2.stroke();
             crc2.restore();
             crc2.save();
+            crc2.restore();
+
 
         }
         public drawMadCustomer(_position: Vector): void {

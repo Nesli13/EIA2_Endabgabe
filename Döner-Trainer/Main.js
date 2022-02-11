@@ -12,7 +12,8 @@ var DönerTrainer_Endabgabe;
     // let orderList: HTMLDivElement;
     //let request: Request[];
     let capacityContainer;
-    //let staffs: Staff[] = [];
+    let staffs = [];
+    let customers = [];
     //let orders: Order[] = [];
     //let persons:Person[] = [];
     let ingredients = [];
@@ -59,16 +60,35 @@ var DönerTrainer_Endabgabe;
         drawLahmacun();
         drawYufka();
         showCapacity();
+        showStaff();
+        showCustomer();
         window.setInterval(update, 20);
     }
     function update() {
         DönerTrainer_Endabgabe.crc2.fillRect(0, 0, DönerTrainer_Endabgabe.crc2.canvas.width, DönerTrainer_Endabgabe.crc2.canvas.height);
         DönerTrainer_Endabgabe.crc2.putImageData(imgData, 0, 0);
     }
+    function showStaff() {
+        for (let i = 0; i < staffAmount; i++) {
+            let staff = new DönerTrainer_Endabgabe.Staff(new DönerTrainer_Endabgabe.Vector(0, 400));
+            staffs.push(staff);
+        }
+        for (let staff of staffs) {
+            staff.draw();
+        }
+    }
+    function showCustomer() {
+        for (let i = 0; i < customerAomunt; i++) {
+            let customer = new DönerTrainer_Endabgabe.Customer(new DönerTrainer_Endabgabe.Vector(0, 400));
+            customers.push(customer);
+        }
+        for (let customer of customers) {
+            customer.draw();
+        }
+    }
     function drawSalad() {
         let salad = new DönerTrainer_Endabgabe.Salad(new DönerTrainer_Endabgabe.Vector(100, 475));
         let salad2 = new DönerTrainer_Endabgabe.Salad(new DönerTrainer_Endabgabe.Vector(-70, 100));
-        salad.containerAmount = Number(formData.get("capacityOfMaterials"));
         ingredients.push(salad, salad2);
         console.log(ingredients);
     }
@@ -189,7 +209,9 @@ var DönerTrainer_Endabgabe;
     }
     function showCapacity() {
         let storage = document.getElementById("storage");
-        storage.innerHTML = "Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + "kg of red cabbage";
+        storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + "kg of red cabbage";
+        let containerStorage = document.getElementById("container-storage");
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityContainer + " kg of meat " + "<br>" + capacityContainer + " kg of onion " + "<br>" + capacityContainer + " kg of corn " + "<br>" + capacityContainer + " kg of tomato " + "<br>" + capacityContainer + " kg of salad" + "<br>" + capacityContainer + "kg of red cabbage";
     }
 })(DönerTrainer_Endabgabe || (DönerTrainer_Endabgabe = {}));
 //# sourceMappingURL=Main.js.map

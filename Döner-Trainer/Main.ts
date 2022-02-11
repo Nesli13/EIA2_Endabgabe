@@ -10,7 +10,8 @@ namespace DönerTrainer_Endabgabe {
     // let orderList: HTMLDivElement;
     //let request: Request[];
     let capacityContainer: number;
-    //let staffs: Staff[] = [];
+    let staffs: Staff[] = [];
+    let customers: Customer[] = [];
     //let orders: Order[] = [];
     //let persons:Person[] = [];
     let ingredients: Ingredient[] = [];
@@ -25,7 +26,6 @@ namespace DönerTrainer_Endabgabe {
         startGameButton.addEventListener("click", prepareGame);
         document.getElementById("canvas").hidden = true;
         document.getElementById("container").hidden = true;
-
 
 
     }
@@ -60,6 +60,7 @@ namespace DönerTrainer_Endabgabe {
 
         drawCounter(new Vector(100, 475), "#D3d3d3");
         drawCuttingBoard(new Vector(100, 175), "#D3d3d3");
+
         drawSalad();
         drawRedCabbage();
         drawOnion();
@@ -68,24 +69,49 @@ namespace DönerTrainer_Endabgabe {
         drawDoenerKebap();
         drawLahmacun();
         drawYufka();
-
         showCapacity();
+        showStaff();
+        showCustomer();
 
         window.setInterval(update, 20);
-
+        
     }
+
     function update(): void {
         crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
         crc2.putImageData(imgData, 0, 0);
 
+
+
+    }
+    function showStaff(): void {
+
+        for (let i: number = 0; i < staffAmount; i++) {
+            let staff: Staff = new Staff(new Vector(0, 400));
+            staffs.push(staff);
+
+        }
+        for (let staff of staffs) {
+            staff.draw();
+        }
+
+    }
+    function showCustomer(): void {
+
+        for (let i: number = 0; i < customerAomunt; i++) {
+            let customer: Customer = new Customer(new Vector(0, 400));
+            customers.push(customer);
+
+        }
+        for (let customer of customers) {
+            customer.draw();
+        }
 
     }
 
     function drawSalad(): void {
         let salad: Salad = new Salad(new Vector(100, 475));
         let salad2: Salad = new Salad(new Vector(-70, 100));
-        salad.containerAmount = Number(formData.get("capacityOfMaterials"));
-
         ingredients.push(salad, salad2);
         console.log(ingredients);
     }
@@ -229,10 +255,13 @@ namespace DönerTrainer_Endabgabe {
     function showCapacity(): void {
 
         let storage: HTMLElement = document.getElementById("storage");
-        storage.innerHTML = "Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + "kg of red cabbage";
+        storage.innerHTML = "Storage" + "<br>" +  "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + "kg of red cabbage";
 
-       
+        let containerStorage: HTMLElement = document.getElementById("container-storage");
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityContainer + " kg of meat " + "<br>" + capacityContainer + " kg of onion " + "<br>" + capacityContainer + " kg of corn " + "<br>" + capacityContainer + " kg of tomato " + "<br>" + capacityContainer + " kg of salad" + "<br>" + capacityContainer + "kg of red cabbage";
+
+
     }
 
-   
+
 }

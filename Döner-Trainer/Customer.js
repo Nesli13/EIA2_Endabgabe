@@ -4,7 +4,6 @@ var DönerTrainer_Endabgabe;
     class Customer extends DönerTrainer_Endabgabe.Person {
         constructor(_position, _size) {
             super(_position);
-            super(_size);
             if (_position)
                 this.position = _position;
             else
@@ -130,6 +129,7 @@ var DönerTrainer_Endabgabe;
             DönerTrainer_Endabgabe.crc2.stroke();
             DönerTrainer_Endabgabe.crc2.restore();
             DönerTrainer_Endabgabe.crc2.save();
+            DönerTrainer_Endabgabe.crc2.restore();
         }
         drawMadCustomer(_position) {
             //mad Customer
