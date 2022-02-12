@@ -119,7 +119,7 @@ namespace DönerTrainer_Endabgabe {
     function showCustomer(): void {
 
         for (let i: number = 0; i < customerAomunt; i++) {
-            let customer: Customer = new Customer(new Vector(100, 0));
+            let customer: Customer = new Customer(new Vector(-100, 0));
             customers.push(customer);
 
 

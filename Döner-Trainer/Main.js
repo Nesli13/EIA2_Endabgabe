@@ -97,7 +97,7 @@ var DönerTrainer_Endabgabe;
     }
     function showCustomer() {
         for (let i = 0; i < customerAomunt; i++) {
-            let customer = new DönerTrainer_Endabgabe.Customer(new DönerTrainer_Endabgabe.Vector(100, 0));
+            let customer = new DönerTrainer_Endabgabe.Customer(new DönerTrainer_Endabgabe.Vector(-100, 0));
             customers.push(customer);
         }
         for (let customer of customers) {
