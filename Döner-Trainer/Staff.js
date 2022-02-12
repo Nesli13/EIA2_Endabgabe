@@ -4,17 +4,13 @@ var DönerTrainer_Endabgabe;
     class Staff extends DönerTrainer_Endabgabe.Person {
         constructor(_position, _size) {
             super(_position);
-            if (_position)
-                this.position = _position;
-            else
-                this.position = new DönerTrainer_Endabgabe.Vector(0, 300);
         }
         draw() {
             //happy Staff
             //body
             DönerTrainer_Endabgabe.crc2.beginPath();
             DönerTrainer_Endabgabe.crc2.save();
-            DönerTrainer_Endabgabe.crc2.translate(this.position.x + 100, this.position.y - 400);
+            DönerTrainer_Endabgabe.crc2.translate(this.position.x, this.position.y);
             DönerTrainer_Endabgabe.crc2.fillStyle = "#Dda0dd";
             DönerTrainer_Endabgabe.crc2.arc(85, 25, 35, 0, 2 * Math.PI);
             DönerTrainer_Endabgabe.crc2.fill();
@@ -66,7 +62,6 @@ var DönerTrainer_Endabgabe;
             DönerTrainer_Endabgabe.crc2.lineTo(100, -40);
             DönerTrainer_Endabgabe.crc2.closePath();
             DönerTrainer_Endabgabe.crc2.stroke();
-            DönerTrainer_Endabgabe.crc2.restore();
             DönerTrainer_Endabgabe.crc2.save();
             DönerTrainer_Endabgabe.crc2.restore();
         }
@@ -128,7 +123,6 @@ var DönerTrainer_Endabgabe;
             DönerTrainer_Endabgabe.crc2.lineTo(100, -40);
             DönerTrainer_Endabgabe.crc2.closePath();
             DönerTrainer_Endabgabe.crc2.stroke();
-            DönerTrainer_Endabgabe.crc2.restore();
             DönerTrainer_Endabgabe.crc2.save();
             DönerTrainer_Endabgabe.crc2.restore();
         }

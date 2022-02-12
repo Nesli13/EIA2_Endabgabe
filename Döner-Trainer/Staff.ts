@@ -3,10 +3,7 @@ namespace DönerTrainer_Endabgabe {
 
         constructor(_position?: Vector, _size?: Vector) {
             super(_position);
-            if (_position)
-                this.position = _position;
-            else
-                this.position = new Vector(0, 300);
+        
 
         }
 
@@ -16,7 +13,7 @@ namespace DönerTrainer_Endabgabe {
                 //body
                 crc2.beginPath();
                 crc2.save();
-                crc2.translate(this.position.x + 100, this.position.y - 400);
+                crc2.translate(this.position.x , this.position.y);
                 crc2.fillStyle = "#Dda0dd";
                 crc2.arc(85, 25, 35, 0, 2 * Math.PI);
                 crc2.fill();
@@ -74,7 +71,6 @@ namespace DönerTrainer_Endabgabe {
                 crc2.lineTo(100, -40);
                 crc2.closePath();
                 crc2.stroke();
-                crc2.restore();
                 crc2.save();
                 crc2.restore();
         
@@ -144,7 +140,6 @@ namespace DönerTrainer_Endabgabe {
                 crc2.lineTo(100, -40);
                 crc2.closePath();
                 crc2.stroke();
-                crc2.restore();
                 crc2.save();
                 crc2.restore();
 

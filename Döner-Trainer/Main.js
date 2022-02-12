@@ -69,9 +69,9 @@ var DönerTrainer_Endabgabe;
         DönerTrainer_Endabgabe.crc2.putImageData(imgData, 0, 0);
     }
     function showStaff() {
-        let x = 0;
+        // let x: number = 0;
         for (let i = 0; i < staffAmount; i++) {
-            let staff = new DönerTrainer_Endabgabe.Staff(new DönerTrainer_Endabgabe.Vector(x, 400));
+            let staff = new DönerTrainer_Endabgabe.Staff(new DönerTrainer_Endabgabe.Vector(100, -200));
             staffs.push(staff);
         }
         for (let staff of staffs) {
@@ -80,7 +80,7 @@ var DönerTrainer_Endabgabe;
     }
     function showCustomer() {
         for (let i = 0; i < customerAomunt; i++) {
-            let customer = new DönerTrainer_Endabgabe.Customer(new DönerTrainer_Endabgabe.Vector(0, 400));
+            let customer = new DönerTrainer_Endabgabe.Customer(new DönerTrainer_Endabgabe.Vector(200, 0));
             customers.push(customer);
         }
         for (let customer of customers) {

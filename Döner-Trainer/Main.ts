@@ -86,21 +86,20 @@ namespace DönerTrainer_Endabgabe {
     }
     function showStaff(): void {
 
-        let x: number = 0;
+        // let x: number = 0;
         for (let i: number = 0; i < staffAmount; i++) {
-            let staff: Staff = new Staff(new Vector(x , 400));
+            let staff: Staff = new Staff(new Vector(100, -200));
             staffs.push(staff);
-
         }
         for (let staff of staffs) {
             staff.draw();
-        }
 
+        }
     }
     function showCustomer(): void {
 
         for (let i: number = 0; i < customerAomunt; i++) {
-            let customer: Customer = new Customer(new Vector(0, 400));
+            let customer: Customer = new Customer(new Vector(200, 0));
             customers.push(customer);
 
         }
