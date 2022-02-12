@@ -12,7 +12,7 @@ var DönerTrainer_Endabgabe;
             else
                 this.position = new DönerTrainer_Endabgabe.Vector(0, 0);
             this.velocity = new DönerTrainer_Endabgabe.Vector(0, 0);
-            this.velocity.random(100, 200);
+            //this.velocity.random(100, 200);
         }
     }
     DönerTrainer_Endabgabe.Person = Person;

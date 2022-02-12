@@ -13,11 +13,11 @@ namespace DönerTrainer_Endabgabe {
                 this.position = new Vector(0, 0);
 
             this.velocity = new Vector(0, 0);
-            this.velocity.random(100, 200);
+            //this.velocity.random(100, 200);
 
         }
         public abstract mood(): void;
-        public abstract move(): void;
+        public abstract move(_timeslice: number): void;
         public abstract draw(): void;
     }
 }

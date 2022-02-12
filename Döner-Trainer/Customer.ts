@@ -3,7 +3,7 @@ namespace DönerTrainer_Endabgabe {
 
         constructor(_position?: Vector, _size?: Vector) {
             super(_position);
-
+            this.velocity = new Vector(0, 0);
 
         }
 
@@ -208,11 +208,29 @@ namespace DönerTrainer_Endabgabe {
         }
 
         public mood(): void {
-            console.log("mood");
+            //console.log("mood");
         }
-        public move(): void {
-            console.log("mood");
+        public move(_timeslice: number): void {
+            //console.log("move");
+
+            /*let offset: Vector = this.velocity.copy();
+            offset.scale(_timeslice);
+            this.position.add(offset);
+
+            if (this.position.x < 0)
+                this.position.x += crc2.canvas.width;
+            if (this.position.y < 0)
+                this.position.y += crc2.canvas.height;
+            if (this.position.x > crc2.canvas.width)
+                this.position.x -= crc2.canvas.width;
+            if (this.position.y > crc2.canvas.height)
+                this.position.y -= crc2.canvas.height;
+*/
+
+
+
         }
+
         /*public talk(_order: string) {
             let döner_kebap: string[] = ["flatbread", "meat"];
             let lahmacun: string[] = ["flatbread", "meat"];

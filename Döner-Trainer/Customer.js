@@ -4,6 +4,7 @@ var DönerTrainer_Endabgabe;
     class Customer extends DönerTrainer_Endabgabe.Person {
         constructor(_position, _size) {
             super(_position);
+            this.velocity = new DönerTrainer_Endabgabe.Vector(0, 0);
         }
         draw() {
             //happy Customer
@@ -187,10 +188,23 @@ var DönerTrainer_Endabgabe;
             DönerTrainer_Endabgabe.crc2.restore();
         }
         mood() {
-            console.log("mood");
+            //console.log("mood");
         }
-        move() {
-            console.log("mood");
+        move(_timeslice) {
+            //console.log("move");
+            /*let offset: Vector = this.velocity.copy();
+            offset.scale(_timeslice);
+            this.position.add(offset);
+
+            if (this.position.x < 0)
+                this.position.x += crc2.canvas.width;
+            if (this.position.y < 0)
+                this.position.y += crc2.canvas.height;
+            if (this.position.x > crc2.canvas.width)
+                this.position.x -= crc2.canvas.width;
+            if (this.position.y > crc2.canvas.height)
+                this.position.y -= crc2.canvas.height;
+*/
         }
     }
     DönerTrainer_Endabgabe.Customer = Customer;

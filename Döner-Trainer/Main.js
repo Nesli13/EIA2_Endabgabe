@@ -103,7 +103,9 @@ var DönerTrainer_Endabgabe;
             customers.push(customer);
         }
         for (let customer of customers) {
-            customer.draw();
+            setInterval(function () {
+                customer.draw();
+            }, 2000);
         }
     }
     function drawSalad() {

@@ -61,7 +61,7 @@ namespace DönerTrainer_Endabgabe {
 
     }
     function createGameScreen(): void {
-        
+
         document.getElementById("canvas").hidden = false;
         document.getElementById("container").hidden = false;
         document.getElementById("doenerButton").hidden = false;
@@ -75,7 +75,7 @@ namespace DönerTrainer_Endabgabe {
         document.getElementById("sauceButton").hidden = false;
         document.getElementById("sauceButton2").hidden = false;
 
-        
+
 
         canvas = document.querySelector("canvas")!;
         crc2 = canvas.getContext("2d")!;
@@ -96,7 +96,9 @@ namespace DönerTrainer_Endabgabe {
         showStaff();
         showCustomer();
 
+
         window.setInterval(update, 20);
+
 
     }
 
@@ -123,12 +125,18 @@ namespace DönerTrainer_Endabgabe {
             let customer: Customer = new Customer(new Vector(100, 0));
             customers.push(customer);
 
+
         }
         for (let customer of customers) {
-            customer.draw();
+            setInterval(
+                function (): void {
+                customer.draw();
+            },  2000);
+
         }
 
     }
+
 
     function drawSalad(): void {
         let salad: Salad = new Salad(new Vector(100, 475));
