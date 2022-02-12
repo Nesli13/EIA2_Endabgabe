@@ -80,6 +80,7 @@ var DönerTrainer_Endabgabe;
         showCapacity();
         showStaff();
         showCustomer();
+        showOrder();
         window.setInterval(update, 20);
     }
     function update() {
@@ -231,6 +232,24 @@ var DönerTrainer_Endabgabe;
         storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + "kg of red cabbage";
         let containerStorage = document.getElementById("container-storage");
         containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityContainer + " g of meat " + "<br>" + capacityContainer + " gr of onion " + "<br>" + capacityContainer + " gr of corn " + "<br>" + capacityContainer + " g of tomato " + "<br>" + capacityContainer + " g of salad" + "<br>" + capacityContainer + " g of red cabbage";
+    }
+    function showOrder() {
+        let basis = ["Döner", "Lahmacun", "Yufka"];
+        let topping = ["onion", "salad", "red cabbage", "corn", "tomato"];
+        let sauce = ["sauce", "hot-sauce"];
+        getVerse(basis, topping, sauce);
+    }
+    function getVerse(basis, topping, sauce) {
+        let wert1 = Math.floor(Math.random() * basis.length);
+        let wert2 = Math.floor(Math.random() * topping.length);
+        let wert3 = Math.floor(Math.random() * sauce.length);
+        let werte = basis[wert1] + "  " + topping[wert2] + "  " + sauce[wert3];
+        let order = document.getElementById("order");
+        order.innerHTML = "Order:" + "<br>" + "<br>" + " I would like a " + basis[wert1] + "  " + " with " + topping[wert2] + " " + " and " + sauce[wert3] + "," + " please.";
+        basis.splice(wert1, 1);
+        topping.splice(wert2, 1);
+        sauce.splice(wert3, 1);
+        return werte;
     }
 })(DönerTrainer_Endabgabe || (DönerTrainer_Endabgabe = {}));
 //# sourceMappingURL=Main.js.map

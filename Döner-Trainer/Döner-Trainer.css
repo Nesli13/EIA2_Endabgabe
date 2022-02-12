@@ -80,10 +80,12 @@ canvas {
 #order {
     border: 2px double black;
     margin: auto;
-    width: fit-content;
+    width: 230px;
+    height: 100px;
     position: absolute;
     margin-top: -330px;
     left: 1200px;
+    font-size: 17px;
     background-color: rgb(230, 209, 182);
 }
 
@@ -115,7 +117,7 @@ canvas {
 
 #orderFinished {
     position: absolute;
-    margin-top: -150px;
+    margin-top: -220px;
     left: 1300px;
     border: 2px double rgb(15, 14, 13);
     background-color: rgb(159, 224, 224);

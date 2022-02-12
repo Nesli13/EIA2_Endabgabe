@@ -94,7 +94,7 @@ namespace DönerTrainer_Endabgabe {
         showStaff();
         showCustomer();
 
-
+        showOrder();
         window.setInterval(update, 20);
 
 
@@ -128,7 +128,8 @@ namespace DönerTrainer_Endabgabe {
             setInterval(
                 function (): void {
                     customer.draw();
-                },  2000);
+                }, 2000);
+            
         }
 
     }
@@ -288,5 +289,26 @@ namespace DönerTrainer_Endabgabe {
 
     }
 
+    function showOrder(): void {
+        let basis: string[] = ["Döner", "Lahmacun", "Yufka"];
+        let topping: string[] = ["onion", "salad", "red cabbage", "corn", "tomato"];
+        let sauce: string[] = ["sauce", "hot-sauce"];
+        getVerse(basis, topping, sauce);
+    }
+    function getVerse(basis: string[], topping: string[], sauce: string[]): string {
+        let wert1: number = Math.floor(Math.random() * basis.length);
+        let wert2: number = Math.floor(Math.random() * topping.length);
+        let wert3: number = Math.floor(Math.random() * sauce.length);
+
+        let werte: string = basis[wert1] + "  " + topping[wert2] + "  " + sauce[wert3];
+
+        let order: HTMLElement = document.getElementById("order");
+        order.innerHTML = "Order:" + "<br>" + "<br>" + " I would like a " + basis[wert1] + "  " + " with " + topping[wert2] + " " + " and " + sauce[wert3] + "," + " please.";
+        basis.splice(wert1, 1);
+        topping.splice(wert2, 1);
+        sauce.splice(wert3, 1);
+
+        return werte;
+    }
 
 }
