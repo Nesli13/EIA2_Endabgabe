@@ -231,11 +231,9 @@ namespace DönerTrainer_Endabgabe {
 
         }
 
-        /*public talk(_order: string) {
-            let döner_kebap: string[] = ["flatbread", "meat"];
-            let lahmacun: string[] = ["flatbread", "meat"];
-            let yufka: string[] = ["flatbread", "minced meat"];
-            let word: string[] = ["with", "without"];
+      /*  public talk(_order: string): void {
+            let basis: string[] = ["flatbread", "meat"];
+            let word: string[] = ["with"];
             let topping: string[] = ["onions", "tomato", "salad", "red cabbage", "corn"];
             let sauce: string[] = ["garlic-sauce", "hot-sauce", "cocktailsauce"];
     

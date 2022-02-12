@@ -15,7 +15,6 @@ namespace DönerTrainer_Endabgabe {
     //let orders: Order[] = [];
     //let persons:Person[] = [];
     let ingredients: Ingredient[] = [];
-    let imgData: ImageData;
     let formData: FormData;
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement | null;
@@ -57,7 +56,6 @@ namespace DönerTrainer_Endabgabe {
         console.log(breakofStaff);
 
         createGameScreen();
-        imgData = crc2.getImageData(0, 0, crc2.canvas.width, crc2.canvas.height);
 
     }
     function createGameScreen(): void {
@@ -103,8 +101,7 @@ namespace DönerTrainer_Endabgabe {
     }
 
     function update(): void {
-        crc2.fillRect(0, 0, crc2.canvas.width, crc2.canvas.height);
-        crc2.putImageData(imgData, 0, 0);
+        console.log("");
 
 
 
@@ -122,7 +119,7 @@ namespace DönerTrainer_Endabgabe {
     function showCustomer(): void {
 
         for (let i: number = 0; i < customerAomunt; i++) {
-            let customer: Customer = new Customer(new Vector(0, 0));
+            let customer: Customer = new Customer(new Vector(100, 0));
             customers.push(customer);
 
 
@@ -130,8 +127,8 @@ namespace DönerTrainer_Endabgabe {
         for (let customer of customers) {
             setInterval(
                 function (): void {
-                customer.draw();
-            },  2000);
+                    customer.draw();
+                },  2000);
         }
 
     }

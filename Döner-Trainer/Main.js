@@ -17,7 +17,6 @@ var DönerTrainer_Endabgabe;
     //let orders: Order[] = [];
     //let persons:Person[] = [];
     let ingredients = [];
-    let imgData;
     let formData;
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
@@ -51,7 +50,6 @@ var DönerTrainer_Endabgabe;
         console.log("staffAmount" + staffAmount, "customerAmount" + customerAomunt, "brekofStaff" + breakofStaff, "customerperminute" + customerPerMinute + "capacitymaterial" + capacityMaterial + "capacitycontainer" + capacityContainer);
         console.log(breakofStaff);
         createGameScreen();
-        imgData = DönerTrainer_Endabgabe.crc2.getImageData(0, 0, DönerTrainer_Endabgabe.crc2.canvas.width, DönerTrainer_Endabgabe.crc2.canvas.height);
     }
     function createGameScreen() {
         document.getElementById("canvas").hidden = false;
@@ -85,8 +83,7 @@ var DönerTrainer_Endabgabe;
         window.setInterval(update, 20);
     }
     function update() {
-        DönerTrainer_Endabgabe.crc2.fillRect(0, 0, DönerTrainer_Endabgabe.crc2.canvas.width, DönerTrainer_Endabgabe.crc2.canvas.height);
-        DönerTrainer_Endabgabe.crc2.putImageData(imgData, 0, 0);
+        console.log("");
     }
     function showStaff() {
         for (let i = 0; i < staffAmount; i++) {
@@ -99,7 +96,7 @@ var DönerTrainer_Endabgabe;
     }
     function showCustomer() {
         for (let i = 0; i < customerAomunt; i++) {
-            let customer = new DönerTrainer_Endabgabe.Customer(new DönerTrainer_Endabgabe.Vector(0, 0));
+            let customer = new DönerTrainer_Endabgabe.Customer(new DönerTrainer_Endabgabe.Vector(100, 0));
             customers.push(customer);
         }
         for (let customer of customers) {
