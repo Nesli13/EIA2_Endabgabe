@@ -111,7 +111,7 @@ namespace DönerTrainer_Endabgabe {
     }
     function showStaff(): void {
         for (let i: number = 0; i < staffAmount; i++) {
-            let staff: Staff = new Staff(new Vector(100, 0));
+            let staff: Staff = new Staff(new Vector(200, 0));
             staffs.push(staff);
         }
         for (let staff of staffs) {
@@ -122,7 +122,7 @@ namespace DönerTrainer_Endabgabe {
     function showCustomer(): void {
 
         for (let i: number = 0; i < customerAomunt; i++) {
-            let customer: Customer = new Customer(new Vector(100, 0));
+            let customer: Customer = new Customer(new Vector(0, 0));
             customers.push(customer);
 
 
@@ -132,7 +132,6 @@ namespace DönerTrainer_Endabgabe {
                 function (): void {
                 customer.draw();
             },  2000);
-
         }
 
     }
