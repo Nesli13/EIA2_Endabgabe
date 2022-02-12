@@ -15,6 +15,38 @@ body {
 
 h1 {
     text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: xxx-large;
+}
+
+p {
+    float: left;
+    font-size: medium;
+}
+
+input[type=range] {
+    -webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+    height: 10px;
+    background: #ABD1D4;
+    border-radius: 21px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+    height: 16px;
+    width: 16px;
+    border-radius: 40px;
+    background: #799496;
+    cursor: pointer;
+    -webkit-appearance: none;
+    margin-top: -3px;
+}
+
+label {
+    font-family: Arial;
+    font-size: large;
 }
 
 form {
@@ -28,6 +60,13 @@ fieldset {
 
 legend {
     text-align: center;
+    font-family: Arial;
+}
+
+input[type=range] {
+    width: 300px;
+    display: inline;
+    margin-bottom: 20px;
 }
 
 #startGameButton {

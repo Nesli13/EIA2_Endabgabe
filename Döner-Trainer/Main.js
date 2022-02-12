@@ -7,7 +7,6 @@ var DönerTrainer_Endabgabe;
     let staffAmount;
     let customerAomunt;
     let breakofStaff;
-    let customerPerMinute;
     let capacityMaterial;
     // let orderList: HTMLDivElement;
     //let request: Request[];
@@ -44,10 +43,9 @@ var DönerTrainer_Endabgabe;
         staffAmount = Number(formData.get("quantityStaff"));
         customerAomunt = Number(formData.get("quantityCustomer"));
         breakofStaff = Number(formData.get("restPeriodOfStaff"));
-        customerPerMinute = Number(formData.get("customerPerMin"));
         capacityMaterial = Number(formData.get("capacityOfMaterials"));
         capacityContainer = Number(formData.get("capacityOfContainers"));
-        console.log("staffAmount" + staffAmount, "customerAmount" + customerAomunt, "brekofStaff" + breakofStaff, "customerperminute" + customerPerMinute + "capacitymaterial" + capacityMaterial + "capacitycontainer" + capacityContainer);
+        console.log("staffAmount" + staffAmount, "customerAmount" + customerAomunt, "brekofStaff" + breakofStaff + "capacitymaterial" + capacityMaterial + "capacitycontainer" + capacityContainer);
         console.log(breakofStaff);
         createGameScreen();
     }
@@ -229,9 +227,9 @@ var DönerTrainer_Endabgabe;
     }
     function showCapacity() {
         let storage = document.getElementById("storage");
-        storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + "kg of red cabbage";
+        storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + " kg of red cabbage";
         let containerStorage = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityContainer + " g of meat " + "<br>" + capacityContainer + " gr of onion " + "<br>" + capacityContainer + " gr of corn " + "<br>" + capacityContainer + " g of tomato " + "<br>" + capacityContainer + " g of salad" + "<br>" + capacityContainer + " g of red cabbage";
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityContainer + " g of meat " + "<br>" + capacityContainer + " g of onion " + "<br>" + capacityContainer + " g of corn " + "<br>" + capacityContainer + " g of tomato " + "<br>" + capacityContainer + " g of salad" + "<br>" + capacityContainer + " g of red cabbage";
     }
     function showOrder() {
         let basis = ["Döner", "Lahmacun", "Yufka"];

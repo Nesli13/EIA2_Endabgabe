@@ -36,30 +36,22 @@
         </fieldset>
         <fieldset>
             <legend>Time</legend>
-            <label for="restPeriodOfStaff">Rest Period: </label> <br>
-            <label for="1min">1min.</label>
-            <input type="radio" name="restPeriodOfStaff" value="1" id="1">
-            <label for="2min">2min.</label>
-            <input type="radio" name="restPeriodOfStaff" value="2" id="2">
-            <label for="3min">3min.</label>
-            <input type="radio" name="restPeriodOfStaff" value="3" id="3">
+            <label for="restPeriodOfStaff">Rest Period </label> <br>
+            <p>1min.
+                <input type="radio" name="restPeriodOfStaff" value="1" id="1"></p>
+            <p>&nbsp;&nbsp; 2min.
+                <input type="radio" name="restPeriodOfStaff" value="2" id="2"></p>
+            <p>&nbsp;&nbsp;3min.
+                <input type="radio" name="restPeriodOfStaff" value="3" id="3"></p>
 
-            <br>
-            <label for="customerPerMin">Customer come per:</label>
-            <br>
-            <label for="1min">1min.</label>
-            <input type="radio" name="customerPerMin" value="1" id="1">
-            <label for="2min">2min.</label>
-            <input type="radio" name="customerPerMin" value="2" id="2">
-            <label for="3min">3min.</label>
-            <input type="radio" name="customerPerMin" value="3" id="3">
         </fieldset>
         <fieldset>
             <legend>Capacity</legend>
-            <label for="capacityOfMaterials">Materials</label>
-            <input type="range" name="capacityOfMaterials" step="1" min="0" max="30" value="5">
-            <label for="capacityOfContainers">Containers</label>
-            <input type="range" name="capacityOfContainers" step="1" min="0" max="1000" value="250">
+            <label for="capacityOfMaterials">Material</label><br> 5kg
+            <input type="range" name="capacityOfMaterials" step="5" min="5" max="30" value="5">30kg
+            <br>
+            <label for="capacityOfContainers">Container</label><br> 250g
+            <input type="range" name="capacityOfContainers" step="50" min="250" max="1000" value="250"> 1kg
         </fieldset>
         <button type="button" id="startGameButton">Start Game</button>
 
