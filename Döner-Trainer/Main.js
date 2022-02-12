@@ -25,6 +25,16 @@ var DönerTrainer_Endabgabe;
         startGameButton.addEventListener("click", prepareGame);
         document.getElementById("canvas").hidden = true;
         document.getElementById("container").hidden = true;
+        document.getElementById("doenerButton").hidden = true;
+        document.getElementById("yufkaButton").hidden = true;
+        document.getElementById("lahmacunButton").hidden = true;
+        document.getElementById("saladButton").hidden = true;
+        document.getElementById("redCabbageButton").hidden = true;
+        document.getElementById("onionButton").hidden = true;
+        document.getElementById("tomatoButton").hidden = true;
+        document.getElementById("cornButton").hidden = true;
+        document.getElementById("sauceButton").hidden = true;
+        document.getElementById("sauceButton2").hidden = true;
     }
     function prepareGame(_event) {
         formData = new FormData(document.forms[0]);
@@ -46,6 +56,16 @@ var DönerTrainer_Endabgabe;
     function createGameScreen() {
         document.getElementById("canvas").hidden = false;
         document.getElementById("container").hidden = false;
+        document.getElementById("doenerButton").hidden = false;
+        document.getElementById("yufkaButton").hidden = false;
+        document.getElementById("lahmacunButton").hidden = false;
+        document.getElementById("saladButton").hidden = false;
+        document.getElementById("redCabbageButton").hidden = false;
+        document.getElementById("onionButton").hidden = false;
+        document.getElementById("tomatoButton").hidden = false;
+        document.getElementById("cornButton").hidden = false;
+        document.getElementById("sauceButton").hidden = false;
+        document.getElementById("sauceButton2").hidden = false;
         DönerTrainer_Endabgabe.canvas = document.querySelector("canvas");
         DönerTrainer_Endabgabe.crc2 = DönerTrainer_Endabgabe.canvas.getContext("2d");
         console.log(DönerTrainer_Endabgabe.crc2);

@@ -100,16 +100,16 @@ canvas {
     background-color: aliceblue;
 }
 
-#refill {
+#cuttingBoard {
     position: absolute;
     margin-top: -610px;
-    left: 1330px;
+    left: 420px;
     border: 2px double rgb(15, 14, 13);
     background-color: rgb(159, 224, 224);
     border-radius: 10px;
 }
 
-#refill:hover {
+#cuttingBoard:hover {
     background-color: aliceblue;
 }
 
@@ -124,4 +124,156 @@ canvas {
 
 #orderFinished:hover {
     background-color: aliceblue;
+}
+
+#doenerButton {
+    position: relative;
+    left: 395px;
+    top: -300px;
+    border-radius: 10px;
+    border: 2px double white;
+    background: none;
+    color: white;
+}
+
+#doenerButton:hover {
+    color: rgb(15, 14, 13);
+    border: 2px double rgb(15, 14, 13);
+}
+
+#yufkaButton {
+    position: relative;
+    left: 335px;
+    top: -220px;
+    border-radius: 10px;
+    border: 2px double white;
+    background: none;
+    color: white;
+}
+
+#yufkaButton:hover {
+    color: rgb(15, 14, 13);
+    border: 2px double rgb(15, 14, 13);
+}
+
+#lahmacunButton {
+    position: relative;
+    left: 357px;
+    top: -270px;
+    border-radius: 10px;
+    border: 2px double white;
+    background: none;
+    color: white;
+}
+
+#lahmacunButton:hover {
+    color: rgb(15, 14, 13);
+    border: 2px double rgb(15, 14, 13);
+}
+
+#saladButton {
+    position: relative;
+    left: 400px;
+    top: -310px;
+    border-radius: 10px;
+    border: 2px double #131212;
+    background: none;
+    color: rgb(15, 14, 13);
+}
+
+#saladButton:hover {
+    color: rgb(66 169 169);
+    border: 2px double rgb(66 169 169);
+}
+
+#redCabbageButton {
+    position: relative;
+    left: 440px;
+    top: -310px;
+    border-radius: 10px;
+    border: 2px double #131212;
+    background: none;
+    color: rgb(15, 14, 13);
+}
+
+#redCabbageButton:hover {
+    color: rgb(66 169 169);
+    border: 2px double rgb(66 169 169);
+}
+
+#onionButton {
+    position: relative;
+    left: 480px;
+    top: -310px;
+    border-radius: 10px;
+    border: 2px double #131212;
+    background: none;
+    color: rgb(15, 14, 13);
+}
+
+#onionButton:hover {
+    color: rgb(66 169 169);
+    border: 2px double rgb(66 169 169);
+}
+
+#cornButton {
+    position: relative;
+    left: 470px;
+    top: -310px;
+    border-radius: 10px;
+    border: 2px double #131212;
+    background: none;
+    color: rgb(15, 14, 13);
+}
+
+#cornButton:hover {
+    color: rgb(66 169 169);
+    border: 2px double rgb(66 169 169);
+}
+
+#tomatoButton {
+    position: relative;
+    left: 620px;
+    top: -310px;
+    border-radius: 10px;
+    border: 2px double #131212;
+    background: none;
+    color: rgb(15, 14, 13);
+}
+
+#tomatoButton:hover {
+    color: rgb(66 169 169);
+    border: 2px double rgb(66 169 169);
+}
+
+#sauceButton {
+    position: relative;
+    left: 600px;
+    top: -310px;
+    border-radius: 10px;
+    border: 2px double #131212;
+    background: none;
+    color: rgb(15, 14, 13);
+    font-size: 10px;
+}
+
+#sauceButton:hover {
+    color: rgb(66 169 169);
+    border: 2px double rgb(66 169 169);
+}
+
+#sauceButton2 {
+    position: relative;
+    left: 600px;
+    top: -320px;
+    border-radius: 10px;
+    border: 2px double #131212;
+    background: none;
+    color: rgb(15, 14, 13);
+    font-size: 10px;
+}
+
+#sauceButton2:hover {
+    color: rgb(66 169 169);
+    border: 2px double rgb(66 169 169);
 }
