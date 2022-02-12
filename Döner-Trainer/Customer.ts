@@ -4,7 +4,6 @@ namespace DönerTrainer_Endabgabe {
         constructor(_position?: Vector, _size?: Vector) {
             super(_position);
             this.velocity = new Vector(0, 0);
-
         }
 
         public draw(): void {

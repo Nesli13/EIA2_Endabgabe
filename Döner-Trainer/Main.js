@@ -17,6 +17,9 @@ var DönerTrainer_Endabgabe;
     //let persons:Person[] = [];
     let ingredients = [];
     let formData;
+    let basis = ["Döner", "Lahmacun", "Yufka"];
+    let topping = ["onion", "salad", "red cabbage", "corn", "tomato"];
+    let sauce = ["sauce", "hot-sauce"];
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
         let startGameButton = document.querySelector("#startGameButton");
@@ -79,10 +82,31 @@ var DönerTrainer_Endabgabe;
         showStaff();
         showCustomer();
         showOrder();
-        window.setInterval(update, 20);
+        //window.setInterval(update, 20);
     }
-    function update() {
-        console.log("");
+    /*function update(): void {
+        //console.log("");
+    }*/
+    function showCapacity() {
+        let storage = document.getElementById("storage");
+        storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + " kg of red cabbage";
+        let containerStorage = document.getElementById("container-storage");
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityContainer + " g of meat " + "<br>" + capacityContainer + " g of onion " + "<br>" + capacityContainer + " g of corn " + "<br>" + capacityContainer + " g of tomato " + "<br>" + capacityContainer + " g of salad" + "<br>" + capacityContainer + " g of red cabbage";
+    }
+    function showOrder() {
+        getVerse(basis, topping, sauce);
+    }
+    function getVerse(basis, topping, sauce) {
+        let wert1 = Math.floor(Math.random() * basis.length);
+        let wert2 = Math.floor(Math.random() * topping.length);
+        let wert3 = Math.floor(Math.random() * sauce.length);
+        let werte = basis[wert1] + "  " + topping[wert2] + "  " + sauce[wert3];
+        let order = document.getElementById("order");
+        order.innerHTML = "Order:" + "<br>" + "<br>" + " I would like a " + basis[wert1] + "  " + " with " + topping[wert2] + " " + " and " + sauce[wert3] + "," + " please.";
+        basis.splice(wert1, 1);
+        topping.splice(wert2, 1);
+        sauce.splice(wert3, 1);
+        return werte;
     }
     function showStaff() {
         for (let i = 0; i < staffAmount; i++) {
@@ -102,6 +126,10 @@ var DönerTrainer_Endabgabe;
             setInterval(function () {
                 customer.draw();
             }, 2000);
+            if (customers.length == customerAomunt) {
+                break;
+            }
+            ;
         }
     }
     function drawSalad() {
@@ -224,30 +252,6 @@ var DönerTrainer_Endabgabe;
         DönerTrainer_Endabgabe.crc2.fillStyle = "black";
         DönerTrainer_Endabgabe.crc2.fill();
         DönerTrainer_Endabgabe.crc2.restore();
-    }
-    function showCapacity() {
-        let storage = document.getElementById("storage");
-        storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + " kg of red cabbage";
-        let containerStorage = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityContainer + " g of meat " + "<br>" + capacityContainer + " g of onion " + "<br>" + capacityContainer + " g of corn " + "<br>" + capacityContainer + " g of tomato " + "<br>" + capacityContainer + " g of salad" + "<br>" + capacityContainer + " g of red cabbage";
-    }
-    function showOrder() {
-        let basis = ["Döner", "Lahmacun", "Yufka"];
-        let topping = ["onion", "salad", "red cabbage", "corn", "tomato"];
-        let sauce = ["sauce", "hot-sauce"];
-        getVerse(basis, topping, sauce);
-    }
-    function getVerse(basis, topping, sauce) {
-        let wert1 = Math.floor(Math.random() * basis.length);
-        let wert2 = Math.floor(Math.random() * topping.length);
-        let wert3 = Math.floor(Math.random() * sauce.length);
-        let werte = basis[wert1] + "  " + topping[wert2] + "  " + sauce[wert3];
-        let order = document.getElementById("order");
-        order.innerHTML = "Order:" + "<br>" + "<br>" + " I would like a " + basis[wert1] + "  " + " with " + topping[wert2] + " " + " and " + sauce[wert3] + "," + " please.";
-        basis.splice(wert1, 1);
-        topping.splice(wert2, 1);
-        sauce.splice(wert3, 1);
-        return werte;
     }
 })(DönerTrainer_Endabgabe || (DönerTrainer_Endabgabe = {}));
 //# sourceMappingURL=Main.js.map

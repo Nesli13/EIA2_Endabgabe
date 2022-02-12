@@ -15,6 +15,10 @@ namespace DönerTrainer_Endabgabe {
     //let persons:Person[] = [];
     let ingredients: Ingredient[] = [];
     let formData: FormData;
+    let basis: string[] = ["Döner", "Lahmacun", "Yufka"];
+    let topping: string[] = ["onion", "salad", "red cabbage", "corn", "tomato"];
+    let sauce: string[] = ["sauce", "hot-sauce"];
+
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement | null;
     window.addEventListener("load", handleLoad);
@@ -93,16 +97,43 @@ namespace DönerTrainer_Endabgabe {
         showCustomer();
 
         showOrder();
-        window.setInterval(update, 20);
+        //window.setInterval(update, 20);
 
 
     }
 
-    function update(): void {
-        console.log("");
+    /*function update(): void {
+        //console.log("");
+    }*/
+    function showCapacity(): void {
+
+        let storage: HTMLElement = document.getElementById("storage");
+        storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + " kg of red cabbage";
+
+        let containerStorage: HTMLElement = document.getElementById("container-storage");
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityContainer + " g of meat " + "<br>" + capacityContainer + " g of onion " + "<br>" + capacityContainer + " g of corn " + "<br>" + capacityContainer + " g of tomato " + "<br>" + capacityContainer + " g of salad" + "<br>" + capacityContainer + " g of red cabbage";
 
 
+    }
 
+    function showOrder(): void {
+
+        getVerse(basis, topping, sauce);
+    }
+    function getVerse(basis: string[], topping: string[], sauce: string[]): string {
+        let wert1: number = Math.floor(Math.random() * basis.length);
+        let wert2: number = Math.floor(Math.random() * topping.length);
+        let wert3: number = Math.floor(Math.random() * sauce.length);
+
+        let werte: string = basis[wert1] + "  " + topping[wert2] + "  " + sauce[wert3];
+
+        let order: HTMLElement = document.getElementById("order");
+        order.innerHTML = "Order:" + "<br>" + "<br>" + " I would like a " + basis[wert1] + "  " + " with " + topping[wert2] + " " + " and " + sauce[wert3] + "," + " please.";
+        basis.splice(wert1, 1);
+        topping.splice(wert2, 1);
+        sauce.splice(wert3, 1);
+
+        return werte;
     }
     function showStaff(): void {
         for (let i: number = 0; i < staffAmount; i++) {
@@ -115,7 +146,6 @@ namespace DönerTrainer_Endabgabe {
         }
     }
     function showCustomer(): void {
-
         for (let i: number = 0; i < customerAomunt; i++) {
             let customer: Customer = new Customer(new Vector(-100, 0));
             customers.push(customer);
@@ -126,8 +156,11 @@ namespace DönerTrainer_Endabgabe {
             setInterval(
                 function (): void {
                     customer.draw();
-                }, 2000);
-            
+
+                }, 2000)
+            if (customers.length == customerAomunt) {
+                break;
+            };
         }
 
     }
@@ -276,37 +309,6 @@ namespace DönerTrainer_Endabgabe {
 
 
     }
-    function showCapacity(): void {
 
-        let storage: HTMLElement = document.getElementById("storage");
-        storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + " kg of red cabbage";
-
-        let containerStorage: HTMLElement = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityContainer + " g of meat " + "<br>" + capacityContainer + " g of onion " + "<br>" + capacityContainer + " g of corn " + "<br>" + capacityContainer + " g of tomato " + "<br>" + capacityContainer + " g of salad" + "<br>" + capacityContainer + " g of red cabbage";
-
-
-    }
-
-    function showOrder(): void {
-        let basis: string[] = ["Döner", "Lahmacun", "Yufka"];
-        let topping: string[] = ["onion", "salad", "red cabbage", "corn", "tomato"];
-        let sauce: string[] = ["sauce", "hot-sauce"];
-        getVerse(basis, topping, sauce);
-    }
-    function getVerse(basis: string[], topping: string[], sauce: string[]): string {
-        let wert1: number = Math.floor(Math.random() * basis.length);
-        let wert2: number = Math.floor(Math.random() * topping.length);
-        let wert3: number = Math.floor(Math.random() * sauce.length);
-
-        let werte: string = basis[wert1] + "  " + topping[wert2] + "  " + sauce[wert3];
-
-        let order: HTMLElement = document.getElementById("order");
-        order.innerHTML = "Order:" + "<br>" + "<br>" + " I would like a " + basis[wert1] + "  " + " with " + topping[wert2] + " " + " and " + sauce[wert3] + "," + " please.";
-        basis.splice(wert1, 1);
-        topping.splice(wert2, 1);
-        sauce.splice(wert3, 1);
-
-        return werte;
-    }
 
 }
