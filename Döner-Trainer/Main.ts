@@ -18,12 +18,12 @@ namespace DönerTrainer_Endabgabe {
     let basis: string[] = ["Döner", "Lahmacun", "Yufka"];
     let topping: string[] = ["onion", "salad", "red cabbage", "corn", "tomato"];
     let sauce: string[] = ["sauce", "hot-sauce"];
-    
+
     let newCapacitySalad: number;
     let newCapacityCabbage: number;
     let newCapacityOnion: number;
-    let newCapacityCorn: number;
-    let newCapacityTomato: number;
+    //let newCapacityCorn: number;
+    //let newCapacityTomato: number;
 
 
     interface Storage {
@@ -121,6 +121,12 @@ namespace DönerTrainer_Endabgabe {
         salad.addEventListener("click", updateSalad);
         let onion: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#onionButton");
         onion.addEventListener("click", updateOnion);
+        let redCabbage: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#redCabbageButton");
+        redCabbage.addEventListener("click", updateCabbage);
+        let tomato: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#tomatoButton");
+        tomato.addEventListener("click", updateTomato);
+        let corn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#cornButton");
+        corn.addEventListener("click", updateCorn);
 
 
         console.log(salad);
@@ -146,6 +152,7 @@ namespace DönerTrainer_Endabgabe {
 
 
     }
+
     function updateSalad(_event: Event): void {
 
         let storageLeft: Storage = {
@@ -157,15 +164,14 @@ namespace DönerTrainer_Endabgabe {
         };
 
         newCapacitySalad = storageLeft.salad -= 30;
-       
+
 
         let containerStorage: HTMLElement = document.getElementById("container-storage");
         containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + newCapacitySalad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
 
-
     }
-    function updateOnion(_event: Event): void {
 
+    function updateOnion(_event: Event): void {
 
         let storageLeft: Storage = {
             salad: newCapacitySalad,
@@ -174,12 +180,28 @@ namespace DönerTrainer_Endabgabe {
             corn: capacityContainer,
             tomato: capacityContainer
         };
-       
-        storageLeft.corn -= 50;
+
+        newCapacityOnion = storageLeft.onion -= 50;
+
         let containerStorage: HTMLElement = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + newCapacitySalad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
-        capacityContainer = storageLeft.onion;
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + newCapacityOnion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + newCapacitySalad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
     }
+    function updateCabbage(_event: Event): void {
+
+        let storageLeft: Storage = {
+            salad: newCapacitySalad,
+            redCabbage: capacityContainer,
+            onion: newCapacityOnion,
+            corn: capacityContainer,
+            tomato: capacityContainer
+        };
+
+        newCapacityCabbage = storageLeft.redCabbage -= 40;
+
+        let containerStorage: HTMLElement = document.getElementById("container-storage");
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + newCapacityOnion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + newCapacitySalad + " g of salad" + "<br>" + newCapacityCabbage + " g of red cabbage";
+    }
+
     function showOrder(): void {
 
         getVerse(basis, topping, sauce);
@@ -238,54 +260,54 @@ namespace DönerTrainer_Endabgabe {
 
 
     function drawSalad(): void {
-        let salad: Salad = new Salad(new Vector(100, 475));
-        let salad2: Salad = new Salad(new Vector(-70, 100));
+        let salad: Salad = new Salad(0, new Vector(100, 475));
+        let salad2: Salad = new Salad(0, new Vector(-70, 100));
         ingredients.push(salad, salad2);
         console.log(ingredients);
     }
 
     function drawRedCabbage(): void {
-        let redCabbage: RedCabbage = new RedCabbage(new Vector(100, 238));
-        let redCabbage2: RedCabbage = new RedCabbage(new Vector(-40, 100));
+        let redCabbage: RedCabbage = new RedCabbage(0,new Vector(100, 238));
+        let redCabbage2: RedCabbage = new RedCabbage(0,new Vector(-40, 100));
         ingredients.push(redCabbage, redCabbage2);
         console.log(ingredients);
 
     }
     function drawOnion(): void {
-        let onion: Onion = new Onion(new Vector(150, 238));
-        let onion2: Onion = new Onion(new Vector(-10, 100));
+        let onion: Onion = new Onion(0,new Vector(150, 238));
+        let onion2: Onion = new Onion(0,new Vector(-10, 100));
         ingredients.push(onion, onion2);
         console.log(ingredients);
 
     }
     function drawCorn(): void {
-        let corn: Corn = new Corn(new Vector(24, 50));
-        let corn2: Corn = new Corn(new Vector(193, 162));
+        let corn: Corn = new Corn(0,new Vector(24, 50));
+        let corn2: Corn = new Corn(0,new Vector(193, 162));
         ingredients.push(corn, corn2);
         console.log(ingredients);
 
     }
     function drawTomato(): void {
-        let tomato: Tomato = new Tomato(new Vector(42, 26));
-        let tomato2: Tomato = new Tomato(new Vector(243, 163));
+        let tomato: Tomato = new Tomato(0,new Vector(42, 26));
+        let tomato2: Tomato = new Tomato(0,new Vector(243, 163));
         ingredients.push(tomato, tomato2);
         console.log(ingredients);
 
     }
     function drawDoenerKebap(): void {
-        let doener: DoenerKebap = new DoenerKebap(new Vector(-10, -90));
+        let doener: DoenerKebap = new DoenerKebap(0,new Vector(-10, -90));
         ingredients.push(doener);
         console.log(ingredients);
 
     }
     function drawLahmacun(): void {
-        let lahmacun: Lahmacun = new Lahmacun(new Vector(85, 40));
+        let lahmacun: Lahmacun = new Lahmacun(0,new Vector(85, 40));
         ingredients.push(lahmacun);
         console.log(ingredients);
 
     }
     function drawYufka(): void {
-        let yufka: Yufka = new Yufka(new Vector(-40, 10));
+        let yufka: Yufka = new Yufka(0,new Vector(-40, 10));
         ingredients.push(yufka);
         console.log(ingredients);
         for (let ingredient of ingredients) {

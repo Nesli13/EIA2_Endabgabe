@@ -23,8 +23,6 @@ var DönerTrainer_Endabgabe;
     let newCapacitySalad;
     let newCapacityCabbage;
     let newCapacityOnion;
-    let newCapacityCorn;
-    let newCapacityTomato;
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
         let startGameButton = document.querySelector("#startGameButton");
@@ -93,6 +91,12 @@ var DönerTrainer_Endabgabe;
         salad.addEventListener("click", updateSalad);
         let onion = document.querySelector("#onionButton");
         onion.addEventListener("click", updateOnion);
+        let redCabbage = document.querySelector("#redCabbageButton");
+        redCabbage.addEventListener("click", updateCabbage);
+        let tomato = document.querySelector("#tomatoButton");
+        tomato.addEventListener("click", updateTomato);
+        let corn = document.querySelector("#cornButton");
+        corn.addEventListener("click", updateCorn);
         console.log(salad);
         window.setInterval(update, 20);
         setInterval(showCustomer, 30000);
@@ -126,10 +130,21 @@ var DönerTrainer_Endabgabe;
             corn: capacityContainer,
             tomato: capacityContainer
         };
-        storageLeft.corn -= 50;
+        newCapacityOnion = storageLeft.onion -= 50;
         let containerStorage = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + newCapacitySalad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
-        capacityContainer = storageLeft.onion;
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + newCapacityOnion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + newCapacitySalad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
+    }
+    function updateCabbage(_event) {
+        let storageLeft = {
+            salad: newCapacitySalad,
+            redCabbage: capacityContainer,
+            onion: newCapacityOnion,
+            corn: capacityContainer,
+            tomato: capacityContainer
+        };
+        newCapacityCabbage = storageLeft.redCabbage -= 40;
+        let containerStorage = document.getElementById("container-storage");
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + newCapacityOnion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + newCapacitySalad + " g of salad" + "<br>" + newCapacityCabbage + " g of red cabbage";
     }
     function showOrder() {
         getVerse(basis, topping, sauce);
@@ -167,47 +182,47 @@ var DönerTrainer_Endabgabe;
         }, 2000);
     }
     function drawSalad() {
-        let salad = new DönerTrainer_Endabgabe.Salad(new DönerTrainer_Endabgabe.Vector(100, 475));
-        let salad2 = new DönerTrainer_Endabgabe.Salad(new DönerTrainer_Endabgabe.Vector(-70, 100));
+        let salad = new DönerTrainer_Endabgabe.Salad(0, new DönerTrainer_Endabgabe.Vector(100, 475));
+        let salad2 = new DönerTrainer_Endabgabe.Salad(0, new DönerTrainer_Endabgabe.Vector(-70, 100));
         ingredients.push(salad, salad2);
         console.log(ingredients);
     }
     function drawRedCabbage() {
-        let redCabbage = new DönerTrainer_Endabgabe.RedCabbage(new DönerTrainer_Endabgabe.Vector(100, 238));
-        let redCabbage2 = new DönerTrainer_Endabgabe.RedCabbage(new DönerTrainer_Endabgabe.Vector(-40, 100));
+        let redCabbage = new DönerTrainer_Endabgabe.RedCabbage(0, new DönerTrainer_Endabgabe.Vector(100, 238));
+        let redCabbage2 = new DönerTrainer_Endabgabe.RedCabbage(0, new DönerTrainer_Endabgabe.Vector(-40, 100));
         ingredients.push(redCabbage, redCabbage2);
         console.log(ingredients);
     }
     function drawOnion() {
-        let onion = new DönerTrainer_Endabgabe.Onion(new DönerTrainer_Endabgabe.Vector(150, 238));
-        let onion2 = new DönerTrainer_Endabgabe.Onion(new DönerTrainer_Endabgabe.Vector(-10, 100));
+        let onion = new DönerTrainer_Endabgabe.Onion(0, new DönerTrainer_Endabgabe.Vector(150, 238));
+        let onion2 = new DönerTrainer_Endabgabe.Onion(0, new DönerTrainer_Endabgabe.Vector(-10, 100));
         ingredients.push(onion, onion2);
         console.log(ingredients);
     }
     function drawCorn() {
-        let corn = new DönerTrainer_Endabgabe.Corn(new DönerTrainer_Endabgabe.Vector(24, 50));
-        let corn2 = new DönerTrainer_Endabgabe.Corn(new DönerTrainer_Endabgabe.Vector(193, 162));
+        let corn = new DönerTrainer_Endabgabe.Corn(0, new DönerTrainer_Endabgabe.Vector(24, 50));
+        let corn2 = new DönerTrainer_Endabgabe.Corn(0, new DönerTrainer_Endabgabe.Vector(193, 162));
         ingredients.push(corn, corn2);
         console.log(ingredients);
     }
     function drawTomato() {
-        let tomato = new DönerTrainer_Endabgabe.Tomato(new DönerTrainer_Endabgabe.Vector(42, 26));
-        let tomato2 = new DönerTrainer_Endabgabe.Tomato(new DönerTrainer_Endabgabe.Vector(243, 163));
+        let tomato = new DönerTrainer_Endabgabe.Tomato(0, new DönerTrainer_Endabgabe.Vector(42, 26));
+        let tomato2 = new DönerTrainer_Endabgabe.Tomato(0, new DönerTrainer_Endabgabe.Vector(243, 163));
         ingredients.push(tomato, tomato2);
         console.log(ingredients);
     }
     function drawDoenerKebap() {
-        let doener = new DönerTrainer_Endabgabe.DoenerKebap(new DönerTrainer_Endabgabe.Vector(-10, -90));
+        let doener = new DönerTrainer_Endabgabe.DoenerKebap(0, new DönerTrainer_Endabgabe.Vector(-10, -90));
         ingredients.push(doener);
         console.log(ingredients);
     }
     function drawLahmacun() {
-        let lahmacun = new DönerTrainer_Endabgabe.Lahmacun(new DönerTrainer_Endabgabe.Vector(85, 40));
+        let lahmacun = new DönerTrainer_Endabgabe.Lahmacun(0, new DönerTrainer_Endabgabe.Vector(85, 40));
         ingredients.push(lahmacun);
         console.log(ingredients);
     }
     function drawYufka() {
-        let yufka = new DönerTrainer_Endabgabe.Yufka(new DönerTrainer_Endabgabe.Vector(-40, 10));
+        let yufka = new DönerTrainer_Endabgabe.Yufka(0, new DönerTrainer_Endabgabe.Vector(-40, 10));
         ingredients.push(yufka);
         console.log(ingredients);
         for (let ingredient of ingredients) {

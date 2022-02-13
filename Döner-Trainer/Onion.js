@@ -2,8 +2,8 @@
 var DönerTrainer_Endabgabe;
 (function (DönerTrainer_Endabgabe) {
     class Onion extends DönerTrainer_Endabgabe.Ingredient {
-        constructor(_position, _type, _size) {
-            super(_position);
+        constructor(_foodAmount, _position) {
+            super(_foodAmount, _position);
         }
         draw() {
             DönerTrainer_Endabgabe.crc2.beginPath();

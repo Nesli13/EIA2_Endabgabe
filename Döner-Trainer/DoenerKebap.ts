@@ -1,7 +1,7 @@
 namespace DönerTrainer_Endabgabe {
     export class DoenerKebap extends Ingredient {
-        constructor(_position: Vector) {
-            super(_position);
+        constructor(_foodAmount: number, _position?: Vector) {
+            super(_foodAmount, _position);
         }
         draw(): void {
 

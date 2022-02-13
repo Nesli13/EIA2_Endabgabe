@@ -2,8 +2,8 @@
 var DönerTrainer_Endabgabe;
 (function (DönerTrainer_Endabgabe) {
     class Lahmacun extends DönerTrainer_Endabgabe.Ingredient {
-        constructor(_position) {
-            super(_position);
+        constructor(_foodAmount, _position) {
+            super(_foodAmount, _position);
         }
         draw() {
             //flat bread
