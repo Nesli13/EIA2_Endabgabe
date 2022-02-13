@@ -57,8 +57,6 @@ var DönerTrainer_Endabgabe;
             corn: capacityContainer,
             tomato: capacityContainer
         };
-        console.log("staffAmount" + staffAmount, "customerAmount" + customerAomunt, "brekofStaff" + breakofStaff + "capacitymaterial" + capacityMaterial + "capacitycontainer" + capacityContainer);
-        console.log(breakofStaff);
         createGameScreen();
     }
     function createGameScreen() {
