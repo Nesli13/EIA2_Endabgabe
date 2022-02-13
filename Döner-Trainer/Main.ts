@@ -19,6 +19,15 @@ namespace DönerTrainer_Endabgabe {
     let topping: string[] = ["onion", "salad", "red cabbage", "corn", "tomato"];
     let sauce: string[] = ["sauce", "hot-sauce"];
 
+    interface Storage {
+        salad: number;
+        redCabbage: number;
+        onion: number;
+        corn: number;
+        tomato: number;
+
+    }
+
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement | null;
     window.addEventListener("load", handleLoad);
@@ -50,12 +59,13 @@ namespace DönerTrainer_Endabgabe {
         let form: HTMLFormElement = <HTMLFormElement>document.querySelector("form");
         let body: HTMLBodyElement = <HTMLBodyElement>document.querySelector("body");
         body.removeChild(form);
-
+       
         staffAmount = Number(formData.get("quantityStaff"));
         customerAomunt = Number(formData.get("quantityCustomer"));
         breakofStaff = Number(formData.get("restPeriodOfStaff"));
         capacityMaterial = Number(formData.get("capacityOfMaterials"));
         capacityContainer = Number(formData.get("capacityOfContainers"));
+
         console.log("staffAmount" + staffAmount, "customerAmount" + customerAomunt, "brekofStaff" + breakofStaff + "capacitymaterial" + capacityMaterial + "capacitycontainer" + capacityContainer);
         console.log(breakofStaff);
 
@@ -100,9 +110,12 @@ namespace DönerTrainer_Endabgabe {
         showOrder();
 
         let salad: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#saladButton");
-        salad.addEventListener("click", updateCapacity);
+        salad.addEventListener("click", updateSalad);
+        let onion: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#onionButton");
+        onion.addEventListener("click", updateOnion);
+       
+       
         console.log(salad);
-
 
         window.setInterval(update, 20);
 
@@ -113,24 +126,45 @@ namespace DönerTrainer_Endabgabe {
         //console.log("");
     }
 
-    function updateCapacity(_event: Event): void {
-        let storageLeft: number = 0;
 
-
-
-    }
 
     function showCapacity(): void {
 
         let storage: HTMLElement = document.getElementById("storage");
-        storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + " kg of red cabbage";
+        storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + " kg of red cabbage";
 
         let containerStorage: HTMLElement = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityContainer + " g of meat " + "<br>" + capacityContainer + " g of onion " + "<br>" + capacityContainer + " g of corn " + "<br>" + capacityContainer + " g of tomato " + "<br>" + capacityContainer + " g of salad" + "<br>" + capacityContainer + " g of red cabbage";
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" +  "<br>" + capacityContainer + " g of onion " + "<br>" + capacityContainer + " g of corn " + "<br>" + capacityContainer + " g of tomato " + "<br>" + capacityContainer + " g of salad" + "<br>" + capacityContainer + " g of red cabbage";
 
 
     }
+    function updateSalad(_event: Event): void {
+       
+        let storageLeft: Storage = {
+            salad: Number(formData.get("capacityOfContainers")),
+            redCabbage: Number(formData.get("capacityOfContainers")),
+            onion: Number(formData.get("capacityOfContainers")),
+            corn: Number(formData.get("capacityOfContainers")),
+            tomato: Number(formData.get("capacityOfContainers"))
+        };
+      
+        storageLeft.salad -= 30;
+      
 
+        let containerStorage: HTMLElement = document.getElementById("container-storage");
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" +  "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + storageLeft.salad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
+
+    }
+    function updateOnion(_event: Event): void {
+        let storageLeft: Storage = {
+            salad: Number(formData.get("capacityOfContainers")),
+            redCabbage: Number(formData.get("capacityOfContainers")),
+            onion: Number(formData.get("capacityOfContainers")),
+            corn: Number(formData.get("capacityOfContainers")),
+            tomato: Number(formData.get("capacityOfContainers"))
+        };
+        storageLeft.corn -= 50;
+    }
     function showOrder(): void {
 
         getVerse(basis, topping, sauce);
@@ -151,14 +185,18 @@ namespace DönerTrainer_Endabgabe {
         return werte;
     }
     function showStaff(): void {
+
         for (let i: number = 0; i < staffAmount; i++) {
             let staff: Staff = new Staff(new Vector(200, 0));
             staffs.push(staff);
+
         }
         for (let staff of staffs) {
             staff.draw();
 
         }
+
+
     }
 
 

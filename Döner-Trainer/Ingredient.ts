@@ -5,7 +5,7 @@ namespace DönerTrainer_Endabgabe {
         public containerAmount: number;
         public size: Vector;
         public amount: number;
-        public foodAmount: number;
+        public foodAmount: number = 20;
         protected type: string;
 
 

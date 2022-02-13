@@ -85,7 +85,9 @@ var DönerTrainer_Endabgabe;
         showCustomer();
         showOrder();
         let salad = document.querySelector("#saladButton");
-        salad.addEventListener("click", updateCapacity);
+        salad.addEventListener("click", updateSalad);
+        let onion = document.querySelector("#onionButton");
+        onion.addEventListener("click", updateOnion);
         console.log(salad);
         window.setInterval(update, 20);
         setInterval(showCustomer, 30000);
@@ -93,14 +95,33 @@ var DönerTrainer_Endabgabe;
     function update() {
         //console.log("");
     }
-    function updateCapacity(_event) {
-        let storageLeft = 0;
-    }
     function showCapacity() {
         let storage = document.getElementById("storage");
-        storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + " kg of red cabbage";
+        storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + " kg of red cabbage";
         let containerStorage = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityContainer + " g of meat " + "<br>" + capacityContainer + " g of onion " + "<br>" + capacityContainer + " g of corn " + "<br>" + capacityContainer + " g of tomato " + "<br>" + capacityContainer + " g of salad" + "<br>" + capacityContainer + " g of red cabbage";
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityContainer + " g of onion " + "<br>" + capacityContainer + " g of corn " + "<br>" + capacityContainer + " g of tomato " + "<br>" + capacityContainer + " g of salad" + "<br>" + capacityContainer + " g of red cabbage";
+    }
+    function updateSalad(_event) {
+        let storageLeft = {
+            salad: Number(formData.get("capacityOfContainers")),
+            redCabbage: Number(formData.get("capacityOfContainers")),
+            onion: Number(formData.get("capacityOfContainers")),
+            corn: Number(formData.get("capacityOfContainers")),
+            tomato: Number(formData.get("capacityOfContainers"))
+        };
+        storageLeft.salad -= 30;
+        let containerStorage = document.getElementById("container-storage");
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + storageLeft.salad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
+    }
+    function updateOnion(_event) {
+        let storageLeft = {
+            salad: Number(formData.get("capacityOfContainers")),
+            redCabbage: Number(formData.get("capacityOfContainers")),
+            onion: Number(formData.get("capacityOfContainers")),
+            corn: Number(formData.get("capacityOfContainers")),
+            tomato: Number(formData.get("capacityOfContainers"))
+        };
+        storageLeft.corn -= 50;
     }
     function showOrder() {
         getVerse(basis, topping, sauce);
