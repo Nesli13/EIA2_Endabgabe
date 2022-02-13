@@ -129,7 +129,8 @@ namespace DönerTrainer_Endabgabe {
         tomatoBtn.addEventListener("click", updateTomato);
         let cornBtn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#cornButton");
         cornBtn.addEventListener("click", updateCorn);
-
+        let refill: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#cuttingBoard");
+        refill.addEventListener("click", refillContainer);
 
         window.setInterval(update, 20);
 
@@ -152,7 +153,16 @@ namespace DönerTrainer_Endabgabe {
 
 
     }
-
+    function refillContainer(_event: Event): void {
+        storageLeft = {
+            salad: capacityContainer,
+            redCabbage: capacityContainer,
+            onion: capacityContainer,
+            corn: capacityContainer,
+            tomato: capacityContainer
+        };
+        showCapacity();
+    }
     function updateSalad(_event: Event): void {
 
         storageLeft.salad -= 30;

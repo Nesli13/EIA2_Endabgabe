@@ -102,6 +102,8 @@ var DönerTrainer_Endabgabe;
         tomatoBtn.addEventListener("click", updateTomato);
         let cornBtn = document.querySelector("#cornButton");
         cornBtn.addEventListener("click", updateCorn);
+        let refill = document.querySelector("#cuttingBoard");
+        refill.addEventListener("click", refillContainer);
         window.setInterval(update, 20);
         setInterval(showCustomer, 30000);
     }
@@ -113,6 +115,16 @@ var DönerTrainer_Endabgabe;
         storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + " kg of red cabbage";
         let containerStorage = document.getElementById("container-storage");
         containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + storageLeft.salad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
+    }
+    function refillContainer(_event) {
+        storageLeft = {
+            salad: capacityContainer,
+            redCabbage: capacityContainer,
+            onion: capacityContainer,
+            corn: capacityContainer,
+            tomato: capacityContainer
+        };
+        showCapacity();
     }
     function updateSalad(_event) {
         storageLeft.salad -= 30;
