@@ -18,6 +18,12 @@ namespace DönerTrainer_Endabgabe {
     let basis: string[] = ["Döner", "Lahmacun", "Yufka"];
     let topping: string[] = ["onion", "salad", "red cabbage", "corn", "tomato"];
     let sauce: string[] = ["sauce", "hot-sauce"];
+    
+    let newCapacitySalad: number;
+    let newCapacityCabbage: number;
+    let newCapacityOnion: number;
+    let newCapacityCorn: number;
+    let newCapacityTomato: number;
 
 
     interface Storage {
@@ -66,6 +72,7 @@ namespace DönerTrainer_Endabgabe {
         breakofStaff = Number(formData.get("restPeriodOfStaff"));
         capacityMaterial = Number(formData.get("capacityOfMaterials"));
         capacityContainer = Number(formData.get("capacityOfContainers"));
+
 
         console.log("staffAmount" + staffAmount, "customerAmount" + customerAomunt, "brekofStaff" + breakofStaff + "capacitymaterial" + capacityMaterial + "capacitycontainer" + capacityContainer);
         console.log(breakofStaff);
@@ -142,35 +149,36 @@ namespace DönerTrainer_Endabgabe {
     function updateSalad(_event: Event): void {
 
         let storageLeft: Storage = {
-            salad: Number(formData.get("capacityOfContainers")),
-            redCabbage: Number(formData.get("capacityOfContainers")),
-            onion: Number(formData.get("capacityOfContainers")),
-            corn: Number(formData.get("capacityOfContainers")),
-            tomato: Number(formData.get("capacityOfContainers"))
+            salad: capacityContainer,
+            redCabbage: capacityContainer,
+            onion: capacityContainer,
+            corn: capacityContainer,
+            tomato: capacityContainer
         };
 
-        storageLeft.salad -= 30;
-        storageLeft.onion -= 0;
-        storageLeft.corn -= 0;
+        newCapacitySalad = storageLeft.salad -= 30;
+       
 
         let containerStorage: HTMLElement = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + storageLeft.salad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + newCapacitySalad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
 
-        
+
     }
     function updateOnion(_event: Event): void {
+
+
         let storageLeft: Storage = {
-            salad: Number(formData.get("capacityOfContainers")),
-            redCabbage: Number(formData.get("capacityOfContainers")),
-            onion: Number(formData.get("capacityOfContainers")),
-            corn: Number(formData.get("capacityOfContainers")),
-            tomato: Number(formData.get("capacityOfContainers"))
+            salad: newCapacitySalad,
+            redCabbage: capacityContainer,
+            onion: capacityContainer,
+            corn: capacityContainer,
+            tomato: capacityContainer
         };
-        storageLeft.salad = storageLeft.salad;
+       
         storageLeft.corn -= 50;
         let containerStorage: HTMLElement = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + storageLeft.salad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
-
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + newCapacitySalad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
+        capacityContainer = storageLeft.onion;
     }
     function showOrder(): void {
 

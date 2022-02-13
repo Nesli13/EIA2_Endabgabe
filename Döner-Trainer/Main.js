@@ -20,6 +20,11 @@ var DönerTrainer_Endabgabe;
     let basis = ["Döner", "Lahmacun", "Yufka"];
     let topping = ["onion", "salad", "red cabbage", "corn", "tomato"];
     let sauce = ["sauce", "hot-sauce"];
+    let newCapacitySalad;
+    let newCapacityCabbage;
+    let newCapacityOnion;
+    let newCapacityCorn;
+    let newCapacityTomato;
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
         let startGameButton = document.querySelector("#startGameButton");
@@ -103,30 +108,28 @@ var DönerTrainer_Endabgabe;
     }
     function updateSalad(_event) {
         let storageLeft = {
-            salad: Number(formData.get("capacityOfContainers")),
-            redCabbage: Number(formData.get("capacityOfContainers")),
-            onion: Number(formData.get("capacityOfContainers")),
-            corn: Number(formData.get("capacityOfContainers")),
-            tomato: Number(formData.get("capacityOfContainers"))
+            salad: capacityContainer,
+            redCabbage: capacityContainer,
+            onion: capacityContainer,
+            corn: capacityContainer,
+            tomato: capacityContainer
         };
-        storageLeft.salad -= 30;
-        storageLeft.onion -= 0;
-        storageLeft.corn -= 0;
+        newCapacitySalad = storageLeft.salad -= 30;
         let containerStorage = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + storageLeft.salad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + newCapacitySalad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
     }
     function updateOnion(_event) {
         let storageLeft = {
-            salad: Number(formData.get("capacityOfContainers")),
-            redCabbage: Number(formData.get("capacityOfContainers")),
-            onion: Number(formData.get("capacityOfContainers")),
-            corn: Number(formData.get("capacityOfContainers")),
-            tomato: Number(formData.get("capacityOfContainers"))
+            salad: newCapacitySalad,
+            redCabbage: capacityContainer,
+            onion: capacityContainer,
+            corn: capacityContainer,
+            tomato: capacityContainer
         };
-        storageLeft.salad = storageLeft.salad;
         storageLeft.corn -= 50;
         let containerStorage = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + storageLeft.salad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + newCapacitySalad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
+        capacityContainer = storageLeft.onion;
     }
     function showOrder() {
         getVerse(basis, topping, sauce);
