@@ -21,6 +21,7 @@ var DönerTrainer_Endabgabe;
     let topping = ["onion", "salad", "red cabbage", "corn", "tomato"];
     let sauce = ["sauce", "hot-sauce"];
     let storageLeft;
+    let ingredientLeft;
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
         let startGameButton = document.querySelector("#startGameButton");
@@ -57,7 +58,14 @@ var DönerTrainer_Endabgabe;
             corn: capacityContainer,
             tomato: capacityContainer
         };
-        console.log("staffAmount" + staffAmount, "customerAmount" + customerAomunt, "brekofStaff" + breakofStaff + "capacitymaterial" + capacityMaterial + "capacitycontainer" + capacityContainer);
+        ingredientLeft = {
+            salad: capacityMaterial,
+            redCabbage: capacityMaterial,
+            onion: capacityMaterial,
+            corn: capacityMaterial,
+            tomato: capacityMaterial
+        };
+        console.log(staffAmount + customerAomunt + breakofStaff + capacityMaterial + capacityContainer);
         console.log(breakofStaff);
         createGameScreen();
     }
@@ -104,6 +112,8 @@ var DönerTrainer_Endabgabe;
         cornBtn.addEventListener("click", updateCorn);
         let refill = document.querySelector("#cuttingBoard");
         refill.addEventListener("click", refillContainer);
+        let reorder = document.querySelector("#reorder");
+        reorder.addEventListener("click", reorderMaterials);
         window.setInterval(update, 20);
         setInterval(showCustomer, 30000);
     }
@@ -112,9 +122,19 @@ var DönerTrainer_Endabgabe;
     }
     function showCapacity() {
         let storage = document.getElementById("storage");
-        storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + " kg of red cabbage";
+        storage.innerHTML = "Storage" + "<br>" + "<br>" + ingredientLeft.onion + " g of onion " + "<br>" + ingredientLeft.corn + " g of corn " + "<br>" + ingredientLeft.tomato + " g of tomato " + "<br>" + ingredientLeft.salad + " g of salad" + "<br>" + ingredientLeft.redCabbage + " g of red cabbage";
         let containerStorage = document.getElementById("container-storage");
         containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + storageLeft.salad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
+    }
+    function reorderMaterials(_event) {
+        ingredientLeft = {
+            salad: capacityMaterial,
+            redCabbage: capacityMaterial,
+            onion: capacityMaterial,
+            corn: capacityMaterial,
+            tomato: capacityMaterial
+        };
+        showCapacity();
     }
     function refillContainer(_event) {
         storageLeft = {
@@ -128,10 +148,12 @@ var DönerTrainer_Endabgabe;
     }
     function updateSalad(_event) {
         storageLeft.salad -= 30;
+        ingredientLeft.salad -= storageLeft.salad;
         showCapacity();
     }
     function updateOnion(_event) {
         storageLeft.onion -= 50;
+        ingredientLeft.onion -= storageLeft.onion;
         showCapacity();
     }
     function updateCabbage(_event) {
@@ -171,6 +193,7 @@ var DönerTrainer_Endabgabe;
             staff.draw();
         }
     }
+    //Kunden enstprechender Anzahl zeichnen lassen und alle 3 minuten neue zeichnen
     function showCustomer() {
         let interval = setInterval(function () {
             let customer = new DönerTrainer_Endabgabe.Customer(new DönerTrainer_Endabgabe.Vector(-100, 0));
@@ -180,8 +203,10 @@ var DönerTrainer_Endabgabe;
                 clearInterval(interval);
                 customers.length = 0;
             }
+            // tslint:disable-next-line: align
         }, 2000);
     }
+    //alle Zutaten zeichnen lassen
     function drawSalad() {
         let salad = new DönerTrainer_Endabgabe.Salad(0, new DönerTrainer_Endabgabe.Vector(100, 475));
         let salad2 = new DönerTrainer_Endabgabe.Salad(0, new DönerTrainer_Endabgabe.Vector(-70, 100));

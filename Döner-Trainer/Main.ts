@@ -27,7 +27,10 @@ namespace DönerTrainer_Endabgabe {
         tomato: number;
 
     }
+
     let storageLeft: Storage;
+    let ingredientLeft: Storage;
+
 
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement | null;
@@ -75,7 +78,15 @@ namespace DönerTrainer_Endabgabe {
             tomato: capacityContainer
         };
 
-        console.log("staffAmount" + staffAmount, "customerAmount" + customerAomunt, "brekofStaff" + breakofStaff + "capacitymaterial" + capacityMaterial + "capacitycontainer" + capacityContainer);
+        ingredientLeft = {
+            salad: capacityMaterial,
+            redCabbage: capacityMaterial,
+            onion: capacityMaterial,
+            corn: capacityMaterial,
+            tomato: capacityMaterial
+        };
+
+        console.log(staffAmount + customerAomunt + breakofStaff + capacityMaterial + capacityContainer);
         console.log(breakofStaff);
 
         createGameScreen();
@@ -104,7 +115,6 @@ namespace DönerTrainer_Endabgabe {
 
         drawCounter(new Vector(100, 475), "#D3d3d3");
         drawCuttingBoard(new Vector(100, 175), "#D3d3d3");
-
         drawSalad();
         drawRedCabbage();
         drawOnion();
@@ -131,6 +141,8 @@ namespace DönerTrainer_Endabgabe {
         cornBtn.addEventListener("click", updateCorn);
         let refill: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#cuttingBoard");
         refill.addEventListener("click", refillContainer);
+        let reorder: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#reorder");
+        reorder.addEventListener("click", reorderMaterials);
 
         window.setInterval(update, 20);
 
@@ -146,12 +158,22 @@ namespace DönerTrainer_Endabgabe {
     function showCapacity(): void {
 
         let storage: HTMLElement = document.getElementById("storage");
-        storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + " kg of red cabbage";
+        storage.innerHTML = "Storage" + "<br>" + "<br>" + ingredientLeft.onion + " g of onion " + "<br>" + ingredientLeft.corn + " g of corn " + "<br>" + ingredientLeft.tomato + " g of tomato " + "<br>" + ingredientLeft.salad + " g of salad" + "<br>" + ingredientLeft.redCabbage + " g of red cabbage";
 
         let containerStorage: HTMLElement = document.getElementById("container-storage");
         containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + storageLeft.salad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
 
 
+    }
+    function reorderMaterials(_event: Event): void {
+        ingredientLeft = {
+            salad: capacityMaterial,
+            redCabbage: capacityMaterial,
+            onion: capacityMaterial,
+            corn: capacityMaterial,
+            tomato: capacityMaterial
+        };
+        showCapacity();
     }
     function refillContainer(_event: Event): void {
         storageLeft = {
@@ -161,17 +183,24 @@ namespace DönerTrainer_Endabgabe {
             corn: capacityContainer,
             tomato: capacityContainer
         };
+
+    
         showCapacity();
     }
+
+    
     function updateSalad(_event: Event): void {
 
         storageLeft.salad -= 30;
+        ingredientLeft.salad -= storageLeft.salad;
         showCapacity();
     }
 
     function updateOnion(_event: Event): void {
         storageLeft.onion -= 50;
+        ingredientLeft.onion -= storageLeft.onion;
         showCapacity();
+
     }
 
     function updateCabbage(_event: Event): void {
@@ -228,6 +257,7 @@ namespace DönerTrainer_Endabgabe {
     }
 
 
+    //Kunden enstprechender Anzahl zeichnen lassen und alle 3 minuten neue zeichnen
     function showCustomer(): void {
 
         let interval: number = setInterval(
@@ -244,12 +274,13 @@ namespace DönerTrainer_Endabgabe {
                 }
 
 
+                // tslint:disable-next-line: align
             }, 2000);
 
     }
 
 
-
+    //alle Zutaten zeichnen lassen
     function drawSalad(): void {
         let salad: Salad = new Salad(0, new Vector(100, 475));
         let salad2: Salad = new Salad(0, new Vector(-70, 100));
