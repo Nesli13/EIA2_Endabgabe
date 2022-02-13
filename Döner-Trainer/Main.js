@@ -110,6 +110,8 @@ var DönerTrainer_Endabgabe;
             tomato: Number(formData.get("capacityOfContainers"))
         };
         storageLeft.salad -= 30;
+        storageLeft.onion -= 0;
+        storageLeft.corn -= 0;
         let containerStorage = document.getElementById("container-storage");
         containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + storageLeft.salad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
     }
@@ -121,7 +123,10 @@ var DönerTrainer_Endabgabe;
             corn: Number(formData.get("capacityOfContainers")),
             tomato: Number(formData.get("capacityOfContainers"))
         };
+        storageLeft.salad = storageLeft.salad;
         storageLeft.corn -= 50;
+        let containerStorage = document.getElementById("container-storage");
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + storageLeft.salad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
     }
     function showOrder() {
         getVerse(basis, topping, sauce);
