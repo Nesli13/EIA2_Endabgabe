@@ -70,7 +70,6 @@ var DönerTrainer_Endabgabe;
         DönerTrainer_Endabgabe.canvas = document.querySelector("canvas");
         DönerTrainer_Endabgabe.crc2 = DönerTrainer_Endabgabe.canvas.getContext("2d");
         console.log(DönerTrainer_Endabgabe.crc2);
-        //document.querySelector("#saladButton").addEventListener("click", showCapacity);
         drawCounter(new DönerTrainer_Endabgabe.Vector(100, 475), "#D3d3d3");
         drawCuttingBoard(new DönerTrainer_Endabgabe.Vector(100, 175), "#D3d3d3");
         drawSalad();
@@ -85,10 +84,17 @@ var DönerTrainer_Endabgabe;
         showStaff();
         showCustomer();
         showOrder();
+        let salad = document.querySelector("#saladButton");
+        salad.addEventListener("click", updateCapacity);
+        console.log(salad);
         window.setInterval(update, 20);
+        setInterval(showCustomer, 30000);
     }
     function update() {
         //console.log("");
+    }
+    function updateCapacity(_event) {
+        let storageLeft = 0;
     }
     function showCapacity() {
         let storage = document.getElementById("storage");
@@ -121,18 +127,15 @@ var DönerTrainer_Endabgabe;
         }
     }
     function showCustomer() {
-        for (let i = 0; i < customerAomunt; i++) {
+        let interval = setInterval(function () {
             let customer = new DönerTrainer_Endabgabe.Customer(new DönerTrainer_Endabgabe.Vector(-100, 0));
             customers.push(customer);
-        }
-        for (let customer of customers) {
-            let interval = setInterval(function () {
-                customer.draw();
-            }, 2000);
-            if (interval >= customerAomunt) {
+            customer.draw();
+            if (customers.length == customerAomunt) {
                 clearInterval(interval);
+                customers.length = 0;
             }
-        }
+        }, 2000);
     }
     function drawSalad() {
         let salad = new DönerTrainer_Endabgabe.Salad(new DönerTrainer_Endabgabe.Vector(100, 475));

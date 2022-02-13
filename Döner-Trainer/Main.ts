@@ -78,12 +78,10 @@ namespace DönerTrainer_Endabgabe {
         document.getElementById("sauceButton2").hidden = false;
         document.getElementById("happiness").hidden = false;
 
-
-
         canvas = document.querySelector("canvas")!;
         crc2 = canvas.getContext("2d")!;
         console.log(crc2);
-        //document.querySelector("#saladButton").addEventListener("click", showCapacity);
+
 
         drawCounter(new Vector(100, 475), "#D3d3d3");
         drawCuttingBoard(new Vector(100, 175), "#D3d3d3");
@@ -99,15 +97,27 @@ namespace DönerTrainer_Endabgabe {
         showCapacity();
         showStaff();
         showCustomer();
-
         showOrder();
+
+        let salad: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#saladButton");
+        salad.addEventListener("click", updateCapacity);
+        console.log(salad);
+
+
         window.setInterval(update, 20);
 
-
+        setInterval(showCustomer, 30000);
     }
 
     function update(): void {
         //console.log("");
+    }
+
+    function updateCapacity(_event: Event): void {
+        let storageLeft: number = 0;
+
+
+
     }
 
     function showCapacity(): void {
@@ -150,26 +160,28 @@ namespace DönerTrainer_Endabgabe {
 
         }
     }
+
+
     function showCustomer(): void {
 
-        for (let i: number = 0; i < customerAomunt; i++) {
-            let customer: Customer = new Customer(new Vector(-100, 0));
-            customers.push(customer);
+        let interval: number = setInterval(
+
+            function (): void {
+
+                let customer: Customer = new Customer(new Vector(-100, 0));
+                customers.push(customer);
+                customer.draw();
+
+                if (customers.length == customerAomunt) {
+                    clearInterval(interval);
+                    customers.length = 0;
+                }
 
 
-        }
-        for (let customer of customers) {
-            let interval: number = setInterval(
-                function (): void {
-                    customer.draw();
-
-                }, 2000);
-            if (interval >= customerAomunt) {
-                clearInterval(interval);
-            }
-        }
+            }, 2000);
 
     }
+
 
 
     function drawSalad(): void {
