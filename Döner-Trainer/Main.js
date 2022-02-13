@@ -16,14 +16,11 @@ var DönerTrainer_Endabgabe;
     //let orders: Order[] = [];
     //let persons:Person[] = [];
     let ingredients = [];
-    let storage = [];
     let formData;
     let basis = ["Döner", "Lahmacun", "Yufka"];
     let topping = ["onion", "salad", "red cabbage", "corn", "tomato"];
     let sauce = ["sauce", "hot-sauce"];
-    let newCapacitySalad;
-    let newCapacityCabbage;
-    let newCapacityOnion;
+    let storageLeft;
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
         let startGameButton = document.querySelector("#startGameButton");
@@ -53,6 +50,13 @@ var DönerTrainer_Endabgabe;
         breakofStaff = Number(formData.get("restPeriodOfStaff"));
         capacityMaterial = Number(formData.get("capacityOfMaterials"));
         capacityContainer = Number(formData.get("capacityOfContainers"));
+        storageLeft = {
+            salad: capacityContainer,
+            redCabbage: capacityContainer,
+            onion: capacityContainer,
+            corn: capacityContainer,
+            tomato: capacityContainer
+        };
         console.log("staffAmount" + staffAmount, "customerAmount" + customerAomunt, "brekofStaff" + breakofStaff + "capacitymaterial" + capacityMaterial + "capacitycontainer" + capacityContainer);
         console.log(breakofStaff);
         createGameScreen();
@@ -88,17 +92,16 @@ var DönerTrainer_Endabgabe;
         showStaff();
         showCustomer();
         showOrder();
-        let salad = new DönerTrainer_Endabgabe.Ingredient();
         let saladBtn = document.querySelector("#saladButton");
         saladBtn.addEventListener("click", updateSalad);
         let onionBtn = document.querySelector("#onionButton");
         onionBtn.addEventListener("click", updateOnion);
         let redCabbageBtn = document.querySelector("#redCabbageButton");
         redCabbageBtn.addEventListener("click", updateCabbage);
-        /*let tomatoBtn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#tomatoButton");
+        let tomatoBtn = document.querySelector("#tomatoButton");
         tomatoBtn.addEventListener("click", updateTomato);
-        let cornBtn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#cornButton");
-        cornBtn.addEventListener("click", updateCorn);*/
+        let cornBtn = document.querySelector("#cornButton");
+        cornBtn.addEventListener("click", updateCorn);
         window.setInterval(update, 20);
         setInterval(showCustomer, 30000);
     }
@@ -109,44 +112,29 @@ var DönerTrainer_Endabgabe;
         let storage = document.getElementById("storage");
         storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + " kg of red cabbage";
         let containerStorage = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityContainer + " g of onion " + "<br>" + capacityContainer + " g of corn " + "<br>" + capacityContainer + " g of tomato " + "<br>" + capacityContainer + " g of salad" + "<br>" + capacityContainer + " g of red cabbage";
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + storageLeft.salad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
     }
     function updateSalad(_event) {
-        let storageLeft = {
-            salad: capacityContainer,
-            redCabbage: capacityContainer,
-            onion: capacityContainer,
-            corn: capacityContainer,
-            tomato: capacityContainer
-        };
-        newCapacitySalad = storageLeft.salad -= 30;
-        let containerStorage = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + newCapacitySalad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
+        storageLeft.salad -= 30;
+        showCapacity();
     }
     function updateOnion(_event) {
-        let storageLeft = {
-            salad: newCapacitySalad,
-            redCabbage: capacityContainer,
-            onion: capacityContainer,
-            corn: capacityContainer,
-            tomato: capacityContainer
-        };
-        newCapacityOnion = storageLeft.onion -= 50;
-        let containerStorage = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + newCapacityOnion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + newCapacitySalad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
+        storageLeft.onion -= 50;
+        showCapacity();
     }
     function updateCabbage(_event) {
-        let storageLeft = {
-            salad: newCapacitySalad,
-            redCabbage: capacityContainer,
-            onion: newCapacityOnion,
-            corn: capacityContainer,
-            tomato: capacityContainer
-        };
-        newCapacityCabbage = storageLeft.redCabbage -= 40;
-        let containerStorage = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + newCapacityOnion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + newCapacitySalad + " g of salad" + "<br>" + newCapacityCabbage + " g of red cabbage";
+        storageLeft.redCabbage -= 40;
+        showCapacity();
     }
+    function updateCorn(_event) {
+        storageLeft.corn -= 20;
+        showCapacity();
+    }
+    function updateTomato(_event) {
+        storageLeft.tomato -= 50;
+        showCapacity();
+    }
+    //gebe random Bestellungen aus
     function showOrder() {
         getVerse(basis, topping, sauce);
     }

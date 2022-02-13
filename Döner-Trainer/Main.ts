@@ -14,18 +14,10 @@ namespace DönerTrainer_Endabgabe {
     //let orders: Order[] = [];
     //let persons:Person[] = [];
     let ingredients: Ingredient[] = [];
-    let storage: Ingredient[] = [];
     let formData: FormData;
     let basis: string[] = ["Döner", "Lahmacun", "Yufka"];
     let topping: string[] = ["onion", "salad", "red cabbage", "corn", "tomato"];
     let sauce: string[] = ["sauce", "hot-sauce"];
-
-    let newCapacitySalad: number;
-    let newCapacityCabbage: number;
-    let newCapacityOnion: number;
-    //let newCapacityCorn: number;
-    //let newCapacityTomato: number;
-
 
     interface Storage {
         salad: number;
@@ -35,6 +27,7 @@ namespace DönerTrainer_Endabgabe {
         tomato: number;
 
     }
+    let storageLeft: Storage;
 
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement | null;
@@ -74,6 +67,13 @@ namespace DönerTrainer_Endabgabe {
         capacityMaterial = Number(formData.get("capacityOfMaterials"));
         capacityContainer = Number(formData.get("capacityOfContainers"));
 
+        storageLeft = {
+            salad: capacityContainer,
+            redCabbage: capacityContainer,
+            onion: capacityContainer,
+            corn: capacityContainer,
+            tomato: capacityContainer
+        };
 
         console.log("staffAmount" + staffAmount, "customerAmount" + customerAomunt, "brekofStaff" + breakofStaff + "capacitymaterial" + capacityMaterial + "capacitycontainer" + capacityContainer);
         console.log(breakofStaff);
@@ -117,19 +117,20 @@ namespace DönerTrainer_Endabgabe {
         showStaff();
         showCustomer();
         showOrder();
-        let salad: Ingredient = new Ingredient();
+
+
         let saladBtn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#saladButton");
         saladBtn.addEventListener("click", updateSalad);
         let onionBtn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#onionButton");
         onionBtn.addEventListener("click", updateOnion);
         let redCabbageBtn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#redCabbageButton");
         redCabbageBtn.addEventListener("click", updateCabbage);
-        /*let tomatoBtn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#tomatoButton");
+        let tomatoBtn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#tomatoButton");
         tomatoBtn.addEventListener("click", updateTomato);
         let cornBtn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#cornButton");
-        cornBtn.addEventListener("click", updateCorn);*/
+        cornBtn.addEventListener("click", updateCorn);
 
-        
+
         window.setInterval(update, 20);
 
         setInterval(showCustomer, 30000);
@@ -147,60 +148,41 @@ namespace DönerTrainer_Endabgabe {
         storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + " kg of red cabbage";
 
         let containerStorage: HTMLElement = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + capacityContainer + " g of onion " + "<br>" + capacityContainer + " g of corn " + "<br>" + capacityContainer + " g of tomato " + "<br>" + capacityContainer + " g of salad" + "<br>" + capacityContainer + " g of red cabbage";
+        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + storageLeft.salad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
 
 
     }
 
     function updateSalad(_event: Event): void {
 
-        let storageLeft: Storage = {
-            salad: capacityContainer,
-            redCabbage: capacityContainer,
-            onion: capacityContainer,
-            corn: capacityContainer,
-            tomato: capacityContainer
-        };
-
-        newCapacitySalad = storageLeft.salad -= 30;
-
-
-        let containerStorage: HTMLElement = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + newCapacitySalad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
-
+        storageLeft.salad -= 30;
+        showCapacity();
     }
 
     function updateOnion(_event: Event): void {
-
-        let storageLeft: Storage = {
-            salad: newCapacitySalad,
-            redCabbage: capacityContainer,
-            onion: capacityContainer,
-            corn: capacityContainer,
-            tomato: capacityContainer
-        };
-
-        newCapacityOnion = storageLeft.onion -= 50;
-
-        let containerStorage: HTMLElement = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + newCapacityOnion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + newCapacitySalad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
+        storageLeft.onion -= 50;
+        showCapacity();
     }
+
     function updateCabbage(_event: Event): void {
 
-        let storageLeft: Storage = {
-            salad: newCapacitySalad,
-            redCabbage: capacityContainer,
-            onion: newCapacityOnion,
-            corn: capacityContainer,
-            tomato: capacityContainer
-        };
+        storageLeft.redCabbage -= 40;
 
-        newCapacityCabbage = storageLeft.redCabbage -= 40;
-
-        let containerStorage: HTMLElement = document.getElementById("container-storage");
-        containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + newCapacityOnion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + newCapacitySalad + " g of salad" + "<br>" + newCapacityCabbage + " g of red cabbage";
+        showCapacity();
     }
+    function updateCorn(_event: Event): void {
 
+        storageLeft.corn -= 20;
+
+        showCapacity();
+    }
+    function updateTomato(_event: Event): void {
+
+        storageLeft.tomato -= 50;
+
+        showCapacity();
+    }
+    //gebe random Bestellungen aus
     function showOrder(): void {
 
         getVerse(basis, topping, sauce);
@@ -260,53 +242,53 @@ namespace DönerTrainer_Endabgabe {
 
     function drawSalad(): void {
         let salad: Salad = new Salad(0, new Vector(100, 475));
-        let salad2: Salad = new Salad( 0, new Vector(-70, 100));
+        let salad2: Salad = new Salad(0, new Vector(-70, 100));
         ingredients.push(salad, salad2);
         console.log(ingredients);
     }
 
     function drawRedCabbage(): void {
         let redCabbage: RedCabbage = new RedCabbage(0, new Vector(100, 238));
-        let redCabbage2: RedCabbage = new RedCabbage( 0, new Vector(-40, 100));
+        let redCabbage2: RedCabbage = new RedCabbage(0, new Vector(-40, 100));
         ingredients.push(redCabbage, redCabbage2);
         console.log(ingredients);
 
     }
     function drawOnion(): void {
-        let onion: Onion = new Onion( 0, new Vector(150, 238));
-        let onion2: Onion = new Onion( 0, new Vector(-10, 100));
+        let onion: Onion = new Onion(0, new Vector(150, 238));
+        let onion2: Onion = new Onion(0, new Vector(-10, 100));
         ingredients.push(onion, onion2);
         console.log(ingredients);
 
     }
     function drawCorn(): void {
-        let corn: Corn = new Corn( 0, new Vector(24, 50));
+        let corn: Corn = new Corn(0, new Vector(24, 50));
         let corn2: Corn = new Corn(0, new Vector(193, 162));
         ingredients.push(corn, corn2);
         console.log(ingredients);
 
     }
     function drawTomato(): void {
-        let tomato: Tomato = new Tomato( 0, new Vector(42, 26));
-        let tomato2: Tomato = new Tomato( 0, new Vector(243, 163));
+        let tomato: Tomato = new Tomato(0, new Vector(42, 26));
+        let tomato2: Tomato = new Tomato(0, new Vector(243, 163));
         ingredients.push(tomato, tomato2);
         console.log(ingredients);
 
     }
     function drawDoenerKebap(): void {
-        let doener: DoenerKebap = new DoenerKebap( 0, new Vector(-10, -90));
+        let doener: DoenerKebap = new DoenerKebap(0, new Vector(-10, -90));
         ingredients.push(doener);
         console.log(ingredients);
 
     }
     function drawLahmacun(): void {
-        let lahmacun: Lahmacun = new Lahmacun( 0, new Vector(85, 40));
+        let lahmacun: Lahmacun = new Lahmacun(0, new Vector(85, 40));
         ingredients.push(lahmacun);
         console.log(ingredients);
 
     }
     function drawYufka(): void {
-        let yufka: Yufka = new Yufka( 0, new Vector(-40, 10));
+        let yufka: Yufka = new Yufka(0, new Vector(-40, 10));
         ingredients.push(yufka);
         console.log(ingredients);
         for (let ingredient of ingredients) {
