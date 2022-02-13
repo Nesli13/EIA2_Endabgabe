@@ -260,54 +260,54 @@ namespace DönerTrainer_Endabgabe {
 
 
     function drawSalad(): void {
-        let salad: Salad = new Salad(0, new Vector(100, 475));
-        let salad2: Salad = new Salad(0, new Vector(-70, 100));
+        let salad: Salad = new Salad(0, 0, new Vector(100, 475));
+        let salad2: Salad = new Salad(0, 0, new Vector(-70, 100));
         ingredients.push(salad, salad2);
         console.log(ingredients);
     }
 
     function drawRedCabbage(): void {
-        let redCabbage: RedCabbage = new RedCabbage(0,new Vector(100, 238));
-        let redCabbage2: RedCabbage = new RedCabbage(0,new Vector(-40, 100));
+        let redCabbage: RedCabbage = new RedCabbage(0, 0, new Vector(100, 238));
+        let redCabbage2: RedCabbage = new RedCabbage(0, 0, new Vector(-40, 100));
         ingredients.push(redCabbage, redCabbage2);
         console.log(ingredients);
 
     }
     function drawOnion(): void {
-        let onion: Onion = new Onion(0,new Vector(150, 238));
-        let onion2: Onion = new Onion(0,new Vector(-10, 100));
+        let onion: Onion = new Onion(0, 0, new Vector(150, 238));
+        let onion2: Onion = new Onion(0, 0, new Vector(-10, 100));
         ingredients.push(onion, onion2);
         console.log(ingredients);
 
     }
     function drawCorn(): void {
-        let corn: Corn = new Corn(0,new Vector(24, 50));
-        let corn2: Corn = new Corn(0,new Vector(193, 162));
+        let corn: Corn = new Corn(0, 0, new Vector(24, 50));
+        let corn2: Corn = new Corn(0, 0, new Vector(193, 162));
         ingredients.push(corn, corn2);
         console.log(ingredients);
 
     }
     function drawTomato(): void {
-        let tomato: Tomato = new Tomato(0,new Vector(42, 26));
-        let tomato2: Tomato = new Tomato(0,new Vector(243, 163));
+        let tomato: Tomato = new Tomato(0, 0, new Vector(42, 26));
+        let tomato2: Tomato = new Tomato(0, 0, new Vector(243, 163));
         ingredients.push(tomato, tomato2);
         console.log(ingredients);
 
     }
     function drawDoenerKebap(): void {
-        let doener: DoenerKebap = new DoenerKebap(0,new Vector(-10, -90));
+        let doener: DoenerKebap = new DoenerKebap(0, 0, new Vector(-10, -90));
         ingredients.push(doener);
         console.log(ingredients);
 
     }
     function drawLahmacun(): void {
-        let lahmacun: Lahmacun = new Lahmacun(0,new Vector(85, 40));
+        let lahmacun: Lahmacun = new Lahmacun(0, 0, new Vector(85, 40));
         ingredients.push(lahmacun);
         console.log(ingredients);
 
     }
     function drawYufka(): void {
-        let yufka: Yufka = new Yufka(0,new Vector(-40, 10));
+        let yufka: Yufka = new Yufka(0, 0, new Vector(-40, 10));
         ingredients.push(yufka);
         console.log(ingredients);
         for (let ingredient of ingredients) {

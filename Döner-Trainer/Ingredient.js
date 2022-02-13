@@ -8,12 +8,13 @@ var DönerTrainer_Endabgabe;
         amount;
         foodAmount;
         type;
-        constructor(_foodAmount, _position) {
+        constructor(_foodAmount, _amount, _position) {
             if (_position)
                 this.position = _position;
             else
                 this.position = new DönerTrainer_Endabgabe.Vector(0, 0);
             this.foodAmount = _foodAmount;
+            this.amount = _amount;
         }
     }
     DönerTrainer_Endabgabe.Ingredient = Ingredient;

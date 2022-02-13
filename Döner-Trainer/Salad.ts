@@ -1,8 +1,8 @@
 namespace DönerTrainer_Endabgabe {
     export class Salad extends Ingredient {
         
-        constructor(_foodAmount: number, _position?: Vector) {
-            super(_foodAmount, _position);
+        constructor(_foodAmount: number, _amount?: number, _position?: Vector) {
+            super(_foodAmount, _amount, _position);
         }
         draw(): void {
                 crc2.beginPath();

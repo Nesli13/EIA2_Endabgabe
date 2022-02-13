@@ -9,13 +9,13 @@ namespace DönerTrainer_Endabgabe {
         protected type: string;
 
 
-        constructor(_foodAmount: number, _position?: Vector) {
+        constructor(_foodAmount: number, _amount?: number, _position?: Vector) {
             if (_position)
                 this.position = _position;
             else
                 this.position = new Vector(0, 0);
             this.foodAmount = _foodAmount;
-
+            this.amount = _amount;
         }
 
         public abstract draw(): void;
