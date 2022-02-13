@@ -38,6 +38,8 @@ namespace DönerTrainer_Endabgabe {
         document.getElementById("cornButton").hidden = true;
         document.getElementById("sauceButton").hidden = true;
         document.getElementById("sauceButton2").hidden = true;
+        document.getElementById("happiness").hidden = true;
+
 
 
     }
@@ -74,6 +76,7 @@ namespace DönerTrainer_Endabgabe {
         document.getElementById("cornButton").hidden = false;
         document.getElementById("sauceButton").hidden = false;
         document.getElementById("sauceButton2").hidden = false;
+        document.getElementById("happiness").hidden = false;
 
 
 
@@ -106,7 +109,7 @@ namespace DönerTrainer_Endabgabe {
     function update(): void {
         //console.log("");
     }
-    
+
     function showCapacity(): void {
 
         let storage: HTMLElement = document.getElementById("storage");
@@ -148,6 +151,7 @@ namespace DönerTrainer_Endabgabe {
         }
     }
     function showCustomer(): void {
+
         for (let i: number = 0; i < customerAomunt; i++) {
             let customer: Customer = new Customer(new Vector(-100, 0));
             customers.push(customer);
@@ -155,13 +159,13 @@ namespace DönerTrainer_Endabgabe {
 
         }
         for (let customer of customers) {
-            setInterval(
+            let interval: number = setInterval(
                 function (): void {
                     customer.draw();
 
                 }, 2000);
-            if (customers.length == customerAomunt) {
-                break;
+            if (interval >= customerAomunt) {
+                clearInterval(interval);
             }
         }
 

@@ -7,16 +7,50 @@
     }
 }
 
-progress {
-    width: 400px;
-    height: 20px;
-    border-radius: 4px;
+#happiness {
     position: absolute;
-    left: 10px;
-    top: 80px;
-    box-shadow: 0 3px 6px rgba(255, 255, 0, 255) inset;
+    left: 300px;
+    top: 120px
 }
 
+.progress {
+    position: relative;
+    height: 10px;
+    width: 300px;
+    border: 2px solid darkgray;
+    border-radius: 15px;
+    left: 300px;
+    top: -760px;
+}
+
+.progress .color {
+    position: absolute;
+    background-color: lightblue;
+    width: 0px;
+    height: 10px;
+    border-radius: 5px;
+    animation: progress 320s;
+}
+
+@keyframes progress {
+    0% {
+        width: 100%;
+    }
+    25% {
+        width: 85%;
+    }
+    50% {
+        width: 75%;
+    }
+    75% {
+        width: 25%;
+    }
+    100% {
+        width: 0%;
+    }
+}
+
+;
 html,
 body {
     height: 100%;
@@ -180,7 +214,7 @@ canvas {
 #doenerButton {
     position: relative;
     left: 395px;
-    top: -300px;
+    top: -310px;
     border-radius: 10px;
     border: 2px double white;
     background: none;
@@ -195,7 +229,7 @@ canvas {
 #yufkaButton {
     position: relative;
     left: 335px;
-    top: -220px;
+    top: -235px;
     border-radius: 10px;
     border: 2px double white;
     background: none;
@@ -210,7 +244,7 @@ canvas {
 #lahmacunButton {
     position: relative;
     left: 357px;
-    top: -270px;
+    top: -280px;
     border-radius: 10px;
     border: 2px double white;
     background: none;
@@ -225,7 +259,7 @@ canvas {
 #saladButton {
     position: relative;
     left: 400px;
-    top: -310px;
+    top: -320px;
     border-radius: 10px;
     border: 2px double #131212;
     background: none;
@@ -240,7 +274,7 @@ canvas {
 #redCabbageButton {
     position: relative;
     left: 440px;
-    top: -310px;
+    top: -320px;
     border-radius: 10px;
     border: 2px double #131212;
     background: none;
@@ -255,7 +289,7 @@ canvas {
 #onionButton {
     position: relative;
     left: 480px;
-    top: -310px;
+    top: -320px;
     border-radius: 10px;
     border: 2px double #131212;
     background: none;
@@ -270,7 +304,7 @@ canvas {
 #cornButton {
     position: relative;
     left: 470px;
-    top: -310px;
+    top: -320px;
     border-radius: 10px;
     border: 2px double #131212;
     background: none;
@@ -285,7 +319,7 @@ canvas {
 #tomatoButton {
     position: relative;
     left: 620px;
-    top: -310px;
+    top: -320px;
     border-radius: 10px;
     border: 2px double #131212;
     background: none;
@@ -300,7 +334,7 @@ canvas {
 #sauceButton {
     position: relative;
     left: 600px;
-    top: -310px;
+    top: -320px;
     border-radius: 10px;
     border: 2px double #131212;
     background: none;
@@ -316,7 +350,7 @@ canvas {
 #sauceButton2 {
     position: relative;
     left: 600px;
-    top: -320px;
+    top: -330px;
     border-radius: 10px;
     border: 2px double #131212;
     background: none;

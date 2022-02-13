@@ -36,6 +36,7 @@ var DönerTrainer_Endabgabe;
         document.getElementById("cornButton").hidden = true;
         document.getElementById("sauceButton").hidden = true;
         document.getElementById("sauceButton2").hidden = true;
+        document.getElementById("happiness").hidden = true;
     }
     function prepareGame(_event) {
         formData = new FormData(document.forms[0]);
@@ -65,6 +66,7 @@ var DönerTrainer_Endabgabe;
         document.getElementById("cornButton").hidden = false;
         document.getElementById("sauceButton").hidden = false;
         document.getElementById("sauceButton2").hidden = false;
+        document.getElementById("happiness").hidden = false;
         DönerTrainer_Endabgabe.canvas = document.querySelector("canvas");
         DönerTrainer_Endabgabe.crc2 = DönerTrainer_Endabgabe.canvas.getContext("2d");
         console.log(DönerTrainer_Endabgabe.crc2);
@@ -124,11 +126,11 @@ var DönerTrainer_Endabgabe;
             customers.push(customer);
         }
         for (let customer of customers) {
-            setInterval(function () {
+            let interval = setInterval(function () {
                 customer.draw();
             }, 2000);
-            if (customers.length == customerAomunt) {
-                break;
+            if (interval >= customerAomunt) {
+                clearInterval(interval);
             }
         }
     }
