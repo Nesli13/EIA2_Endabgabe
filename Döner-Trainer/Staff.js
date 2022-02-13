@@ -2,7 +2,7 @@
 var DönerTrainer_Endabgabe;
 (function (DönerTrainer_Endabgabe) {
     class Staff extends DönerTrainer_Endabgabe.Person {
-        constructor(_position, _size) {
+        constructor(_position) {
             super(_position);
             if (_position)
                 this.position = _position.copy(); //neuen Vector mit den gleichen Werten

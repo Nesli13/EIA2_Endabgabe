@@ -1,7 +1,7 @@
 namespace DönerTrainer_Endabgabe {
     export class Staff extends Person {
 
-        constructor(_position?: Vector, _size?: Vector) {
+        constructor(_position?: Vector) {
             super(_position);
             if (_position)
                 this.position = _position.copy(); //neuen Vector mit den gleichen Werten

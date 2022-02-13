@@ -5,7 +5,9 @@ namespace DönerTrainer_Endabgabe {
         public containerAmount: number;
         public size: Vector;
         public amount: number;
+        public foodAmount: number;
         protected type: string;
+
 
         constructor(_position: Vector) {
             if (_position)

@@ -68,6 +68,7 @@ var DönerTrainer_Endabgabe;
         DönerTrainer_Endabgabe.canvas = document.querySelector("canvas");
         DönerTrainer_Endabgabe.crc2 = DönerTrainer_Endabgabe.canvas.getContext("2d");
         console.log(DönerTrainer_Endabgabe.crc2);
+        //document.querySelector("#saladButton").addEventListener("click", showCapacity);
         drawCounter(new DönerTrainer_Endabgabe.Vector(100, 475), "#D3d3d3");
         drawCuttingBoard(new DönerTrainer_Endabgabe.Vector(100, 175), "#D3d3d3");
         drawSalad();
@@ -82,11 +83,11 @@ var DönerTrainer_Endabgabe;
         showStaff();
         showCustomer();
         showOrder();
-        //window.setInterval(update, 20);
+        window.setInterval(update, 20);
     }
-    /*function update(): void {
+    function update() {
         //console.log("");
-    }*/
+    }
     function showCapacity() {
         let storage = document.getElementById("storage");
         storage.innerHTML = "Storage" + "<br>" + "<br>" + capacityMaterial + " kg of meat " + "<br>" + capacityMaterial + " kg of onion " + "<br>" + capacityMaterial + " kg of corn " + "<br>" + capacityMaterial + " kg of tomato " + "<br>" + capacityMaterial + " kg of salad" + "<br>" + capacityMaterial + " kg of red cabbage";
@@ -129,7 +130,6 @@ var DönerTrainer_Endabgabe;
             if (customers.length == customerAomunt) {
                 break;
             }
-            ;
         }
     }
     function drawSalad() {

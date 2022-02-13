@@ -6,6 +6,7 @@ var DönerTrainer_Endabgabe;
         containerAmount;
         size;
         amount;
+        foodAmount;
         type;
         constructor(_position) {
             if (_position)

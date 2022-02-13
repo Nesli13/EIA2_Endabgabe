@@ -80,6 +80,7 @@ namespace DönerTrainer_Endabgabe {
         canvas = document.querySelector("canvas")!;
         crc2 = canvas.getContext("2d")!;
         console.log(crc2);
+        //document.querySelector("#saladButton").addEventListener("click", showCapacity);
 
         drawCounter(new Vector(100, 475), "#D3d3d3");
         drawCuttingBoard(new Vector(100, 175), "#D3d3d3");
@@ -97,14 +98,15 @@ namespace DönerTrainer_Endabgabe {
         showCustomer();
 
         showOrder();
-        //window.setInterval(update, 20);
+        window.setInterval(update, 20);
 
 
     }
 
-    /*function update(): void {
+    function update(): void {
         //console.log("");
-    }*/
+    }
+    
     function showCapacity(): void {
 
         let storage: HTMLElement = document.getElementById("storage");
@@ -157,10 +159,10 @@ namespace DönerTrainer_Endabgabe {
                 function (): void {
                     customer.draw();
 
-                }, 2000)
+                }, 2000);
             if (customers.length == customerAomunt) {
                 break;
-            };
+            }
         }
 
     }
