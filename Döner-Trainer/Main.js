@@ -148,24 +148,42 @@ var DönerTrainer_Endabgabe;
     }
     function updateSalad(_event) {
         storageLeft.salad -= 30;
+        if (storageLeft.salad <= 0) {
+            alert("Please refill salad!");
+        }
         ingredientLeft.salad -= storageLeft.salad;
         showCapacity();
     }
     function updateOnion(_event) {
+        if (storageLeft.onion <= 0) {
+            alert("Please refill onion!");
+        }
         storageLeft.onion -= 50;
         ingredientLeft.onion -= storageLeft.onion;
         showCapacity();
     }
     function updateCabbage(_event) {
+        if (storageLeft.redCabbage <= 0) {
+            alert("Please refill red cabbage!");
+        }
         storageLeft.redCabbage -= 40;
+        ingredientLeft.redCabbage -= storageLeft.redCabbage;
         showCapacity();
     }
     function updateCorn(_event) {
+        if (storageLeft.corn <= 0) {
+            alert("Please refill corn!");
+        }
         storageLeft.corn -= 20;
+        ingredientLeft.corn -= storageLeft.corn;
         showCapacity();
     }
     function updateTomato(_event) {
+        if (storageLeft.tomato <= 0) {
+            alert("Please refill tomato!");
+        }
         storageLeft.tomato -= 50;
+        ingredientLeft.tomato -= storageLeft.tomato;
         showCapacity();
     }
     //gebe random Bestellungen aus

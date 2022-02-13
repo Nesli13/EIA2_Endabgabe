@@ -184,19 +184,25 @@ namespace DönerTrainer_Endabgabe {
             tomato: capacityContainer
         };
 
-    
+
         showCapacity();
     }
 
-    
-    function updateSalad(_event: Event): void {
 
+    function updateSalad(_event: Event): void {
         storageLeft.salad -= 30;
+        if (storageLeft.salad <= 0) {
+            alert("Please refill salad!");
+        }
+
         ingredientLeft.salad -= storageLeft.salad;
         showCapacity();
     }
 
     function updateOnion(_event: Event): void {
+        if (storageLeft.onion <= 0) {
+            alert("Please refill onion!");
+        }
         storageLeft.onion -= 50;
         ingredientLeft.onion -= storageLeft.onion;
         showCapacity();
@@ -204,20 +210,29 @@ namespace DönerTrainer_Endabgabe {
     }
 
     function updateCabbage(_event: Event): void {
-
+        if (storageLeft.redCabbage <= 0) {
+            alert("Please refill red cabbage!");
+        }
         storageLeft.redCabbage -= 40;
+        ingredientLeft.redCabbage -= storageLeft.redCabbage;
 
         showCapacity();
     }
     function updateCorn(_event: Event): void {
-
+        if (storageLeft.corn <= 0) {
+            alert("Please refill corn!");
+        }
         storageLeft.corn -= 20;
+        ingredientLeft.corn -= storageLeft.corn;
 
         showCapacity();
     }
     function updateTomato(_event: Event): void {
-
+        if (storageLeft.tomato <= 0) {
+            alert("Please refill tomato!");
+        }
         storageLeft.tomato -= 50;
+        ingredientLeft.tomato -= storageLeft.tomato;
 
         showCapacity();
     }
