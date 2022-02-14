@@ -1,5 +1,5 @@
 namespace DönerTrainer_Endabgabe {
-    export abstract class Person {
+    export abstract class Person  {
 
         public position: Vector;
         public velocity: Vector;

@@ -1,5 +1,5 @@
 namespace DönerTrainer_Endabgabe {
-
+    
     let staffAmount: number;
     let customerAomunt: number;
     let breakofStaff: number;
@@ -14,8 +14,6 @@ namespace DönerTrainer_Endabgabe {
     let basis: string[] = ["Döner with meat", "Lahmacun with minced meat", "Yufka with meat"];
     let topping: string[] = ["onion", "salad", "red cabbage", "corn", "tomato"];
     let sauce: string[] = ["sauce", "hot-sauce"];
-    //let soldMeals: number = 0;
-    //let formData: FormData
 
     interface Storage {
         salad: number;
@@ -509,7 +507,7 @@ namespace DönerTrainer_Endabgabe {
         crc2.strokeRect(650, 50, 75, 75);
         crc2.restore();
 
-        //normal sauce Counter
+        //garlic sauce Counter
         crc2.save();
         crc2.translate(_position.x, _position.y);
         crc2.fillStyle = "#F5F5DC";

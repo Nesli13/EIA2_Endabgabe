@@ -20,6 +20,7 @@ namespace DönerTrainer_Endabgabe {
             this.y += _addend.y;
         }
 
+        
         public copy(): Vector {
             return new Vector(this.x, this.y);
         }

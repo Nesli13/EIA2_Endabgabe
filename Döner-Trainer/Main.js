@@ -377,7 +377,7 @@ var DönerTrainer_Endabgabe;
         DönerTrainer_Endabgabe.crc2.strokeStyle = "red";
         DönerTrainer_Endabgabe.crc2.strokeRect(650, 50, 75, 75);
         DönerTrainer_Endabgabe.crc2.restore();
-        //normal sauce Counter
+        //garlic sauce Counter
         DönerTrainer_Endabgabe.crc2.save();
         DönerTrainer_Endabgabe.crc2.translate(_position.x, _position.y);
         DönerTrainer_Endabgabe.crc2.fillStyle = "#F5F5DC";

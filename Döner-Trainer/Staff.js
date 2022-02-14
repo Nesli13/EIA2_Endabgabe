@@ -191,7 +191,15 @@ var DönerTrainer_Endabgabe;
             DönerTrainer_Endabgabe.crc2.restore();
         }
         move() {
-            console.log("mood");
+            console.log("");
+            if (this.position.x < 0)
+                this.position.x += DönerTrainer_Endabgabe.crc2.canvas.width;
+            if (this.position.y < 0)
+                this.position.y += DönerTrainer_Endabgabe.crc2.canvas.height;
+            if (this.position.x > DönerTrainer_Endabgabe.crc2.canvas.width)
+                this.position.x -= DönerTrainer_Endabgabe.crc2.canvas.width;
+            if (this.position.y > DönerTrainer_Endabgabe.crc2.canvas.height)
+                this.position.y -= DönerTrainer_Endabgabe.crc2.canvas.height;
         }
     }
     DönerTrainer_Endabgabe.Staff = Staff;
