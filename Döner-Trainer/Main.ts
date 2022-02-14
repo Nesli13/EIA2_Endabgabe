@@ -14,9 +14,9 @@ namespace DönerTrainer_Endabgabe {
     let basis: string[] = ["Döner with meat", "Lahmacun with minced meat", "Yufka with meat"];
     let topping: string[] = ["onion", "salad", "red cabbage", "corn", "tomato"];
     let sauce: string[] = ["sauce", "hot-sauce"];
-    //let satisfaction: number = 0;
+    //let soldMeals: number = 0;
     //let formData: FormData
-    
+
     interface Storage {
         salad: number;
         redCabbage: number;

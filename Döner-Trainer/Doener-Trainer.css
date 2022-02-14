@@ -97,12 +97,21 @@ canvas {
     border: 2px solid black;
 }
 
-#overallSatisfaction {
+#soldMeals {
     border: 2px double rgb(109, 108, 108);
     margin: auto;
     width: fit-content;
     position: absolute;
     margin-top: -760px;
+    left: 300px;
+}
+
+#overallSatisfaction {
+    border: 2px double rgb(109, 108, 108);
+    margin: auto;
+    width: fit-content;
+    position: absolute;
+    margin-top: -720px;
     left: 300px;
 }
 
@@ -190,7 +199,7 @@ canvas {
 #doenerButton {
     position: relative;
     left: 395px;
-    top: -310px;
+    top: -300px;
     border-radius: 10px;
     border: 2px double white;
     background: none;
@@ -205,7 +214,7 @@ canvas {
 #yufkaButton {
     position: relative;
     left: 335px;
-    top: -235px;
+    top: -220px;
     border-radius: 10px;
     border: 2px double white;
     background: none;
@@ -220,7 +229,7 @@ canvas {
 #lahmacunButton {
     position: relative;
     left: 357px;
-    top: -280px;
+    top: -270px;
     border-radius: 10px;
     border: 2px double white;
     background: none;
@@ -235,7 +244,7 @@ canvas {
 #saladButton {
     position: relative;
     left: 400px;
-    top: -320px;
+    top: -310px;
     border-radius: 10px;
     border: 2px double #131212;
     background: none;
@@ -250,7 +259,7 @@ canvas {
 #redCabbageButton {
     position: relative;
     left: 440px;
-    top: -320px;
+    top: -310px;
     border-radius: 10px;
     border: 2px double #131212;
     background: none;
@@ -265,7 +274,7 @@ canvas {
 #onionButton {
     position: relative;
     left: 480px;
-    top: -320px;
+    top: -310px;
     border-radius: 10px;
     border: 2px double #131212;
     background: none;
@@ -280,7 +289,7 @@ canvas {
 #cornButton {
     position: relative;
     left: 470px;
-    top: -320px;
+    top: -310px;
     border-radius: 10px;
     border: 2px double #131212;
     background: none;
@@ -295,7 +304,7 @@ canvas {
 #tomatoButton {
     position: relative;
     left: 620px;
-    top: -320px;
+    top: -310px;
     border-radius: 10px;
     border: 2px double #131212;
     background: none;
@@ -310,7 +319,7 @@ canvas {
 #sauceButton {
     position: relative;
     left: 600px;
-    top: -320px;
+    top: -310px;
     border-radius: 10px;
     border: 2px double #131212;
     background: none;
@@ -326,7 +335,7 @@ canvas {
 #hot-sauceButton {
     position: relative;
     left: 600px;
-    top: -330px;
+    top: -320px;
     border-radius: 10px;
     border: 2px double #131212;
     background: none;
