@@ -514,7 +514,7 @@ namespace DönerTrainer_Endabgabe {
         crc2.save();
         crc2.translate(_position.x, _position.y);
         crc2.fillStyle = "#F5F5DC";
-        crc2.fillRect(750, 520, 35, 75);
+        crc2.fillRect(750, 50, 35, 75);
         crc2.restore();
 
         //hot sauce Counter

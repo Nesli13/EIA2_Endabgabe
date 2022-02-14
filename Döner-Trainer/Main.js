@@ -385,7 +385,7 @@ var DönerTrainer_Endabgabe;
         DönerTrainer_Endabgabe.crc2.save();
         DönerTrainer_Endabgabe.crc2.translate(_position.x, _position.y);
         DönerTrainer_Endabgabe.crc2.fillStyle = "#F5F5DC";
-        DönerTrainer_Endabgabe.crc2.fillRect(750, 520, 35, 75);
+        DönerTrainer_Endabgabe.crc2.fillRect(750, 50, 35, 75);
         DönerTrainer_Endabgabe.crc2.restore();
         //hot sauce Counter
         DönerTrainer_Endabgabe.crc2.save();
