@@ -1,8 +1,8 @@
 namespace DönerTrainer_Endabgabe {
     export class Staff extends Person {
 
-        constructor(_position?: Vector) {
-            super(_position);
+        constructor(_position: Vector, _velocity?: Vector) {
+            super(_position, _velocity);
             if (_position)
                 this.position = _position.copy(); //neuen Vector mit den gleichen Werten
             else
@@ -214,10 +214,6 @@ namespace DönerTrainer_Endabgabe {
 
         }
 
-
-        public mood(): void {
-            console.log("mood");
-        }
         public move(): void {
             console.log("mood");
         }

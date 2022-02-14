@@ -2,9 +2,12 @@
 var DönerTrainer_Endabgabe;
 (function (DönerTrainer_Endabgabe) {
     class Customer extends DönerTrainer_Endabgabe.Person {
-        constructor(_position, _size) {
-            super(_position);
-            this.velocity = new DönerTrainer_Endabgabe.Vector(0, 0);
+        constructor(_position, _velocity) {
+            super(_position, _velocity);
+            if (_position)
+                this.position = _position.copy(); //neuen Vector mit den gleichen Werten
+            else
+                this.position = new DönerTrainer_Endabgabe.Vector(0, 0);
         }
         draw() {
             //happy Customer
@@ -186,9 +189,6 @@ var DönerTrainer_Endabgabe;
             DönerTrainer_Endabgabe.crc2.stroke();
             DönerTrainer_Endabgabe.crc2.save();
             DönerTrainer_Endabgabe.crc2.restore();
-        }
-        mood() {
-            //console.log("mood");
         }
         move(_timeslice) {
             //console.log("move");

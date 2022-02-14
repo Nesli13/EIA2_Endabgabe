@@ -1,8 +1,10 @@
 namespace DönerTrainer_Endabgabe {
     export class Tomato extends Ingredient {
-        constructor( _amount?: number, _containerAmount?: number, _position?: Vector) {
-            super( _amount,_containerAmount, _position);
+
+        constructor(_amount?: number, _containerAmount?: number, _position?: Vector) {
+            super(_amount, _containerAmount, _position);
         }
+
         public draw(): void {
             crc2.beginPath();
             crc2.translate(this.position.x, this.position.y);

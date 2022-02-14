@@ -2,8 +2,8 @@
 var DönerTrainer_Endabgabe;
 (function (DönerTrainer_Endabgabe) {
     class Staff extends DönerTrainer_Endabgabe.Person {
-        constructor(_position) {
-            super(_position);
+        constructor(_position, _velocity) {
+            super(_position, _velocity);
             if (_position)
                 this.position = _position.copy(); //neuen Vector mit den gleichen Werten
             else
@@ -189,9 +189,6 @@ var DönerTrainer_Endabgabe;
             DönerTrainer_Endabgabe.crc2.stroke();
             DönerTrainer_Endabgabe.crc2.save();
             DönerTrainer_Endabgabe.crc2.restore();
-        }
-        mood() {
-            console.log("mood");
         }
         move() {
             console.log("mood");

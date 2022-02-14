@@ -1,6 +1,5 @@
 namespace DönerTrainer_Endabgabe {
     export class Ingredient {
-
         
         protected containerAmount: number;
         protected amount: number;

@@ -1,9 +1,10 @@
 namespace DönerTrainer_Endabgabe {
     export class Corn extends Ingredient {
-        constructor( _amount?: number, _containerAmount?: number, _position?: Vector) {
-            super( _amount,_containerAmount, _position);
+
+        constructor(_amount?: number, _containerAmount?: number, _position?: Vector) {
+            super(_amount, _containerAmount, _position);
         }
-        draw(): void {
+        public draw(): void {
             crc2.beginPath();
             crc2.translate(this.position.x, this.position.y);
             crc2.fillStyle = "yellow";

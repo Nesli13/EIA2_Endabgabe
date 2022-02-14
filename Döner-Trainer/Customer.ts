@@ -1,12 +1,18 @@
 namespace DönerTrainer_Endabgabe {
     export class Customer extends Person {
 
-        constructor(_position?: Vector, _size?: Vector) {
-            super(_position);
-            this.velocity = new Vector(0, 0);
+        constructor(_position: Vector, _velocity?: Vector) {
+            super(_position, _velocity);
+            if (_position)
+                this.position = _position.copy(); //neuen Vector mit den gleichen Werten
+            else
+                this.position = new Vector(0, 0);
+
+
         }
 
         public draw(): void {
+
             //happy Customer
             //body
             crc2.beginPath();
@@ -72,6 +78,7 @@ namespace DönerTrainer_Endabgabe {
             crc2.save();
             crc2.restore();
         }
+
         public drawImpatientCustomer(): void {
             //impatient Customer
             //body
@@ -139,6 +146,7 @@ namespace DönerTrainer_Endabgabe {
             crc2.restore();
 
         }
+
         public drawMadCustomer(): void {
             //mad Customer
             //body
@@ -206,9 +214,7 @@ namespace DönerTrainer_Endabgabe {
             crc2.restore();
         }
 
-        public mood(): void {
-            //console.log("mood");
-        }
+    
         public move(_timeslice: number): void {
             //console.log("move");
 
@@ -229,14 +235,5 @@ namespace DönerTrainer_Endabgabe {
 
 
         }
-
-      /*  public talk(_order: string): void {
-            let basis: string[] = ["flatbread", "meat"];
-            let word: string[] = ["with"];
-            let topping: string[] = ["onions", "tomato", "salad", "red cabbage", "corn"];
-            let sauce: string[] = ["garlic-sauce", "hot-sauce", "cocktailsauce"];
-    
-        
-        }*/
     }
 }

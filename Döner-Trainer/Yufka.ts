@@ -1,10 +1,11 @@
 namespace DönerTrainer_Endabgabe {
     export class Yufka extends Ingredient {
-        constructor( _amount?: number, _containerAmount?: number, _position?: Vector) {
-            super( _amount,_containerAmount, _position);
-        }
-        public draw(): void {
 
+        constructor(_amount?: number, _containerAmount?: number, _position?: Vector) {
+            super(_amount, _containerAmount, _position);
+        }
+
+        public draw(): void {
 
             // meat
             crc2.beginPath();

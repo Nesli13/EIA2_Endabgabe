@@ -2,11 +2,9 @@
 var DönerTrainer_Endabgabe;
 (function (DönerTrainer_Endabgabe) {
     class Person {
-        size;
         position;
         velocity;
-        type;
-        constructor(_position) {
+        constructor(_position, _velocity) {
             if (_position)
                 this.position = _position.copy(); //neuen Vector mit den gleichen Werten
             else

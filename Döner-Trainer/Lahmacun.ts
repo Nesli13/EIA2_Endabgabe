@@ -1,7 +1,8 @@
 namespace DönerTrainer_Endabgabe {
     export class Lahmacun extends Ingredient {
-        constructor( _amount?: number, _containerAmount?: number, _position?: Vector) {
-            super( _amount,_containerAmount, _position);
+
+        constructor(_amount?: number, _containerAmount?: number, _position?: Vector) {
+            super(_amount, _containerAmount, _position);
         }
 
         public draw(): void {

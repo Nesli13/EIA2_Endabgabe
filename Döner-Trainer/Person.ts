@@ -1,12 +1,10 @@
 namespace DönerTrainer_Endabgabe {
     export abstract class Person {
-        public size: Vector;
+
         public position: Vector;
         public velocity: Vector;
-        protected type: string;
-        
 
-        constructor(_position: Vector) {
+        constructor(_position: Vector, _velocity: Vector) {
             if (_position)
                 this.position = _position.copy(); //neuen Vector mit den gleichen Werten
             else
@@ -16,7 +14,6 @@ namespace DönerTrainer_Endabgabe {
             //this.velocity.random(100, 200);
 
         }
-        public abstract mood(): void;
         public abstract move(_timeslice: number): void;
         public abstract draw(): void;
     }
