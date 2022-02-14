@@ -7,50 +7,6 @@
     }
 }
 
-#happiness {
-    position: absolute;
-    left: 300px;
-    top: 120px
-}
-
-.progress {
-    position: relative;
-    height: 10px;
-    width: 300px;
-    border: 2px solid darkgray;
-    border-radius: 15px;
-    left: 300px;
-    top: -730px;
-}
-
-.progress .color {
-    position: absolute;
-    background-color: lightblue;
-    width: 0px;
-    height: 10px;
-    border-radius: 5px;
-    animation: progress 320s;
-}
-
-@keyframes progress {
-    0% {
-        width: 100%;
-    }
-    25% {
-        width: 85%;
-    }
-    50% {
-        width: 75%;
-    }
-    75% {
-        width: 25%;
-    }
-    100% {
-        width: 0%;
-    }
-}
-
-;
 html,
 body {
     height: 100%;
@@ -59,7 +15,8 @@ body {
 
 h1 {
     text-align: center;
-    font-family: 'Courier New', Courier, monospace;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(129, 194, 199);
     font-size: xxx-large;
 }
 
@@ -138,6 +95,15 @@ canvas {
     position: relative;
     left: 50%;
     border: 2px solid black;
+}
+
+#overallSatisfaction {
+    border: 2px double rgb(109, 108, 108);
+    margin: auto;
+    width: fit-content;
+    position: absolute;
+    margin-top: -760px;
+    left: 300px;
 }
 
 #storage {

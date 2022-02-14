@@ -8,16 +8,15 @@ var DönerTrainer_Endabgabe;
     let customerAomunt;
     let breakofStaff;
     let capacityMaterial;
-    // let orderList: HTMLDivElement;
-    //let request: Request[];
+    let orderList = [];
+    let request = [];
     let capacityContainer;
     let staffs = [];
     let customers = [];
-    //let orders: Order[] = [];
-    //let persons:Person[] = [];
+    //let satisfaction: number = 0;
     let ingredients = [];
     let formData;
-    let basis = ["Döner", "Lahmacun", "Yufka"];
+    let basis = ["Döner with meat", "Lahmacun with minced meat", "Yufka with meat"];
     let topping = ["onion", "salad", "red cabbage", "corn", "tomato"];
     let sauce = ["sauce", "hot-sauce"];
     let storageLeft;
@@ -38,7 +37,6 @@ var DönerTrainer_Endabgabe;
         document.getElementById("cornButton").hidden = true;
         document.getElementById("sauceButton").hidden = true;
         document.getElementById("hot-sauceButton").hidden = true;
-        document.getElementById("happiness").hidden = true;
     }
     function prepareGame(_event) {
         formData = new FormData(document.forms[0]);
@@ -82,7 +80,6 @@ var DönerTrainer_Endabgabe;
         document.getElementById("cornButton").hidden = false;
         document.getElementById("sauceButton").hidden = false;
         document.getElementById("hot-sauceButton").hidden = false;
-        document.getElementById("happiness").hidden = false;
         DönerTrainer_Endabgabe.canvas = document.querySelector("canvas");
         DönerTrainer_Endabgabe.crc2 = DönerTrainer_Endabgabe.canvas.getContext("2d");
         console.log(DönerTrainer_Endabgabe.crc2);
@@ -161,6 +158,8 @@ var DönerTrainer_Endabgabe;
     }
     function updateSalad(_event) {
         let element = " salad ,";
+        orderList.push(element);
+        console.log(orderList);
         storageLeft.salad -= 30;
         if (storageLeft.salad <= 0) {
             alert("Please refill salad!");
@@ -171,6 +170,8 @@ var DönerTrainer_Endabgabe;
     }
     function updateOnion(_event) {
         let element = " onion ,";
+        orderList.push(element);
+        console.log(orderList);
         storageLeft.onion -= 50;
         if (storageLeft.onion <= 0) {
             alert("Please refill onion!");
@@ -181,6 +182,8 @@ var DönerTrainer_Endabgabe;
     }
     function updateCabbage(_event) {
         let element = " red cabbage ,";
+        orderList.push(element);
+        console.log(orderList);
         storageLeft.redCabbage -= 40;
         if (storageLeft.redCabbage <= 0) {
             alert("Please refill red cabbage!");
@@ -191,6 +194,8 @@ var DönerTrainer_Endabgabe;
     }
     function updateCorn(_event) {
         let element = " corn ,";
+        orderList.push(element);
+        console.log(orderList);
         storageLeft.corn -= 20;
         if (storageLeft.corn <= 0) {
             alert("Please refill corn!");
@@ -201,6 +206,8 @@ var DönerTrainer_Endabgabe;
     }
     function updateTomato(_event) {
         let element = " tomato ,";
+        orderList.push(element);
+        console.log(orderList);
         storageLeft.tomato -= 50;
         if (storageLeft.tomato <= 0) {
             alert("Please refill tomato!");
@@ -211,48 +218,48 @@ var DönerTrainer_Endabgabe;
     }
     function updateDoener(_event) {
         let element = " Döner with meat ,";
+        orderList.push(element);
+        console.log(orderList);
         document.getElementById("selection").innerHTML += element;
     }
     function updateYufka(_event) {
         let element = " Yufka with meat ,";
+        orderList.push(element);
+        console.log(orderList);
         document.getElementById("selection").innerHTML += element;
     }
     function updateLahmacun(_event) {
         let element = " Lahmacun with minced meat ,";
+        orderList.push(element);
+        console.log(orderList);
         document.getElementById("selection").innerHTML += element;
     }
     function updateSauce(_event) {
         let element = " sauce ,";
+        orderList.push(element);
+        console.log(orderList);
         document.getElementById("selection").innerHTML += element;
     }
     function updateHotSauce(_event) {
         let element = " hot-sauce ,";
+        orderList.push(element);
+        console.log(orderList);
         document.getElementById("selection").innerHTML += element;
     }
     //zeige auswahl von Zutaten
     function showSelection() {
         let selectionDiv = document.getElementById("selection");
         selectionDiv.innerHTML += "<br>" + " ";
-        checkOrder();
     }
-    function checkOrder() {
-        //
-    }
-    //gebe random Bestellungen aus
-    function showOrder() {
-        getVerse(basis, topping, sauce);
-    }
-    function getVerse(basis, topping, sauce) {
-        let wert1 = Math.floor(Math.random() * basis.length);
-        let wert2 = Math.floor(Math.random() * topping.length);
-        let wert3 = Math.floor(Math.random() * sauce.length);
-        let werte = basis[wert1] + "  " + topping[wert2] + "  " + sauce[wert3];
-        let order = document.getElementById("order");
-        order.innerHTML = "Order:" + "<br>" + "<br>" + " I would like a " + basis[wert1] + "  " + " with " + topping[wert2] + " " + " and " + sauce[wert3] + "," + " please.";
-        basis.splice(wert1, 1);
-        topping.splice(wert2, 1);
-        sauce.splice(wert3, 1);
-        return werte;
+    function checkOrder(_event) {
+        //compare orders
+        if (request.length != orderList.length) {
+            // delete all in innerhtml
+            let order = document.getElementById("order");
+            order.innerHTML = " ";
+            document.getElementById("selection").innerHTML = "Selection of ingredients:" + "<br>";
+        }
+        showOrder();
     }
     function showStaff() {
         for (let i = 0; i < staffAmount; i++) {
@@ -261,6 +268,24 @@ var DönerTrainer_Endabgabe;
         }
         for (let staff of staffs) {
             staff.draw();
+        }
+    }
+    //gebe random Bestellungen aus
+    function showOrder() {
+        getVerse(basis, topping, sauce);
+        function getVerse(basis, topping, sauce) {
+            let wert1 = Math.floor(Math.random() * basis.length);
+            let wert2 = Math.floor(Math.random() * topping.length);
+            let wert3 = Math.floor(Math.random() * sauce.length);
+            let werte = basis[wert1] + "  " + topping[wert2] + "  " + sauce[wert3];
+            request.push(werte);
+            console.log("request array:" + request);
+            let order = document.getElementById("order");
+            order.innerHTML = "Order:" + "<br>" + "<br>" + " I would like a " + basis[wert1] + "  " + " with " + topping[wert2] + " " + " and " + sauce[wert3] + "," + " please.";
+            basis.splice(wert1, 1);
+            topping.splice(wert2, 1);
+            sauce.splice(wert3, 1);
+            return werte;
         }
     }
     //Kunden enstprechender Anzahl zeichnen lassen und alle 3 minuten neue zeichnen

@@ -6,16 +6,15 @@ namespace DönerTrainer_Endabgabe {
     let customerAomunt: number;
     let breakofStaff: number;
     let capacityMaterial: number;
-    // let orderList: HTMLDivElement;
-    //let request: Request[];
+    let orderList: string[] = [];
+    let request: string[] = [];
     let capacityContainer: number;
     let staffs: Staff[] = [];
     let customers: Customer[] = [];
-    //let orders: Order[] = [];
-    //let persons:Person[] = [];
+    //let satisfaction: number = 0;
     let ingredients: Ingredient[] = [];
     let formData: FormData;
-    let basis: string[] = ["Döner", "Lahmacun", "Yufka"];
+    let basis: string[] = ["Döner with meat", "Lahmacun with minced meat", "Yufka with meat"];
     let topping: string[] = ["onion", "salad", "red cabbage", "corn", "tomato"];
     let sauce: string[] = ["sauce", "hot-sauce"];
 
@@ -51,7 +50,6 @@ namespace DönerTrainer_Endabgabe {
         document.getElementById("cornButton").hidden = true;
         document.getElementById("sauceButton").hidden = true;
         document.getElementById("hot-sauceButton").hidden = true;
-        document.getElementById("happiness").hidden = true;
 
 
 
@@ -106,7 +104,6 @@ namespace DönerTrainer_Endabgabe {
         document.getElementById("cornButton").hidden = false;
         document.getElementById("sauceButton").hidden = false;
         document.getElementById("hot-sauceButton").hidden = false;
-        document.getElementById("happiness").hidden = false;
 
         canvas = document.querySelector("canvas")!;
         crc2 = canvas.getContext("2d")!;
@@ -205,6 +202,8 @@ namespace DönerTrainer_Endabgabe {
 
     function updateSalad(_event: Event): void {
         let element: string = " salad ,";
+        orderList.push(element);
+        console.log(orderList);
         storageLeft.salad -= 30;
 
         if (storageLeft.salad <= 0) {
@@ -213,17 +212,21 @@ namespace DönerTrainer_Endabgabe {
 
         document.getElementById("selection").innerHTML += element;
         ingredientLeft.salad -= storageLeft.salad;
+
         showCapacity();
     }
 
     function updateOnion(_event: Event): void {
         let element: string = " onion ,";
+        orderList.push(element);
+        console.log(orderList);
 
         storageLeft.onion -= 50;
         if (storageLeft.onion <= 0) {
             alert("Please refill onion!");
         }
         document.getElementById("selection").innerHTML += element;
+
 
         ingredientLeft.onion -= storageLeft.onion;
         showCapacity();
@@ -232,6 +235,8 @@ namespace DönerTrainer_Endabgabe {
 
     function updateCabbage(_event: Event): void {
         let element: string = " red cabbage ,";
+        orderList.push(element);
+        console.log(orderList);
 
         storageLeft.redCabbage -= 40;
 
@@ -242,10 +247,14 @@ namespace DönerTrainer_Endabgabe {
 
         ingredientLeft.redCabbage -= storageLeft.redCabbage;
 
+
         showCapacity();
     }
     function updateCorn(_event: Event): void {
         let element: string = " corn ,";
+        orderList.push(element);
+        console.log(orderList);
+
         storageLeft.corn -= 20;
 
         if (storageLeft.corn <= 0) {
@@ -255,10 +264,14 @@ namespace DönerTrainer_Endabgabe {
 
         ingredientLeft.corn -= storageLeft.corn;
 
+
         showCapacity();
     }
     function updateTomato(_event: Event): void {
         let element: string = " tomato ,";
+        orderList.push(element);
+        console.log(orderList);
+
         storageLeft.tomato -= 50;
         if (storageLeft.tomato <= 0) {
             alert("Please refill tomato!");
@@ -267,27 +280,49 @@ namespace DönerTrainer_Endabgabe {
 
         ingredientLeft.tomato -= storageLeft.tomato;
 
+
         showCapacity();
     }
     function updateDoener(_event: Event): void {
         let element: string = " Döner with meat ,";
+        orderList.push(element);
+        console.log(orderList);
+
         document.getElementById("selection").innerHTML += element;
+
+
     }
     function updateYufka(_event: Event): void {
         let element: string = " Yufka with meat ,";
+        orderList.push(element);
+        console.log(orderList);
         document.getElementById("selection").innerHTML += element;
+
+
     }
     function updateLahmacun(_event: Event): void {
         let element: string = " Lahmacun with minced meat ,";
+        orderList.push(element);
+        console.log(orderList);
+
         document.getElementById("selection").innerHTML += element;
+
     }
     function updateSauce(_event: Event): void {
         let element: string = " sauce ,";
+        orderList.push(element);
+        console.log(orderList);
+
         document.getElementById("selection").innerHTML += element;
+
     }
     function updateHotSauce(_event: Event): void {
         let element: string = " hot-sauce ,";
+        orderList.push(element);
+        console.log(orderList);
+
         document.getElementById("selection").innerHTML += element;
+
     }
 
 
@@ -298,33 +333,25 @@ namespace DönerTrainer_Endabgabe {
         let selectionDiv: HTMLElement = document.getElementById("selection");
         selectionDiv.innerHTML += "<br>" + " ";
 
-        checkOrder();
+
     }
 
-    function checkOrder(): void {
-        //
+    function checkOrder(_event: Event): void {
+        //compare orders
+       
+
+        if (request.length != orderList.length) {
+            // delete all in innerhtml
+            let order: HTMLElement = document.getElementById("order");
+            order.innerHTML = " ";
+
+            document.getElementById("selection").innerHTML = "Selection of ingredients:" + "<br>";
+        }
+        showOrder();
+
     }
-    
-    //gebe random Bestellungen aus
-    function showOrder(): void {
 
-        getVerse(basis, topping, sauce);
-    }
-    function getVerse(basis: string[], topping: string[], sauce: string[]): string {
-        let wert1: number = Math.floor(Math.random() * basis.length);
-        let wert2: number = Math.floor(Math.random() * topping.length);
-        let wert3: number = Math.floor(Math.random() * sauce.length);
 
-        let werte: string = basis[wert1] + "  " + topping[wert2] + "  " + sauce[wert3];
-
-        let order: HTMLElement = document.getElementById("order");
-        order.innerHTML = "Order:" + "<br>" + "<br>" + " I would like a " + basis[wert1] + "  " + " with " + topping[wert2] + " " + " and " + sauce[wert3] + "," + " please.";
-        basis.splice(wert1, 1);
-        topping.splice(wert2, 1);
-        sauce.splice(wert3, 1);
-
-        return werte;
-    }
     function showStaff(): void {
 
         for (let i: number = 0; i < staffAmount; i++) {
@@ -340,13 +367,39 @@ namespace DönerTrainer_Endabgabe {
 
     }
 
+    //gebe random Bestellungen aus
+    function showOrder(): void {
+
+        getVerse(basis, topping, sauce);
+
+        function getVerse(basis: string[], topping: string[], sauce: string[]): string {
+            let wert1: number = Math.floor(Math.random() * basis.length);
+            let wert2: number = Math.floor(Math.random() * topping.length);
+            let wert3: number = Math.floor(Math.random() * sauce.length);
+
+            let werte: string = basis[wert1] + "  " + topping[wert2] + "  " + sauce[wert3];
+            request.push(werte);
+            console.log("request array:" + request);
+
+            let order: HTMLElement = document.getElementById("order");
+            order.innerHTML = "Order:" + "<br>" + "<br>" + " I would like a " + basis[wert1] + "  " + " with " + topping[wert2] + " " + " and " + sauce[wert3] + "," + " please.";
+
+            basis.splice(wert1, 1);
+            topping.splice(wert2, 1);
+            sauce.splice(wert3, 1);
+
+            return werte;
+        }
+
+    }
+
 
     //Kunden enstprechender Anzahl zeichnen lassen und alle 3 minuten neue zeichnen
     function showCustomer(): void {
 
         let interval: number = setInterval(
-
             function (): void {
+
 
                 let customer: Customer = new Customer(new Vector(-100, 0));
                 customers.push(customer);
@@ -355,14 +408,11 @@ namespace DönerTrainer_Endabgabe {
                 if (customers.length == customerAomunt) {
                     clearInterval(interval);
                     customers.length = 0;
+
                 }
-
-
                 // tslint:disable-next-line: align
             }, 2000);
-
     }
-
 
     //alle Zutaten zeichnen lassen
     function drawSalad(): void {
