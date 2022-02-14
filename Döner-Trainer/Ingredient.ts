@@ -5,7 +5,7 @@ namespace DönerTrainer_Endabgabe {
         protected amount: number;
         protected position: Vector;
 
-        constructor(_amount?: number, _containerAmount?: number,  _position?: Vector) {
+        constructor(_amount: number, _containerAmount: number,  _position: Vector) {
             if (_position)
                 this.position = _position;
             else

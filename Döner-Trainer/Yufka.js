@@ -18,7 +18,7 @@ var DönerTrainer_Endabgabe;
             DönerTrainer_Endabgabe.crc2.fillStyle = "#800000";
             DönerTrainer_Endabgabe.crc2.arc(30, 21, 11, 0, 2 * Math.PI);
             DönerTrainer_Endabgabe.crc2.fill();
-            //yufka
+            //yufka-bread
             DönerTrainer_Endabgabe.crc2.beginPath();
             DönerTrainer_Endabgabe.crc2.save();
             DönerTrainer_Endabgabe.crc2.translate(this.position.x, this.position.y);

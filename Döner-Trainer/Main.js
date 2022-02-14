@@ -1,9 +1,6 @@
 "use strict";
 var DönerTrainer_Endabgabe;
 (function (DönerTrainer_Endabgabe) {
-    //let container: HTMLDivElement;
-    //let storage: HTMLDivElement;
-    //let available: boolean = true;
     let staffAmount;
     let customerAomunt;
     let breakofStaff;
@@ -13,7 +10,6 @@ var DönerTrainer_Endabgabe;
     let capacityContainer;
     let staffs = [];
     let customers = [];
-    //let satisfaction: number = 0;
     let ingredients = [];
     let formData;
     let basis = ["Döner with meat", "Lahmacun with minced meat", "Yufka with meat"];

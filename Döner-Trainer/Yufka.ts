@@ -21,7 +21,7 @@ namespace DönerTrainer_Endabgabe {
             crc2.arc(30, 21, 11, 0, 2 * Math.PI);
             crc2.fill();
 
-            //yufka
+            //yufka-bread
             crc2.beginPath();
             crc2.save();
             crc2.translate(this.position.x, this.position.y);

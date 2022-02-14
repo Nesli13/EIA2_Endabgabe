@@ -29,7 +29,7 @@ namespace DönerTrainer_Endabgabe {
             crc2.arc(85, -30, 40, 0, Math.PI);
             crc2.fill();
 
-            //corn
+            //corns
             crc2.beginPath();
             crc2.save();
             crc2.fillStyle = "black";

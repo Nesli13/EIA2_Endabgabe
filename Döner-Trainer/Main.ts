@@ -1,7 +1,5 @@
 namespace DönerTrainer_Endabgabe {
-    //let container: HTMLDivElement;
-    //let storage: HTMLDivElement;
-    //let available: boolean = true;
+
     let staffAmount: number;
     let customerAomunt: number;
     let breakofStaff: number;
@@ -11,13 +9,14 @@ namespace DönerTrainer_Endabgabe {
     let capacityContainer: number;
     let staffs: Staff[] = [];
     let customers: Customer[] = [];
-    //let satisfaction: number = 0;
     let ingredients: Ingredient[] = [];
     let formData: FormData;
     let basis: string[] = ["Döner with meat", "Lahmacun with minced meat", "Yufka with meat"];
     let topping: string[] = ["onion", "salad", "red cabbage", "corn", "tomato"];
     let sauce: string[] = ["sauce", "hot-sauce"];
-
+    //let satisfaction: number = 0;
+    //let formData: FormData
+    
     interface Storage {
         salad: number;
         redCabbage: number;

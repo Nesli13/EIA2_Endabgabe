@@ -26,7 +26,7 @@ var DönerTrainer_Endabgabe;
             DönerTrainer_Endabgabe.crc2.fillStyle = "hsl(34,44%,72%)";
             DönerTrainer_Endabgabe.crc2.arc(85, -30, 40, 0, Math.PI);
             DönerTrainer_Endabgabe.crc2.fill();
-            //corn
+            //corns
             DönerTrainer_Endabgabe.crc2.beginPath();
             DönerTrainer_Endabgabe.crc2.save();
             DönerTrainer_Endabgabe.crc2.fillStyle = "black";
