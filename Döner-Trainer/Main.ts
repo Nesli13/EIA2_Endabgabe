@@ -50,7 +50,7 @@ namespace DönerTrainer_Endabgabe {
         document.getElementById("tomatoButton").hidden = true;
         document.getElementById("cornButton").hidden = true;
         document.getElementById("sauceButton").hidden = true;
-        document.getElementById("sauceButton2").hidden = true;
+        document.getElementById("hot-sauceButton").hidden = true;
         document.getElementById("happiness").hidden = true;
 
 
@@ -105,7 +105,7 @@ namespace DönerTrainer_Endabgabe {
         document.getElementById("tomatoButton").hidden = false;
         document.getElementById("cornButton").hidden = false;
         document.getElementById("sauceButton").hidden = false;
-        document.getElementById("sauceButton2").hidden = false;
+        document.getElementById("hot-sauceButton").hidden = false;
         document.getElementById("happiness").hidden = false;
 
         canvas = document.querySelector("canvas")!;
@@ -127,6 +127,7 @@ namespace DönerTrainer_Endabgabe {
         showStaff();
         showCustomer();
         showOrder();
+        showSelection();
 
 
         let saladBtn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#saladButton");
@@ -143,6 +144,16 @@ namespace DönerTrainer_Endabgabe {
         refill.addEventListener("click", refillContainer);
         let reorder: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#reorder");
         reorder.addEventListener("click", reorderMaterials);
+        let doenerBtn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#doenerButton");
+        doenerBtn.addEventListener("click", updateDoener);
+        let yufkaBtn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#yufkaButton");
+        yufkaBtn.addEventListener("click", updateYufka);
+        let lahmacunBtn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#lahmacunButton");
+        lahmacunBtn.addEventListener("click", updateLahmacun);
+        let sauceBtn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#sauceButton");
+        sauceBtn.addEventListener("click", updateSauce);
+        let hotSauceBtn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#hot-sauceButton");
+        hotSauceBtn.addEventListener("click", updateHotSauce);
 
         window.setInterval(update, 20);
 
@@ -190,51 +201,100 @@ namespace DönerTrainer_Endabgabe {
 
 
     function updateSalad(_event: Event): void {
+        let element: string = " salad ,";
         storageLeft.salad -= 30;
+
         if (storageLeft.salad <= 0) {
             alert("Please refill salad!");
         }
 
+        document.getElementById("selection").innerHTML += element;
         ingredientLeft.salad -= storageLeft.salad;
         showCapacity();
     }
 
     function updateOnion(_event: Event): void {
+        let element: string = " onion ,";
+
+        storageLeft.onion -= 50;
         if (storageLeft.onion <= 0) {
             alert("Please refill onion!");
         }
-        storageLeft.onion -= 50;
+        document.getElementById("selection").innerHTML += element;
+
         ingredientLeft.onion -= storageLeft.onion;
         showCapacity();
 
     }
 
     function updateCabbage(_event: Event): void {
+        let element: string = " red cabbage ,";
+
+        storageLeft.redCabbage -= 40;
+
         if (storageLeft.redCabbage <= 0) {
             alert("Please refill red cabbage!");
         }
-        storageLeft.redCabbage -= 40;
+        document.getElementById("selection").innerHTML += element;
+
         ingredientLeft.redCabbage -= storageLeft.redCabbage;
 
         showCapacity();
     }
     function updateCorn(_event: Event): void {
+        let element: string = " corn ,";
+        storageLeft.corn -= 20;
+
         if (storageLeft.corn <= 0) {
             alert("Please refill corn!");
         }
-        storageLeft.corn -= 20;
+        document.getElementById("selection").innerHTML += element;
+
         ingredientLeft.corn -= storageLeft.corn;
 
         showCapacity();
     }
     function updateTomato(_event: Event): void {
+        let element: string = " tomato ,";
+        storageLeft.tomato -= 50;
         if (storageLeft.tomato <= 0) {
             alert("Please refill tomato!");
         }
-        storageLeft.tomato -= 50;
+        document.getElementById("selection").innerHTML += element;
+
         ingredientLeft.tomato -= storageLeft.tomato;
 
         showCapacity();
+    }
+    function updateDoener(_event: Event): void {
+        let element: string = " Döner with meat ,";
+        document.getElementById("selection").innerHTML += element;
+    }
+    function updateYufka(_event: Event): void {
+        let element: string = " Yufka with meat ,";
+        document.getElementById("selection").innerHTML += element;
+    }
+    function updateLahmacun(_event: Event): void {
+        let element: string = " Lahmacun with minced meat ,";
+        document.getElementById("selection").innerHTML += element;
+    }
+    function updateSauce(_event: Event): void {
+        let element: string = " sauce ,";
+        document.getElementById("selection").innerHTML += element;
+    }
+    function updateHotSauce(_event: Event): void {
+        let element: string = " hot-sauce ,";
+        document.getElementById("selection").innerHTML += element;
+    }
+
+
+
+    //zeige auswahl von Zutaten
+    function showSelection(): void {
+
+        let selectionDiv: HTMLElement = document.getElementById("selection");
+        selectionDiv.innerHTML += "<br>" + " ";
+
     }
     //gebe random Bestellungen aus
     function showOrder(): void {

@@ -147,7 +147,7 @@ canvas {
     position: absolute;
     margin-top: -760px;
     left: 1000px;
-    background-color: rgb(230, 209, 182);
+    background-color: rgb(209, 230, 182);
 }
 
 #container-storage {
@@ -157,7 +157,7 @@ canvas {
     position: absolute;
     margin-top: -760px;
     left: 1200px;
-    background-color: rgb(230, 209, 182);
+    background-color: rgb(209, 230, 182);
 }
 
 #order {
@@ -168,14 +168,24 @@ canvas {
     position: absolute;
     margin-top: -330px;
     left: 1200px;
-    font-size: 17px;
-    background-color: rgb(230, 209, 182);
+    background-color: rgb(209, 230, 182);
+}
+
+#selection {
+    border: 2px double black;
+    margin: auto;
+    width: 230px;
+    height: fit-content;
+    position: absolute;
+    margin-top: -530px;
+    left: 1200px;
+    background-color: rgb(209, 230, 182);
 }
 
 #reorder {
     position: absolute;
-    margin-top: -610px;
-    left: 1070px;
+    margin-top: -625px;
+    left: 1080px;
     border: 2px double rgb(15, 14, 13);
     background-color: rgb(159, 224, 224);
     border-radius: 10px;
@@ -347,7 +357,7 @@ canvas {
     border: 2px double rgb(66 169 169);
 }
 
-#sauceButton2 {
+#hot-sauceButton {
     position: relative;
     left: 600px;
     top: -330px;
@@ -358,7 +368,7 @@ canvas {
     font-size: 10px;
 }
 
-#sauceButton2:hover {
+#hot-sauceButton:hover {
     color: rgb(66 169 169);
     border: 2px double rgb(66 169 169);
 }

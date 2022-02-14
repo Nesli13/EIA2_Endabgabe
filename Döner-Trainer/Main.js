@@ -37,7 +37,7 @@ var DönerTrainer_Endabgabe;
         document.getElementById("tomatoButton").hidden = true;
         document.getElementById("cornButton").hidden = true;
         document.getElementById("sauceButton").hidden = true;
-        document.getElementById("sauceButton2").hidden = true;
+        document.getElementById("hot-sauceButton").hidden = true;
         document.getElementById("happiness").hidden = true;
     }
     function prepareGame(_event) {
@@ -81,7 +81,7 @@ var DönerTrainer_Endabgabe;
         document.getElementById("tomatoButton").hidden = false;
         document.getElementById("cornButton").hidden = false;
         document.getElementById("sauceButton").hidden = false;
-        document.getElementById("sauceButton2").hidden = false;
+        document.getElementById("hot-sauceButton").hidden = false;
         document.getElementById("happiness").hidden = false;
         DönerTrainer_Endabgabe.canvas = document.querySelector("canvas");
         DönerTrainer_Endabgabe.crc2 = DönerTrainer_Endabgabe.canvas.getContext("2d");
@@ -100,6 +100,7 @@ var DönerTrainer_Endabgabe;
         showStaff();
         showCustomer();
         showOrder();
+        showSelection();
         let saladBtn = document.querySelector("#saladButton");
         saladBtn.addEventListener("click", updateSalad);
         let onionBtn = document.querySelector("#onionButton");
@@ -114,6 +115,16 @@ var DönerTrainer_Endabgabe;
         refill.addEventListener("click", refillContainer);
         let reorder = document.querySelector("#reorder");
         reorder.addEventListener("click", reorderMaterials);
+        let doenerBtn = document.querySelector("#doenerButton");
+        doenerBtn.addEventListener("click", updateDoener);
+        let yufkaBtn = document.querySelector("#yufkaButton");
+        yufkaBtn.addEventListener("click", updateYufka);
+        let lahmacunBtn = document.querySelector("#lahmacunButton");
+        lahmacunBtn.addEventListener("click", updateLahmacun);
+        let sauceBtn = document.querySelector("#sauceButton");
+        sauceBtn.addEventListener("click", updateSauce);
+        let hotSauceBtn = document.querySelector("#hot-sauceButton");
+        hotSauceBtn.addEventListener("click", updateHotSauce);
         window.setInterval(update, 20);
         setInterval(showCustomer, 30000);
     }
@@ -147,44 +158,79 @@ var DönerTrainer_Endabgabe;
         showCapacity();
     }
     function updateSalad(_event) {
+        let element = " salad ,";
         storageLeft.salad -= 30;
         if (storageLeft.salad <= 0) {
             alert("Please refill salad!");
         }
+        document.getElementById("selection").innerHTML += element;
         ingredientLeft.salad -= storageLeft.salad;
         showCapacity();
     }
     function updateOnion(_event) {
+        let element = " onion ,";
+        storageLeft.onion -= 50;
         if (storageLeft.onion <= 0) {
             alert("Please refill onion!");
         }
-        storageLeft.onion -= 50;
+        document.getElementById("selection").innerHTML += element;
         ingredientLeft.onion -= storageLeft.onion;
         showCapacity();
     }
     function updateCabbage(_event) {
+        let element = " red cabbage ,";
+        storageLeft.redCabbage -= 40;
         if (storageLeft.redCabbage <= 0) {
             alert("Please refill red cabbage!");
         }
-        storageLeft.redCabbage -= 40;
+        document.getElementById("selection").innerHTML += element;
         ingredientLeft.redCabbage -= storageLeft.redCabbage;
         showCapacity();
     }
     function updateCorn(_event) {
+        let element = " corn ,";
+        storageLeft.corn -= 20;
         if (storageLeft.corn <= 0) {
             alert("Please refill corn!");
         }
-        storageLeft.corn -= 20;
+        document.getElementById("selection").innerHTML += element;
         ingredientLeft.corn -= storageLeft.corn;
         showCapacity();
     }
     function updateTomato(_event) {
+        let element = " tomato ,";
+        storageLeft.tomato -= 50;
         if (storageLeft.tomato <= 0) {
             alert("Please refill tomato!");
         }
-        storageLeft.tomato -= 50;
+        document.getElementById("selection").innerHTML += element;
         ingredientLeft.tomato -= storageLeft.tomato;
         showCapacity();
+    }
+    function updateDoener(_event) {
+        let element = " Döner with meat ,";
+        document.getElementById("selection").innerHTML += element;
+    }
+    function updateYufka(_event) {
+        let element = " Yufka with meat ,";
+        document.getElementById("selection").innerHTML += element;
+    }
+    function updateLahmacun(_event) {
+        let element = " Lahmacun with minced meat ,";
+        document.getElementById("selection").innerHTML += element;
+    }
+    function updateSauce(_event) {
+        let element = " sauce ,";
+        document.getElementById("selection").innerHTML += element;
+    }
+    function updateHotSauce(_event) {
+        let element = " hot-sauce ,";
+        document.getElementById("selection").innerHTML += element;
+    }
+    //zeige auswahl von Zutaten
+    function showSelection() {
+        let selectionDiv = document.getElementById("selection");
+        selectionDiv.innerHTML += "<br>" + " ";
     }
     //gebe random Bestellungen aus
     function showOrder() {
