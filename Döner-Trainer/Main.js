@@ -258,8 +258,8 @@ var DönerTrainer_Endabgabe;
             let order = document.getElementById("order");
             order.innerHTML = " ";
             document.getElementById("selection").innerHTML = "Selection of ingredients:" + "<br>";
+            showOrder();
         }
-        showOrder();
     }
     function showStaff() {
         for (let i = 0; i < staffAmount; i++) {
@@ -272,21 +272,14 @@ var DönerTrainer_Endabgabe;
     }
     //gebe random Bestellungen aus
     function showOrder() {
-        getVerse(basis, topping, sauce);
-        function getVerse(basis, topping, sauce) {
-            let wert1 = Math.floor(Math.random() * basis.length);
-            let wert2 = Math.floor(Math.random() * topping.length);
-            let wert3 = Math.floor(Math.random() * sauce.length);
-            let werte = basis[wert1] + "  " + topping[wert2] + "  " + sauce[wert3];
-            request.push(werte);
-            console.log("request array:" + request);
-            let order = document.getElementById("order");
-            order.innerHTML = "Order:" + "<br>" + "<br>" + " I would like a " + basis[wert1] + "  " + " with " + topping[wert2] + " " + " and " + sauce[wert3] + "," + " please.";
-            basis.splice(wert1, 1);
-            topping.splice(wert2, 1);
-            sauce.splice(wert3, 1);
-            return werte;
-        }
+        let wert1 = Math.floor(Math.random() * basis.length);
+        let wert2 = Math.floor(Math.random() * topping.length);
+        let wert3 = Math.floor(Math.random() * sauce.length);
+        let werte = basis[wert1] + "  " + topping[wert2] + "  " + sauce[wert3];
+        request.push(werte);
+        console.log("request array:" + request);
+        let order = document.getElementById("order");
+        order.innerHTML = "Order:" + "<br>" + "<br>" + " I would like a " + basis[wert1] + "  " + " with " + topping[wert2] + " " + " and " + sauce[wert3] + "," + " please.";
     }
     //Kunden enstprechender Anzahl zeichnen lassen und alle 3 minuten neue zeichnen
     function showCustomer() {

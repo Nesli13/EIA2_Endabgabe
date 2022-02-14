@@ -338,7 +338,7 @@ namespace DönerTrainer_Endabgabe {
 
     function checkOrder(_event: Event): void {
         //compare orders
-       
+
 
         if (request.length != orderList.length) {
             // delete all in innerhtml
@@ -346,8 +346,9 @@ namespace DönerTrainer_Endabgabe {
             order.innerHTML = " ";
 
             document.getElementById("selection").innerHTML = "Selection of ingredients:" + "<br>";
+            showOrder();
         }
-        showOrder();
+
 
     }
 
@@ -370,26 +371,18 @@ namespace DönerTrainer_Endabgabe {
     //gebe random Bestellungen aus
     function showOrder(): void {
 
-        getVerse(basis, topping, sauce);
 
-        function getVerse(basis: string[], topping: string[], sauce: string[]): string {
-            let wert1: number = Math.floor(Math.random() * basis.length);
-            let wert2: number = Math.floor(Math.random() * topping.length);
-            let wert3: number = Math.floor(Math.random() * sauce.length);
+        let wert1: number = Math.floor(Math.random() * basis.length);
+        let wert2: number = Math.floor(Math.random() * topping.length);
+        let wert3: number = Math.floor(Math.random() * sauce.length);
 
-            let werte: string = basis[wert1] + "  " + topping[wert2] + "  " + sauce[wert3];
-            request.push(werte);
-            console.log("request array:" + request);
+        let werte: string = basis[wert1] + "  " + topping[wert2] + "  " + sauce[wert3];
+        request.push(werte);
+        console.log("request array:" + request);
 
-            let order: HTMLElement = document.getElementById("order");
-            order.innerHTML = "Order:" + "<br>" + "<br>" + " I would like a " + basis[wert1] + "  " + " with " + topping[wert2] + " " + " and " + sauce[wert3] + "," + " please.";
+        let order: HTMLElement = document.getElementById("order");
+        order.innerHTML = "Order:" + "<br>" + "<br>" + " I would like a " + basis[wert1] + "  " + " with " + topping[wert2] + " " + " and " + sauce[wert3] + "," + " please.";
 
-            basis.splice(wert1, 1);
-            topping.splice(wert2, 1);
-            sauce.splice(wert3, 1);
-
-            return werte;
-        }
 
     }
 
