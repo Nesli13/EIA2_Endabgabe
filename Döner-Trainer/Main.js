@@ -296,47 +296,47 @@ var DönerTrainer_Endabgabe;
     }
     //alle Zutaten zeichnen lassen
     function drawSalad() {
-        let salad = new DönerTrainer_Endabgabe.Salad(0, new DönerTrainer_Endabgabe.Vector(100, 475));
-        let salad2 = new DönerTrainer_Endabgabe.Salad(0, new DönerTrainer_Endabgabe.Vector(-70, 100));
+        let salad = new DönerTrainer_Endabgabe.Salad(0, 0, new DönerTrainer_Endabgabe.Vector(100, 475));
+        let salad2 = new DönerTrainer_Endabgabe.Salad(0, 0, new DönerTrainer_Endabgabe.Vector(-70, 100));
         ingredients.push(salad, salad2);
         console.log(ingredients);
     }
     function drawRedCabbage() {
-        let redCabbage = new DönerTrainer_Endabgabe.RedCabbage(0, new DönerTrainer_Endabgabe.Vector(100, 238));
-        let redCabbage2 = new DönerTrainer_Endabgabe.RedCabbage(0, new DönerTrainer_Endabgabe.Vector(-40, 100));
+        let redCabbage = new DönerTrainer_Endabgabe.RedCabbage(0, 0, new DönerTrainer_Endabgabe.Vector(100, 238));
+        let redCabbage2 = new DönerTrainer_Endabgabe.RedCabbage(0, 0, new DönerTrainer_Endabgabe.Vector(-40, 100));
         ingredients.push(redCabbage, redCabbage2);
         console.log(ingredients);
     }
     function drawOnion() {
-        let onion = new DönerTrainer_Endabgabe.Onion(0, new DönerTrainer_Endabgabe.Vector(150, 238));
-        let onion2 = new DönerTrainer_Endabgabe.Onion(0, new DönerTrainer_Endabgabe.Vector(-10, 100));
+        let onion = new DönerTrainer_Endabgabe.Onion(0, 0, new DönerTrainer_Endabgabe.Vector(150, 238));
+        let onion2 = new DönerTrainer_Endabgabe.Onion(0, 0, new DönerTrainer_Endabgabe.Vector(-10, 100));
         ingredients.push(onion, onion2);
         console.log(ingredients);
     }
     function drawCorn() {
-        let corn = new DönerTrainer_Endabgabe.Corn(0, new DönerTrainer_Endabgabe.Vector(24, 50));
-        let corn2 = new DönerTrainer_Endabgabe.Corn(0, new DönerTrainer_Endabgabe.Vector(193, 162));
+        let corn = new DönerTrainer_Endabgabe.Corn(0, 0, new DönerTrainer_Endabgabe.Vector(24, 50));
+        let corn2 = new DönerTrainer_Endabgabe.Corn(0, 0, new DönerTrainer_Endabgabe.Vector(193, 162));
         ingredients.push(corn, corn2);
         console.log(ingredients);
     }
     function drawTomato() {
-        let tomato = new DönerTrainer_Endabgabe.Tomato(0, new DönerTrainer_Endabgabe.Vector(42, 26));
-        let tomato2 = new DönerTrainer_Endabgabe.Tomato(0, new DönerTrainer_Endabgabe.Vector(243, 163));
+        let tomato = new DönerTrainer_Endabgabe.Tomato(0, 0, new DönerTrainer_Endabgabe.Vector(42, 26));
+        let tomato2 = new DönerTrainer_Endabgabe.Tomato(0, 0, new DönerTrainer_Endabgabe.Vector(243, 163));
         ingredients.push(tomato, tomato2);
         console.log(ingredients);
     }
     function drawDoenerKebap() {
-        let doener = new DönerTrainer_Endabgabe.DoenerKebap(0, new DönerTrainer_Endabgabe.Vector(-10, -90));
+        let doener = new DönerTrainer_Endabgabe.DoenerKebap(0, 0, new DönerTrainer_Endabgabe.Vector(-10, -90));
         ingredients.push(doener);
         console.log(ingredients);
     }
     function drawLahmacun() {
-        let lahmacun = new DönerTrainer_Endabgabe.Lahmacun(0, new DönerTrainer_Endabgabe.Vector(85, 40));
+        let lahmacun = new DönerTrainer_Endabgabe.Lahmacun(0, 0, new DönerTrainer_Endabgabe.Vector(85, 40));
         ingredients.push(lahmacun);
         console.log(ingredients);
     }
     function drawYufka() {
-        let yufka = new DönerTrainer_Endabgabe.Yufka(0, new DönerTrainer_Endabgabe.Vector(-40, 10));
+        let yufka = new DönerTrainer_Endabgabe.Yufka(0, 0, new DönerTrainer_Endabgabe.Vector(-40, 10));
         ingredients.push(yufka);
         console.log(ingredients);
         for (let ingredient of ingredients) {
@@ -381,11 +381,11 @@ var DönerTrainer_Endabgabe;
         DönerTrainer_Endabgabe.crc2.strokeStyle = "red";
         DönerTrainer_Endabgabe.crc2.strokeRect(650, 50, 75, 75);
         DönerTrainer_Endabgabe.crc2.restore();
-        //garlic sauce Counter
+        //normal sauce Counter
         DönerTrainer_Endabgabe.crc2.save();
         DönerTrainer_Endabgabe.crc2.translate(_position.x, _position.y);
         DönerTrainer_Endabgabe.crc2.fillStyle = "#F5F5DC";
-        DönerTrainer_Endabgabe.crc2.fillRect(750, 50, 35, 75);
+        DönerTrainer_Endabgabe.crc2.fillRect(750, 520, 35, 75);
         DönerTrainer_Endabgabe.crc2.restore();
         //hot sauce Counter
         DönerTrainer_Endabgabe.crc2.save();

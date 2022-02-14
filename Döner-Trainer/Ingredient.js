@@ -2,17 +2,16 @@
 var DönerTrainer_Endabgabe;
 (function (DönerTrainer_Endabgabe) {
     class Ingredient {
-        position;
         containerAmount;
-        size;
         amount;
-        type;
-        constructor(_amount, _position) {
+        position;
+        constructor(_amount, _containerAmount, _position) {
             if (_position)
                 this.position = _position;
             else
                 this.position = new DönerTrainer_Endabgabe.Vector(0, 0);
             this.amount = _amount;
+            this.containerAmount = _containerAmount;
         }
         draw() {
             // console.log("");
