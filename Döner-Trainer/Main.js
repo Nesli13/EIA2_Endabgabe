@@ -125,6 +125,8 @@ var DönerTrainer_Endabgabe;
         sauceBtn.addEventListener("click", updateSauce);
         let hotSauceBtn = document.querySelector("#hot-sauceButton");
         hotSauceBtn.addEventListener("click", updateHotSauce);
+        let check = document.querySelector("#orderFinished");
+        check.addEventListener("click", checkOrder);
         window.setInterval(update, 20);
         setInterval(showCustomer, 30000);
     }
@@ -231,6 +233,10 @@ var DönerTrainer_Endabgabe;
     function showSelection() {
         let selectionDiv = document.getElementById("selection");
         selectionDiv.innerHTML += "<br>" + " ";
+        checkOrder();
+    }
+    function checkOrder() {
+        //
     }
     //gebe random Bestellungen aus
     function showOrder() {

@@ -154,6 +154,9 @@ namespace DönerTrainer_Endabgabe {
         sauceBtn.addEventListener("click", updateSauce);
         let hotSauceBtn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#hot-sauceButton");
         hotSauceBtn.addEventListener("click", updateHotSauce);
+        let check: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#orderFinished");
+        check.addEventListener("click", checkOrder);
+
 
         window.setInterval(update, 20);
 
@@ -295,7 +298,13 @@ namespace DönerTrainer_Endabgabe {
         let selectionDiv: HTMLElement = document.getElementById("selection");
         selectionDiv.innerHTML += "<br>" + " ";
 
+        checkOrder();
     }
+
+    function checkOrder(): void {
+        //
+    }
+    
     //gebe random Bestellungen aus
     function showOrder(): void {
 
