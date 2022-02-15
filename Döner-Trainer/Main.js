@@ -5,13 +5,13 @@ var DönerTrainer_Endabgabe;
     let customerAomunt;
     let breakofStaff;
     let capacityMaterial;
+    let formData;
     let orderList = [];
     let request = [];
     let capacityContainer;
     let staffs = [];
     let customers = [];
     let ingredients = [];
-    let formData;
     let basis = ["Döner with meat", "Lahmacun with minced meat", "Yufka with meat"];
     let topping = ["onion", "salad", "red cabbage", "corn", "tomato"];
     let sauce = ["sauce", "hot-sauce"];
@@ -158,7 +158,7 @@ var DönerTrainer_Endabgabe;
         console.log(orderList);
         storageLeft.salad -= 30;
         if (storageLeft.salad <= 0) {
-            alert("Please refill salad!");
+            alert("Please cut salad!");
         }
         document.getElementById("selection").innerHTML += element;
         ingredientLeft.salad -= storageLeft.salad;
@@ -170,7 +170,7 @@ var DönerTrainer_Endabgabe;
         console.log(orderList);
         storageLeft.onion -= 50;
         if (storageLeft.onion <= 0) {
-            alert("Please refill onion!");
+            alert("Please cut onion!");
         }
         document.getElementById("selection").innerHTML += element;
         ingredientLeft.onion -= storageLeft.onion;
@@ -182,7 +182,7 @@ var DönerTrainer_Endabgabe;
         console.log(orderList);
         storageLeft.redCabbage -= 40;
         if (storageLeft.redCabbage <= 0) {
-            alert("Please refill red cabbage!");
+            alert("Please cut red cabbage!");
         }
         document.getElementById("selection").innerHTML += element;
         ingredientLeft.redCabbage -= storageLeft.redCabbage;
@@ -194,7 +194,7 @@ var DönerTrainer_Endabgabe;
         console.log(orderList);
         storageLeft.corn -= 20;
         if (storageLeft.corn <= 0) {
-            alert("Please refill corn!");
+            alert("Please cut corn!");
         }
         document.getElementById("selection").innerHTML += element;
         ingredientLeft.corn -= storageLeft.corn;
@@ -206,7 +206,7 @@ var DönerTrainer_Endabgabe;
         console.log(orderList);
         storageLeft.tomato -= 50;
         if (storageLeft.tomato <= 0) {
-            alert("Please refill tomato!");
+            alert("Please cut tomato!");
         }
         document.getElementById("selection").innerHTML += element;
         ingredientLeft.tomato -= storageLeft.tomato;
@@ -249,13 +249,17 @@ var DönerTrainer_Endabgabe;
     }
     function checkOrder(_event) {
         //compare orders
-        if (request.length != orderList.length) {
-            // delete all in innerhtml
-            let order = document.getElementById("order");
-            order.innerHTML = " ";
-            document.getElementById("selection").innerHTML = "Selection of ingredients:" + "<br>";
-            showOrder();
+        for (let i = 0; i < request.length; i++) {
+            if (request[i] == orderList[i]) {
+                // kunde löschen, div leeren, div mit neuer Bestellung füllen, orderList leeren
+                document.getElementById("order").innerHTML = " ";
+                document.getElementById("selection").innerHTML = " ";
+            }
+            else {
+                //orderList leeren
+            }
         }
+        showOrder();
     }
     function showStaff() {
         for (let i = 0; i < staffAmount; i++) {

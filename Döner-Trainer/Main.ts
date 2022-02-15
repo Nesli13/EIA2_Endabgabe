@@ -1,16 +1,16 @@
 namespace DönerTrainer_Endabgabe {
-    
+
     let staffAmount: number;
     let customerAomunt: number;
     let breakofStaff: number;
     let capacityMaterial: number;
+    let formData: FormData;
     let orderList: string[] = [];
     let request: string[] = [];
     let capacityContainer: number;
     let staffs: Staff[] = [];
     let customers: Customer[] = [];
     let ingredients: Ingredient[] = [];
-    let formData: FormData;
     let basis: string[] = ["Döner with meat", "Lahmacun with minced meat", "Yufka with meat"];
     let topping: string[] = ["onion", "salad", "red cabbage", "corn", "tomato"];
     let sauce: string[] = ["sauce", "hot-sauce"];
@@ -183,7 +183,7 @@ namespace DönerTrainer_Endabgabe {
         };
         showCapacity();
     }
-    function refillContainer(_event: Event): void {
+    function refillContainer(_event: MouseEvent): void {
         storageLeft = {
             salad: capacityContainer,
             redCabbage: capacityContainer,
@@ -197,14 +197,14 @@ namespace DönerTrainer_Endabgabe {
     }
 
 
-    function updateSalad(_event: Event): void {
+    function updateSalad(_event: MouseEvent): void {
         let element: string = " salad ,";
         orderList.push(element);
         console.log(orderList);
         storageLeft.salad -= 30;
 
         if (storageLeft.salad <= 0) {
-            alert("Please refill salad!");
+            alert("Please cut salad!");
         }
 
         document.getElementById("selection").innerHTML += element;
@@ -213,14 +213,14 @@ namespace DönerTrainer_Endabgabe {
         showCapacity();
     }
 
-    function updateOnion(_event: Event): void {
+    function updateOnion(_event: MouseEvent): void {
         let element: string = " onion ,";
         orderList.push(element);
         console.log(orderList);
 
         storageLeft.onion -= 50;
         if (storageLeft.onion <= 0) {
-            alert("Please refill onion!");
+            alert("Please cut onion!");
         }
         document.getElementById("selection").innerHTML += element;
 
@@ -230,7 +230,7 @@ namespace DönerTrainer_Endabgabe {
 
     }
 
-    function updateCabbage(_event: Event): void {
+    function updateCabbage(_event: MouseEvent): void {
         let element: string = " red cabbage ,";
         orderList.push(element);
         console.log(orderList);
@@ -238,7 +238,7 @@ namespace DönerTrainer_Endabgabe {
         storageLeft.redCabbage -= 40;
 
         if (storageLeft.redCabbage <= 0) {
-            alert("Please refill red cabbage!");
+            alert("Please cut red cabbage!");
         }
         document.getElementById("selection").innerHTML += element;
 
@@ -247,7 +247,7 @@ namespace DönerTrainer_Endabgabe {
 
         showCapacity();
     }
-    function updateCorn(_event: Event): void {
+    function updateCorn(_event: MouseEvent): void {
         let element: string = " corn ,";
         orderList.push(element);
         console.log(orderList);
@@ -255,7 +255,7 @@ namespace DönerTrainer_Endabgabe {
         storageLeft.corn -= 20;
 
         if (storageLeft.corn <= 0) {
-            alert("Please refill corn!");
+            alert("Please cut corn!");
         }
         document.getElementById("selection").innerHTML += element;
 
@@ -264,14 +264,14 @@ namespace DönerTrainer_Endabgabe {
 
         showCapacity();
     }
-    function updateTomato(_event: Event): void {
+    function updateTomato(_event: MouseEvent): void {
         let element: string = " tomato ,";
         orderList.push(element);
         console.log(orderList);
 
         storageLeft.tomato -= 50;
         if (storageLeft.tomato <= 0) {
-            alert("Please refill tomato!");
+            alert("Please cut tomato!");
         }
         document.getElementById("selection").innerHTML += element;
 
@@ -280,7 +280,7 @@ namespace DönerTrainer_Endabgabe {
 
         showCapacity();
     }
-    function updateDoener(_event: Event): void {
+    function updateDoener(_event: MouseEvent): void {
         let element: string = " Döner with meat ,";
         orderList.push(element);
         console.log(orderList);
@@ -289,7 +289,7 @@ namespace DönerTrainer_Endabgabe {
 
 
     }
-    function updateYufka(_event: Event): void {
+    function updateYufka(_event: MouseEvent): void {
         let element: string = " Yufka with meat ,";
         orderList.push(element);
         console.log(orderList);
@@ -297,7 +297,7 @@ namespace DönerTrainer_Endabgabe {
 
 
     }
-    function updateLahmacun(_event: Event): void {
+    function updateLahmacun(_event: MouseEvent): void {
         let element: string = " Lahmacun with minced meat ,";
         orderList.push(element);
         console.log(orderList);
@@ -305,7 +305,7 @@ namespace DönerTrainer_Endabgabe {
         document.getElementById("selection").innerHTML += element;
 
     }
-    function updateSauce(_event: Event): void {
+    function updateSauce(_event: MouseEvent): void {
         let element: string = " sauce ,";
         orderList.push(element);
         console.log(orderList);
@@ -313,7 +313,7 @@ namespace DönerTrainer_Endabgabe {
         document.getElementById("selection").innerHTML += element;
 
     }
-    function updateHotSauce(_event: Event): void {
+    function updateHotSauce(_event: MouseEvent): void {
         let element: string = " hot-sauce ,";
         orderList.push(element);
         console.log(orderList);
@@ -336,16 +336,18 @@ namespace DönerTrainer_Endabgabe {
     function checkOrder(_event: Event): void {
         //compare orders
 
+        for (let i: number = 0; i < request.length; i++) {
+            if (request[i] == orderList[i]) {
+                // kunde löschen, div leeren, div mit neuer Bestellung füllen, orderList leeren
+                document.getElementById("order").innerHTML = " ";
+                document.getElementById("selection").innerHTML = " ";
 
-        if (request.length != orderList.length) {
-            // delete all in innerhtml
-            let order: HTMLElement = document.getElementById("order");
-            order.innerHTML = " ";
+            } else {
+                //orderList leeren
+            }
 
-            document.getElementById("selection").innerHTML = "Selection of ingredients:" + "<br>";
-            showOrder();
         }
-
+        showOrder();
 
     }
 

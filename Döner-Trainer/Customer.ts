@@ -3,7 +3,6 @@ namespace DönerTrainer_Endabgabe {
 
         constructor(_position: Vector, _velocity?: Vector) {
             super(_position, _velocity);
-            this.position = new Vector(0, 0);
 
 
         }

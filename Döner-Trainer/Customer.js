@@ -4,7 +4,6 @@ var DönerTrainer_Endabgabe;
     class Customer extends DönerTrainer_Endabgabe.Person {
         constructor(_position, _velocity) {
             super(_position, _velocity);
-            this.position = new DönerTrainer_Endabgabe.Vector(0, 0);
         }
         draw() {
             //happy Customer
