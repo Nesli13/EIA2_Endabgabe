@@ -333,20 +333,45 @@ namespace DönerTrainer_Endabgabe {
 
     }
 
+
+    //Kunden enstprechender Anzahl zeichnen lassen und alle 3 minuten neue zeichnen
+    function showCustomer(): void {
+
+        let interval: number = setInterval(
+            function (): void {
+
+
+                let customer: Customer = new Customer(new Vector(-100, 0));
+                customers.push(customer);
+                customer.draw();
+
+                if (customers.length == customerAomunt) {
+                    clearInterval(interval);
+                    customers.length = 0;
+
+                }
+                // tslint:disable-next-line: align
+            }, 2000);
+    }
     function checkOrder(_event: Event): void {
         //compare orders
+        
 
         for (let i: number = 0; i < request.length; i++) {
             if (request[i] == orderList[i]) {
-                // kunde löschen, div leeren, div mit neuer Bestellung füllen, orderList leeren
-                document.getElementById("order").innerHTML = " ";
-                document.getElementById("selection").innerHTML = " ";
 
+                // kunde löschen, div leeren
+                document.getElementById("order").innerHTML = " ";
+
+            
             } else {
                 //orderList leeren
+                document.getElementById("selection").innerHTML = "Selection of ingredients: " + "<br>";
+
             }
 
         }
+        //div mit neuer Bestellung füllen,
         showOrder();
 
     }
@@ -386,25 +411,6 @@ namespace DönerTrainer_Endabgabe {
     }
 
 
-    //Kunden enstprechender Anzahl zeichnen lassen und alle 3 minuten neue zeichnen
-    function showCustomer(): void {
-
-        let interval: number = setInterval(
-            function (): void {
-
-
-                let customer: Customer = new Customer(new Vector(-100, 0));
-                customers.push(customer);
-                customer.draw();
-
-                if (customers.length == customerAomunt) {
-                    clearInterval(interval);
-                    customers.length = 0;
-
-                }
-                // tslint:disable-next-line: align
-            }, 2000);
-    }
 
     //alle Zutaten zeichnen lassen
     function drawSalad(): void {

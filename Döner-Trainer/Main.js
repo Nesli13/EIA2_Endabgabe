@@ -247,18 +247,32 @@ var DönerTrainer_Endabgabe;
         let selectionDiv = document.getElementById("selection");
         selectionDiv.innerHTML += "<br>" + " ";
     }
+    //Kunden enstprechender Anzahl zeichnen lassen und alle 3 minuten neue zeichnen
+    function showCustomer() {
+        let interval = setInterval(function () {
+            let customer = new DönerTrainer_Endabgabe.Customer(new DönerTrainer_Endabgabe.Vector(-100, 0));
+            customers.push(customer);
+            customer.draw();
+            if (customers.length == customerAomunt) {
+                clearInterval(interval);
+                customers.length = 0;
+            }
+            // tslint:disable-next-line: align
+        }, 2000);
+    }
     function checkOrder(_event) {
         //compare orders
         for (let i = 0; i < request.length; i++) {
             if (request[i] == orderList[i]) {
-                // kunde löschen, div leeren, div mit neuer Bestellung füllen, orderList leeren
+                // kunde löschen, div leeren
                 document.getElementById("order").innerHTML = " ";
-                document.getElementById("selection").innerHTML = " ";
             }
             else {
                 //orderList leeren
+                document.getElementById("selection").innerHTML = "Selection of ingredients: " + "<br>";
             }
         }
+        //div mit neuer Bestellung füllen,
         showOrder();
     }
     function showStaff() {
@@ -280,19 +294,6 @@ var DönerTrainer_Endabgabe;
         console.log("request array:" + request);
         let order = document.getElementById("order");
         order.innerHTML = "Order:" + "<br>" + "<br>" + " I would like a " + basis[wert1] + "  " + " with " + topping[wert2] + " " + " and " + sauce[wert3] + "," + " please.";
-    }
-    //Kunden enstprechender Anzahl zeichnen lassen und alle 3 minuten neue zeichnen
-    function showCustomer() {
-        let interval = setInterval(function () {
-            let customer = new DönerTrainer_Endabgabe.Customer(new DönerTrainer_Endabgabe.Vector(-100, 0));
-            customers.push(customer);
-            customer.draw();
-            if (customers.length == customerAomunt) {
-                clearInterval(interval);
-                customers.length = 0;
-            }
-            // tslint:disable-next-line: align
-        }, 2000);
     }
     //alle Zutaten zeichnen lassen
     function drawSalad() {
