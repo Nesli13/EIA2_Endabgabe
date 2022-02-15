@@ -1,10 +1,12 @@
-namespace DönerTrainer_Endabgabe {
+ namespace DönerTrainer_Endabgabe {
 
     let staffAmount: number;
     let customerAomunt: number;
     let breakofStaff: number;
     let capacityMaterial: number;
     let formData: FormData;
+
+    //alle Arrays 
     let orderList: string[] = [];
     let request: string[] = [];
     let capacityContainer: number;
@@ -15,6 +17,7 @@ namespace DönerTrainer_Endabgabe {
     let topping: string[] = ["onion", "salad", "red cabbage", "corn", "tomato"];
     let sauce: string[] = ["sauce", "hot-sauce"];
 
+    //interface für Storage und container-storage
     interface Storage {
         salad: number;
         redCabbage: number;
@@ -27,7 +30,7 @@ namespace DönerTrainer_Endabgabe {
     let storageLeft: Storage;
     let ingredientLeft: Storage;
 
-
+    
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement | null;
     window.addEventListener("load", handleLoad);

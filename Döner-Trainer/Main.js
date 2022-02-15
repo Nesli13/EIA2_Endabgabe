@@ -6,6 +6,7 @@ var DönerTrainer_Endabgabe;
     let breakofStaff;
     let capacityMaterial;
     let formData;
+    //alle Arrays 
     let orderList = [];
     let request = [];
     let capacityContainer;
