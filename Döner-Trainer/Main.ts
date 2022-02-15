@@ -1,18 +1,28 @@
- namespace DönerTrainer_Endabgabe {
+/* Döner_Trainer_Endabgabe
+Name: Neslisah Koc
+Matrikel: 270155
+Datum: 15.02.2022
+Quellen: Zusammenarbeit mit Verena Rothweiler
+*/
+namespace DönerTrainer_Endabgabe {
 
+    let formData: FormData;
     let staffAmount: number;
     let customerAomunt: number;
-    let breakofStaff: number;
     let capacityMaterial: number;
-    let formData: FormData;
+    let capacityContainer: number;
+    let breakofStaff: number;
+    //let staffIsMad: boolean == false;
+    //let customerIsMad: boolean == false;
 
-    //alle Arrays 
+    // Arrays  
     let orderList: string[] = [];
     let request: string[] = [];
-    let capacityContainer: number;
     let staffs: Staff[] = [];
     let customers: Customer[] = [];
     let ingredients: Ingredient[] = [];
+
+    //vordefinierte Arrays für Bestellung
     let basis: string[] = ["Döner with meat", "Lahmacun with minced meat", "Yufka with meat"];
     let topping: string[] = ["onion", "salad", "red cabbage", "corn", "tomato"];
     let sauce: string[] = ["sauce", "hot-sauce"];
@@ -30,14 +40,20 @@
     let storageLeft: Storage;
     let ingredientLeft: Storage;
 
-    
+    //rufe canvas und crc2 auf und lass es für alle Klassen greifbar machen
     export let crc2: CanvasRenderingContext2D;
     export let canvas: HTMLCanvasElement | null;
+
+    //beim laden der Seite wird handleLoad aufgerufen
     window.addEventListener("load", handleLoad);
 
     function handleLoad(_event: Event): void {
+
+        //startGameButton deklarieren und prepareGame aufrufen
         let startGameButton: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#startGameButton");
         startGameButton.addEventListener("click", prepareGame);
+
+        //verstecke alle Elemente, die nicht in der Formular-Seite angezeigt werden soll
         document.getElementById("canvas").hidden = true;
         document.getElementById("container").hidden = true;
         document.getElementById("doenerButton").hidden = true;
@@ -55,19 +71,26 @@
 
     }
 
+    //bereite Spiel vor
     function prepareGame(_event: Event): void {
+
+        //neues formData Objekt wird erzeugt und alle Schlüsselwerte-Paare werden mitgegeben
         formData = new FormData(document.forms[0]);
         console.log(formData);
+
+        //deklariere form und body und entferne form vom body
         let form: HTMLFormElement = <HTMLFormElement>document.querySelector("form");
         let body: HTMLBodyElement = <HTMLBodyElement>document.querySelector("body");
         body.removeChild(form);
 
+        //lasse dir die Werte vom Formular holen
         staffAmount = Number(formData.get("quantityStaff"));
         customerAomunt = Number(formData.get("quantityCustomer"));
         breakofStaff = Number(formData.get("restPeriodOfStaff"));
         capacityMaterial = Number(formData.get("capacityOfMaterials"));
         capacityContainer = Number(formData.get("capacityOfContainers"));
 
+        //gebe allen Zutaten den Wert der im Formular ausgewählt wurde für Container --> zum updaten der werte
         storageLeft = {
             salad: capacityContainer,
             redCabbage: capacityContainer,
@@ -76,6 +99,7 @@
             tomato: capacityContainer
         };
 
+        //gebe allen Zutaten den Wert der im Formular ausgewählt wurde für Gesamtkapazität
         ingredientLeft = {
             salad: capacityMaterial,
             redCabbage: capacityMaterial,
@@ -87,11 +111,13 @@
         console.log(staffAmount + customerAomunt + breakofStaff + capacityMaterial + capacityContainer);
         console.log(breakofStaff);
 
+        //rufe dir die Spielerseite auf
         createGameScreen();
 
     }
     function createGameScreen(): void {
 
+        //lass dir alle Elemente anzeigen, die versteckt waren
         document.getElementById("canvas").hidden = false;
         document.getElementById("container").hidden = false;
         document.getElementById("doenerButton").hidden = false;
@@ -105,11 +131,13 @@
         document.getElementById("sauceButton").hidden = false;
         document.getElementById("hot-sauceButton").hidden = false;
 
+        //canvas auswählen
         canvas = document.querySelector("canvas")!;
         crc2 = canvas.getContext("2d")!;
         console.log(crc2);
 
 
+        //rufe alle Funktionen auf 
         drawCounter(new Vector(100, 475), "#D3d3d3");
         drawCuttingBoard(new Vector(100, 175), "#D3d3d3");
         drawSalad();
@@ -126,7 +154,7 @@
         showOrder();
         showSelection();
 
-
+        //Button deklarieren für alle ingredients und installiere click-Listener
         let saladBtn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#saladButton");
         saladBtn.addEventListener("click", updateSalad);
         let onionBtn: HTMLButtonElement = <HTMLButtonElement>document.querySelector("#onionButton");
@@ -155,17 +183,19 @@
         check.addEventListener("click", checkOrder);
 
 
+        // rufe update in alle 20 millisekunden
         window.setInterval(update, 20);
 
+        //rufe showCustomer alle 3 min. auf.
         setInterval(showCustomer, 30000);
     }
 
     function update(): void {
         //console.log("");
+        //hier soll die move-methode vom staff aufgerufen werden
     }
 
-
-
+    //Container-stand anzeigen in den entsprechenden Divs
     function showCapacity(): void {
 
         let storage: HTMLElement = document.getElementById("storage");
@@ -176,6 +206,7 @@
 
 
     }
+    //ingredients in storage-Div auffüllen
     function reorderMaterials(_event: Event): void {
         ingredientLeft = {
             salad: capacityMaterial,
@@ -186,6 +217,8 @@
         };
         showCapacity();
     }
+
+    //ingredients in container-storage-Div auffüllen
     function refillContainer(_event: MouseEvent): void {
         storageLeft = {
             salad: capacityContainer,
@@ -198,19 +231,26 @@
 
         showCapacity();
     }
-
-
+    //Update ingredients
     function updateSalad(_event: MouseEvent): void {
+        //deklariere element 
         let element: string = " salad ,";
+        //pushe diese in orderList
         orderList.push(element);
+
         console.log(orderList);
+        //ziehe -30 vom storage ab
         storageLeft.salad -= 30;
 
+        //rufe Alarm, wenn anzahl vom ingredients  weniger als 0
         if (storageLeft.salad <= 0) {
             alert("Please cut salad!");
         }
 
+        //zeige das im div an
         document.getElementById("selection").innerHTML += element;
+
+        //ziehe aus der Gesamtkapazität die anzahl storageLeft
         ingredientLeft.salad -= storageLeft.salad;
 
         showCapacity();
@@ -324,7 +364,7 @@
         document.getElementById("selection").innerHTML += element;
 
     }
-
+    //ende update ingredients
 
 
     //zeige auswahl von Zutaten
@@ -337,7 +377,7 @@
     }
 
 
-    //Kunden enstprechender Anzahl zeichnen lassen und alle 3 minuten neue zeichnen
+    //Kunden enstprechender Anzahl zeichnen lassen
     function showCustomer(): void {
 
         let interval: number = setInterval(
@@ -356,17 +396,17 @@
                 // tslint:disable-next-line: align
             }, 2000);
     }
-    function checkOrder(_event: Event): void {
-        //compare orders
-        
 
+    function checkOrder(_event: Event): void {
+
+        //vergleiche order(request) mit auswahl(orderList)
         for (let i: number = 0; i < request.length; i++) {
             if (request[i] == orderList[i]) {
 
                 // kunde löschen, div leeren
                 document.getElementById("order").innerHTML = " ";
 
-            
+
             } else {
                 //orderList leeren
                 document.getElementById("selection").innerHTML = "Selection of ingredients: " + "<br>";
@@ -382,6 +422,7 @@
 
     function showStaff(): void {
 
+        //Mitarbeiter zeichnen lassen und pushe es in staffs-Array
         for (let i: number = 0; i < staffAmount; i++) {
             let staff: Staff = new Staff(new Vector(200, 0));
             staffs.push(staff);
@@ -395,9 +436,9 @@
 
     }
 
-    //gebe random Bestellungen aus
-    function showOrder(): void {
 
+    function showOrder(): void {
+        //gebe random Bestellungen aus
 
         let wert1: number = Math.floor(Math.random() * basis.length);
         let wert2: number = Math.floor(Math.random() * topping.length);
@@ -474,7 +515,7 @@
 
 
 
-    //Background
+    //Background zeichnen Theke und cuttingboard
     function drawCounter(_position: Vector, _fillColor: string): void {
         //Counter
         crc2.save();
@@ -561,4 +602,4 @@
     }
 
 
-}
+} //ende namespace

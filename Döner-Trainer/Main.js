@@ -1,27 +1,39 @@
 "use strict";
+/* Döner_Trainer_Endabgabe
+Name: Neslisah Koc
+Matrikel: 270155
+Datum: 15.02.2022
+Quellen: Zusammenarbeit mit Verena Rothweiler
+*/
 var DönerTrainer_Endabgabe;
 (function (DönerTrainer_Endabgabe) {
+    let formData;
     let staffAmount;
     let customerAomunt;
-    let breakofStaff;
     let capacityMaterial;
-    let formData;
-    //alle Arrays 
+    let capacityContainer;
+    let breakofStaff;
+    //let staffIsMad: boolean == false;
+    //let customerIsMad: boolean == false;
+    // Arrays  
     let orderList = [];
     let request = [];
-    let capacityContainer;
     let staffs = [];
     let customers = [];
     let ingredients = [];
+    //vordefinierte Arrays für Bestellung
     let basis = ["Döner with meat", "Lahmacun with minced meat", "Yufka with meat"];
     let topping = ["onion", "salad", "red cabbage", "corn", "tomato"];
     let sauce = ["sauce", "hot-sauce"];
     let storageLeft;
     let ingredientLeft;
+    //beim laden der Seite wird handleLoad aufgerufen
     window.addEventListener("load", handleLoad);
     function handleLoad(_event) {
+        //startGameButton deklarieren und prepareGame aufrufen
         let startGameButton = document.querySelector("#startGameButton");
         startGameButton.addEventListener("click", prepareGame);
+        //verstecke alle Elemente, die nicht in der Formular-Seite angezeigt werden soll
         document.getElementById("canvas").hidden = true;
         document.getElementById("container").hidden = true;
         document.getElementById("doenerButton").hidden = true;
@@ -35,17 +47,22 @@ var DönerTrainer_Endabgabe;
         document.getElementById("sauceButton").hidden = true;
         document.getElementById("hot-sauceButton").hidden = true;
     }
+    //bereite Spiel vor
     function prepareGame(_event) {
+        //neues formData Objekt wird erzeugt und alle Schlüsselwerte-Paare werden mitgegeben
         formData = new FormData(document.forms[0]);
         console.log(formData);
+        //deklariere form und body und entferne form vom body
         let form = document.querySelector("form");
         let body = document.querySelector("body");
         body.removeChild(form);
+        //lasse dir die Werte vom Formular holen
         staffAmount = Number(formData.get("quantityStaff"));
         customerAomunt = Number(formData.get("quantityCustomer"));
         breakofStaff = Number(formData.get("restPeriodOfStaff"));
         capacityMaterial = Number(formData.get("capacityOfMaterials"));
         capacityContainer = Number(formData.get("capacityOfContainers"));
+        //gebe allen Zutaten den Wert der im Formular ausgewählt wurde für Container --> zum updaten der werte
         storageLeft = {
             salad: capacityContainer,
             redCabbage: capacityContainer,
@@ -53,6 +70,7 @@ var DönerTrainer_Endabgabe;
             corn: capacityContainer,
             tomato: capacityContainer
         };
+        //gebe allen Zutaten den Wert der im Formular ausgewählt wurde für Gesamtkapazität
         ingredientLeft = {
             salad: capacityMaterial,
             redCabbage: capacityMaterial,
@@ -62,9 +80,11 @@ var DönerTrainer_Endabgabe;
         };
         console.log(staffAmount + customerAomunt + breakofStaff + capacityMaterial + capacityContainer);
         console.log(breakofStaff);
+        //rufe dir die Spielerseite auf
         createGameScreen();
     }
     function createGameScreen() {
+        //lass dir alle Elemente anzeigen, die versteckt waren
         document.getElementById("canvas").hidden = false;
         document.getElementById("container").hidden = false;
         document.getElementById("doenerButton").hidden = false;
@@ -77,9 +97,11 @@ var DönerTrainer_Endabgabe;
         document.getElementById("cornButton").hidden = false;
         document.getElementById("sauceButton").hidden = false;
         document.getElementById("hot-sauceButton").hidden = false;
+        //canvas auswählen
         DönerTrainer_Endabgabe.canvas = document.querySelector("canvas");
         DönerTrainer_Endabgabe.crc2 = DönerTrainer_Endabgabe.canvas.getContext("2d");
         console.log(DönerTrainer_Endabgabe.crc2);
+        //rufe alle Funktionen auf 
         drawCounter(new DönerTrainer_Endabgabe.Vector(100, 475), "#D3d3d3");
         drawCuttingBoard(new DönerTrainer_Endabgabe.Vector(100, 175), "#D3d3d3");
         drawSalad();
@@ -95,6 +117,7 @@ var DönerTrainer_Endabgabe;
         showCustomer();
         showOrder();
         showSelection();
+        //Button deklarieren für alle ingredients und installiere click-Listener
         let saladBtn = document.querySelector("#saladButton");
         saladBtn.addEventListener("click", updateSalad);
         let onionBtn = document.querySelector("#onionButton");
@@ -121,18 +144,23 @@ var DönerTrainer_Endabgabe;
         hotSauceBtn.addEventListener("click", updateHotSauce);
         let check = document.querySelector("#orderFinished");
         check.addEventListener("click", checkOrder);
+        // rufe update in alle 20 millisekunden
         window.setInterval(update, 20);
+        //rufe showCustomer alle 3 min. auf.
         setInterval(showCustomer, 30000);
     }
     function update() {
         //console.log("");
+        //hier soll die move-methode vom staff aufgerufen werden
     }
+    //Container-stand anzeigen in den entsprechenden Divs
     function showCapacity() {
         let storage = document.getElementById("storage");
         storage.innerHTML = "Storage" + "<br>" + "<br>" + ingredientLeft.onion + " g of onion " + "<br>" + ingredientLeft.corn + " g of corn " + "<br>" + ingredientLeft.tomato + " g of tomato " + "<br>" + ingredientLeft.salad + " g of salad" + "<br>" + ingredientLeft.redCabbage + " g of red cabbage";
         let containerStorage = document.getElementById("container-storage");
         containerStorage.innerHTML = "Container-Storage" + "<br>" + " This is what you have left:" + "<br>" + storageLeft.onion + " g of onion " + "<br>" + storageLeft.corn + " g of corn " + "<br>" + storageLeft.tomato + " g of tomato " + "<br>" + storageLeft.salad + " g of salad" + "<br>" + storageLeft.redCabbage + " g of red cabbage";
     }
+    //ingredients in storage-Div auffüllen
     function reorderMaterials(_event) {
         ingredientLeft = {
             salad: capacityMaterial,
@@ -143,6 +171,7 @@ var DönerTrainer_Endabgabe;
         };
         showCapacity();
     }
+    //ingredients in container-storage-Div auffüllen
     function refillContainer(_event) {
         storageLeft = {
             salad: capacityContainer,
@@ -153,15 +182,22 @@ var DönerTrainer_Endabgabe;
         };
         showCapacity();
     }
+    //Update ingredients
     function updateSalad(_event) {
+        //deklariere element 
         let element = " salad ,";
+        //pushe diese in orderList
         orderList.push(element);
         console.log(orderList);
+        //ziehe -30 vom storage ab
         storageLeft.salad -= 30;
+        //rufe Alarm, wenn anzahl vom ingredients  weniger als 0
         if (storageLeft.salad <= 0) {
             alert("Please cut salad!");
         }
+        //zeige das im div an
         document.getElementById("selection").innerHTML += element;
+        //ziehe aus der Gesamtkapazität die anzahl storageLeft
         ingredientLeft.salad -= storageLeft.salad;
         showCapacity();
     }
@@ -243,12 +279,13 @@ var DönerTrainer_Endabgabe;
         console.log(orderList);
         document.getElementById("selection").innerHTML += element;
     }
+    //ende update ingredients
     //zeige auswahl von Zutaten
     function showSelection() {
         let selectionDiv = document.getElementById("selection");
         selectionDiv.innerHTML += "<br>" + " ";
     }
-    //Kunden enstprechender Anzahl zeichnen lassen und alle 3 minuten neue zeichnen
+    //Kunden enstprechender Anzahl zeichnen lassen
     function showCustomer() {
         let interval = setInterval(function () {
             let customer = new DönerTrainer_Endabgabe.Customer(new DönerTrainer_Endabgabe.Vector(-100, 0));
@@ -262,7 +299,7 @@ var DönerTrainer_Endabgabe;
         }, 2000);
     }
     function checkOrder(_event) {
-        //compare orders
+        //vergleiche order(request) mit auswahl(orderList)
         for (let i = 0; i < request.length; i++) {
             if (request[i] == orderList[i]) {
                 // kunde löschen, div leeren
@@ -277,6 +314,7 @@ var DönerTrainer_Endabgabe;
         showOrder();
     }
     function showStaff() {
+        //Mitarbeiter zeichnen lassen und pushe es in staffs-Array
         for (let i = 0; i < staffAmount; i++) {
             let staff = new DönerTrainer_Endabgabe.Staff(new DönerTrainer_Endabgabe.Vector(200, 0));
             staffs.push(staff);
@@ -285,8 +323,8 @@ var DönerTrainer_Endabgabe;
             staff.draw();
         }
     }
-    //gebe random Bestellungen aus
     function showOrder() {
+        //gebe random Bestellungen aus
         let wert1 = Math.floor(Math.random() * basis.length);
         let wert2 = Math.floor(Math.random() * topping.length);
         let wert3 = Math.floor(Math.random() * sauce.length);
@@ -345,7 +383,7 @@ var DönerTrainer_Endabgabe;
             ingredient.draw();
         }
     }
-    //Background
+    //Background zeichnen Theke und cuttingboard
     function drawCounter(_position, _fillColor) {
         //Counter
         DönerTrainer_Endabgabe.crc2.save();
@@ -418,5 +456,5 @@ var DönerTrainer_Endabgabe;
         DönerTrainer_Endabgabe.crc2.fill();
         DönerTrainer_Endabgabe.crc2.restore();
     }
-})(DönerTrainer_Endabgabe || (DönerTrainer_Endabgabe = {}));
+})(DönerTrainer_Endabgabe || (DönerTrainer_Endabgabe = {})); //ende namespace
 //# sourceMappingURL=Main.js.map
